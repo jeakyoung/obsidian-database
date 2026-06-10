@@ -1,0 +1,76 @@
+---
+
+---
+
+![[image 65.png]]
+
+112 Table DEPARTMENT_Code가 아닌 Department_Code로 되어있음.
+
+
+![[스크린샷_2025-07-30_102429.png]]
+
+servlet 파일 내 tempJson 콘솔 출력후 쿼리명 확인
+
+
+→ 기존 프로시져
+
+```sql
+USE [iPlusERP_New_20250320]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER PROC [dbo].[SP_EDU4_01_LIST_AJK]
+(
+	@STARTDATE	VARCHAR(8),
+	@ENDDATE	VARCHAR(8),
+	@SEARCH		NVARCHAR(500) = ''
+)
+AS
+
+BEGIN
+
+	SELECT *
+		FROM TIN114 
+	SELECT *
+		FROM TIN122
+END
+```
+
+---
+
+3차수정 → 삭제중 조건 방식이 FACTORY_CODE와 사원번호를 매칭하여 일치시 삭제동작 하므로
+
+SELECT 항목에 A.FACTORY_CODE를 추가함
+
+
+```sql
+USE [iPlusERP_New_20250320]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_EDU4_01_LIST_AJK]    Script Date: 2025-08-01 오전 9:47:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROC [dbo].[SP_EDU4_01_LIST_AJK]
+(
+@STARTDATE	VARCHAR(8),
+@ENDDATE	VARCHAR(8),
+@SEARCH		NVARCHAR(500) = ''
+)
+AS
+
+BEGIN
+
+SELECT A.FACTORY_CODE, A.DEPARTMENT_CODE, B.Department_Name, A.EMPLOYEE_NO, A.BASE_NAME, A.JOIN_DATE
+FROM	 TIN114 AS A
+LEFT JOIN	 TIN122 AS B
+ON A.DEPARTMENT_CODE = B.DEPARTMENT_CODE
+
+END
+
+```

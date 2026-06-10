@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "663832475c65d01b",
+        "id": "05605c3d724bbd4a",
         "type": "tabs",
         "children": [
           {
-            "id": "f1d83d97f5a1a759",
+            "id": "0b95e9f0feb6ea9b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Notion/안재경  BE 개발자/안재경  BE 개발자.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "새 탭"
+              "title": "안재경  BE 개발자"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 362.5
   },
   "right": {
     "id": "55900d71c6db0b7c",
@@ -90,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "환영합니다!.md",
+                "file": "Notion/안재경  BE 개발자/안재경  BE 개발자.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "환영합니다! 의 백링크"
+              "title": "안재경  BE 개발자 의 백링크"
             }
           },
           {
@@ -109,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "환영합니다!.md",
+                "file": "Notion/안재경  BE 개발자/안재경  BE 개발자.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "환영합니다! 의 나가는 링크"
+              "title": "안재경  BE 개발자 의 나가는 링크"
             }
           },
           {
@@ -152,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "환영합니다!.md",
+                "file": "Notion/안재경  BE 개발자/안재경  BE 개발자.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "환영합니다! 의 개요"
+              "title": "안재경  BE 개발자 의 개요"
             }
           },
           {
@@ -187,11 +191,58 @@
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
       "bases:새 베이스 생성하기": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-importer:Open Importer": false
     }
   },
-  "active": "c54d4b8d3f28a330",
+  "active": "0b95e9f0feb6ea9b",
   "lastOpenFiles": [
-    "환영합니다!.md"
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/아이팩 WSA401.md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/Hello World.md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-PACK 근태 유지보수 (04-02).md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/IPACK 매출마감처리 (WSA503).md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/IPACK 인수인계후 수정사항.md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/iPack기간별 근태 현황.md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/MSSQL 특수문자 LIKE 검색.md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/Project  Todo - 프로젝트 Todo 주간 회의.md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/아이팩 25_11_03 현장 방문.md",
+    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/공통 배포방법.md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/NoName 프로젝트 샘플 구조 (1).md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/I-Frog 프로젝트 DB.md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-FROG Env 파일 다형성 구현.md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog FCM 서버 세팅.md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog FCM 시나리오.md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog 회사 코드.md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog 결제함 문서 FCM기능 추가.md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I_Frog 단순 발송 공통화 작업.md",
+    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog 02.09 마무리 작업.md",
+    "Notion/프로젝트 문서화/프로젝트/샘플 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/Main Feature.md",
+    "Notion/프로젝트 문서화/프로젝트/샘플 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/Project Docs- 프로젝트 문서 and New data source.base",
+    "Notion/프로젝트 문서화/프로젝트 문서화 (외부접속).md",
+    "Notion/프로젝트 문서화/프로젝트/샘플 프로젝트 DB/샘플 프로젝트 DB.md",
+    "신진_생산_PHYSICAL.pdf",
+    "신진_생산_LOGICAL.pdf",
+    "스크린샷_2025-08-12_125605.png",
+    "b7249f69-7202-4250-91ce-d6d8435376b8 1.png",
+    "b7249f69-7202-4250-91ce-d6d8435376b8.png",
+    "Claude 출력결과.pdf",
+    "환영합니다!.md",
+    "스크린샷_2025-08-12_125142.png",
+    "동방_452_요청사항.png",
+    "612c145f-7559-4a72-8fea-ec3f3f34ed22.png",
+    "26eff720-d260-4879-892d-20f9569be651.png",
+    "26eff720-d260-4879-892d-20f9569be651 1.png",
+    "프로젝트 문서화 (외부접속).png",
+    "Notion/프로젝트 문서화/Work Flow/Work Flow 새 작업.md",
+    "Notion/프로젝트 문서화/Work Flow/I-FROG MSQQL → PgSQL 서버 이관.md",
+    "Notion/프로젝트 문서화/Work Flow/Server 03-23 작업 사항 문서화.md",
+    "image 217.png",
+    "새한마이크로텍_ERD_Logcal (1).pdf",
+    "새한마이크로텍_ERD_Physical (1).pdf",
+    "SHMT 새한마이크로텍 사용자 메뉴얼v3.pptx",
+    "Notion/프로젝트 문서화/Work Flow/그룹웨어 관리 문서/SP 관리 포인트/SP 관리 포인트.base",
+    "Notion/프로젝트 문서화/Work Flow/그룹웨어 관리 문서/SP 관리 포인트",
+    "Notion/프로젝트 문서화/Work Flow/그룹웨어 관리 문서",
+    "무제.canvas"
   ]
 }
