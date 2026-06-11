@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "db13aaeaf3addcc9",
+        "id": "d8a11b7991b1ac1b",
         "type": "tabs",
         "children": [
           {
-            "id": "e4cfa9255f38c0de",
+            "id": "615a1e7ad7650832",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notion/프로젝트 문서화/프로젝트/23년 Open Soop/23년 Open Soop.md",
+                "file": "Notion/프로젝트 문서화/프로젝트 문서화 (외부접속).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "23년 Open Soop"
+              "title": "프로젝트 문서화 (외부접속)"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notion/프로젝트 문서화/프로젝트/23년 Open Soop/23년 Open Soop.md",
+                "file": "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/신진SM 05.28 업무 미팅.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "23년 Open Soop 의 개요"
+              "title": "신진SM 05.28 업무 미팅 의 개요"
             }
           },
           {
@@ -190,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 329.5
+    "width": 465.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,58 +202,58 @@
       "command-palette:명령어 팔레트 열기": false,
       "bases:새 베이스 생성하기": false,
       "obsidian-git:Open Git source control": false,
-      "claude-sidebar:New Claude Tab": false,
       "obsidian-importer:Open Importer": false,
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "483eb1907aa30a35",
+  "active": "b7af9e99c97ba2cd",
   "lastOpenFiles": [
-    "무제.canvas",
-    "Notion/프로젝트 문서화/프로젝트/23년 Open Soop/23년 Open Soop.md",
-    "Notion/안재경  BE 개발자/안재경  BE 개발자.md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/아이팩 WSA401.md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/Hello World.md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-PACK 근태 유지보수 (04-02).md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/IPACK 매출마감처리 (WSA503).md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/IPACK 인수인계후 수정사항.md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/iPack기간별 근태 현황.md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/MSSQL 특수문자 LIKE 검색.md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/Project  Todo - 프로젝트 Todo 주간 회의.md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/아이팩 25_11_03 현장 방문.md",
-    "Notion/프로젝트 문서화/프로젝트/IPACK 프로젝트 DB/Project  Todo - 프로젝트 Todo/공통 배포방법.md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/NoName 프로젝트 샘플 구조 (1).md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/I-Frog 프로젝트 DB.md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-FROG Env 파일 다형성 구현.md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog FCM 서버 세팅.md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog FCM 시나리오.md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog 회사 코드.md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog 결제함 문서 FCM기능 추가.md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I_Frog 단순 발송 공통화 작업.md",
-    "Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Project  Todo - 프로젝트 Todo/I-Frog 02.09 마무리 작업.md",
-    "Notion/프로젝트 문서화/프로젝트/샘플 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/Main Feature.md",
-    "Notion/프로젝트 문서화/프로젝트/샘플 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/Project Docs- 프로젝트 문서 and New data source.base",
-    "Notion/프로젝트 문서화/프로젝트 문서화 (외부접속).md",
-    "Notion/프로젝트 문서화/프로젝트/샘플 프로젝트 DB/샘플 프로젝트 DB.md",
-    "신진_생산_PHYSICAL.pdf",
-    "신진_생산_LOGICAL.pdf",
-    "스크린샷_2025-08-12_125605.png",
-    "b7249f69-7202-4250-91ce-d6d8435376b8 1.png",
-    "b7249f69-7202-4250-91ce-d6d8435376b8.png",
-    "Claude 출력결과.pdf",
-    "환영합니다!.md",
-    "스크린샷_2025-08-12_125142.png",
-    "동방_452_요청사항.png",
-    "612c145f-7559-4a72-8fea-ec3f3f34ed22.png",
-    "26eff720-d260-4879-892d-20f9569be651.png",
-    "26eff720-d260-4879-892d-20f9569be651 1.png",
-    "프로젝트 문서화 (외부접속).png",
-    "image 217.png",
-    "새한마이크로텍_ERD_Logcal (1).pdf",
-    "새한마이크로텍_ERD_Physical (1).pdf",
-    "SHMT 새한마이크로텍 사용자 메뉴얼v3.pptx",
-    "Notion/프로젝트 문서화/Work Flow/그룹웨어 관리 문서/SP 관리 포인트/SP 관리 포인트.base",
-    "Notion/프로젝트 문서화/Work Flow/그룹웨어 관리 문서/SP 관리 포인트",
-    "Notion/프로젝트 문서화/Work Flow/그룹웨어 관리 문서"
+    "Notion/프로젝트 문서화/_최종완료보고서.md",
+    "Notion/프로젝트 문서화/_최종 전체정리 완료보고서.md",
+    "Notion/프로젝트 문서화/_진행상황보고서.md",
+    "Notion/프로젝트 문서화/_정기관리체계.md",
+    "Notion/프로젝트 문서화/프로젝트/프로젝트.base",
+    "Notion/프로젝트 문서화/프로젝트/_MAIN_INDEX.md",
+    "프로젝트] 신진SM 프로젝트 DB/_INDEX.md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/신진SM 05.28 업무 미팅.md",
+    "Notion/기타문서/04_포트폴리오_안재경.md",
+    "Notion/기타문서/02_이력서_안재경.md",
+    "Notion/기타문서/01_경력기술서_안재경_SpringBoot.md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/회의록/[20260605] 포장중복문제 및 성능최적화.md",
+    "Notion/기타문서/03_자기소개서_안재경.md",
+    "Notion/기타문서",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/회의록/[20260522] 중복포장문제.md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/신진SM 05.06 업무 미팅.md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/신진SM 04.28 업무 미팅.md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project  Todo - 프로젝트 Todo/신진SM 06.05 업무 미팅.md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project  Todo - 프로젝트 Todo/신진SM 중복 포장문제 ( 05.22 ).md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project  Todo - 프로젝트 Todo/Hello World.md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project  Todo - 프로젝트 Todo/Project  Todo - 프로젝트 Todo 주간 회의.md",
+    "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project  Todo - 프로젝트 Todo/Project  Todo - 프로젝트 Todo.base",
+    "Notion/프로젝트 문서화/Work Flow/프로젝트별 작업/신진SM/_README.md",
+    "프로젝트] 신진SM 프로젝트 DB",
+    "Notion/프로젝트 문서화/Work Flow/프로젝트별 작업/_INDEX.md",
+    "Notion/프로젝트 문서화/Work Flow/프로젝트별 작업/HACCP/_README.md",
+    "Notion/프로젝트 문서화/Work Flow/프로젝트별 작업/ATC/_README.md",
+    "Notion/프로젝트 문서화/Work Flow/서버 배포/기술참고/[참고] vi-vim 명령어 가이드.md",
+    "Notion/프로젝트 문서화/Work Flow/서버 배포/기술참고/[참고] PostgreSQL 명령어 가이드.md",
+    "Notion/프로젝트 문서화/Work Flow/서버 배포/기술참고/[참고] NginX 명령어 가이드.md",
+    "Notion/resources/26eff720-d260-4879-892d-20f9569be651.png",
+    "Notion/resources/image 16.png",
+    "Notion/resources",
+    "Notion/resources/image 13.png",
+    "Notion/resources/eebd7c32-9855-4d66-a7ea-15aa8334d607 1.png",
+    "Notion/resources/eebd7c32-9855-4d66-a7ea-15aa8334d607.png",
+    "Notion/resources/프로젝트 문서화 (외부접속).png",
+    "Notion/resources/업무_전달-안재경(UX개선).pdf",
+    "Notion/resources/업무_전달-안재경.pdf",
+    "Notion/resources/아이팩_로직 1.jpg",
+    "Notion/resources/스크린샷_2023-10-04_오후_11.45.58 1.png",
+    "Notion/resources/스크린샷_2023-10-04_오후_11.45.07 1.png",
+    "Notion/resources/스크린샷_2023-10-04_오후_11.42.02.png",
+    "Notion/resources/새한마이크로텍_ERD_Logcal (1).pdf",
+    "Notion/안재경  BE 개발자/Project/25년 Toy Project/개발일지/개발일지.base",
+    "Notion/안재경  BE 개발자/Project/Project.base",
+    "무제.canvas"
   ]
 }
