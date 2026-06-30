@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "cc49dcc7420fd02c",
+        "id": "fdc2d16aad5db164",
         "type": "tabs",
         "children": [
           {
-            "id": "7b822be5519497e1",
+            "id": "00f2dd599abb790d",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -202,8 +202,13 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "b7af9e99c97ba2cd",
+  "active": "00f2dd599abb790d",
   "lastOpenFiles": [
+    "dedup.py",
+    "Notion/02_Career/04_Portfolio.md",
+    "Notion/02_Career/03_CoverLetter.md",
+    "Notion/02_Career/02_Resume.md",
+    "Notion/02_Career/01_Technical_Skills.md",
     "Notion/README.md",
     "Notion/01_Projects/06_NoNAME/03_TechDocs/[기술] 개발 환경 구성 및 협업 가이드.md",
     "Notion/01_Projects/06_NoNAME/03_TechDocs/_INDEX.md",
@@ -233,12 +238,7 @@
     "Notion/01_Projects/01_ShinJinSM/05_References",
     "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260522] 중복포장문제.md",
     "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260605] 포장중복문제 및 성능최적화.md",
-    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260519] 포장처리및공장이송.md",
-    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260506] 성능최적화 보고.md",
-    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260428] 프로젝트개시.md",
     "Notion/01_Projects/01_ShinJinSM/04_Meetings",
-    "Notion/01_Projects/01_ShinJinSM/03_TechDocs/[진행중] 포장중복문제 분석.md",
-    "Notion/01_Projects/01_ShinJinSM/03_TechDocs/[진행중] 재고보정 및 데이터동기화.md",
     "Notion/01_Projects/01_ShinJinSM/03_TechDocs",
     "Pasted image 20260629091450.png",
     "Pasted image 20260626110842.png",
