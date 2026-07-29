@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notion/03_Learning/DevOps/기술참고/[참고] vi-vim 명령어 가이드.md",
+                "file": "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.28 업무 미팅.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "[참고] vi-vim 명령어 가이드"
+              "title": "신진SM 07.28 업무 미팅"
             }
           }
         ]
@@ -186,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -206,12 +206,13 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "c54d4b8d3f28a330",
+  "active": "00f2dd599abb790d",
   "lastOpenFiles": [
+    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260519] 포장처리및공장이송.md",
+    "Notion/03_Learning/DevOps/기술참고/[참고] vi-vim 명령어 가이드.md",
     "Notion/index.md",
     "quartz.config.ts",
     "프로젝트] 신진SM 프로젝트 DB/_INDEX.md",
-    "Notion/03_Learning/DevOps/기술참고/[참고] vi-vim 명령어 가이드.md",
     "Notion/03_Learning/DevOps/기술참고/[참고] PostgreSQL 명령어 가이드.md",
     "Notion/03_Learning/DevOps/기술참고/[참고] NginX 명령어 가이드.md",
     "Notion/02_Career/04_Portfolio.md",
@@ -224,7 +225,6 @@
     "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.28 업무 미팅.md",
     "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 04.28 업무 미팅.md",
     "Notion/01_Projects/01_ShinJinSM/02_Docs/무제.md",
-    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260519] 포장처리및공장이송.md",
     "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260506] 성능최적화 보고.md",
     "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260428] 프로젝트개시.md",
     "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.20 업무 미팅.md",

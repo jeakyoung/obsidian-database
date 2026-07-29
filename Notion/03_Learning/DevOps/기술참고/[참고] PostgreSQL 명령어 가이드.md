@@ -107,18 +107,18 @@ sudo systemctl status postgresql
 
 ### dev 환경 접속
 ```bash
-psql -h localhost -p 5110 -U erpUser -d groupware_dev
+psql -h localhost -p 5110 -U [USERNAME] -d [DATABASE_NAME]
 ```
 
 **파라미터:**
 - `-h localhost` : 접속 호스트
 - `-p 5110` : 포트
-- `-U erpUser` : 사용자명
-- `-d groupware_dev` : 데이터베이스명
+- `-U [USERNAME]` : 사용자명 (프로젝트 관리자에게 요청)
+- `-d [DATABASE_NAME]` : 데이터베이스명
 
 ### prod 환경 접속
 ```bash
-psql -h localhost -p 5220 -U erpUser -d groupware_prod
+psql -h localhost -p 5220 -U [USERNAME] -d [DATABASE_NAME]
 ```
 
 ### 관리자로 접속
@@ -251,7 +251,7 @@ systemctl status postgresql  # 서비스 상태 확인
 
 ### 2. DB 접속 및 작업
 ```bash
-psql -h localhost -p 5110 -U erpUser -d groupware_dev
+psql -h localhost -p 5110 -U [USERNAME] -d [DATABASE_NAME]
 ```
 
 ### 3. 설정 변경 후 재적용
@@ -329,7 +329,7 @@ sudo pg_ctlcluster 14 dev reload
 pg_lsclusters
 
 # 2. dev DB 접속
-psql -h localhost -p 5110 -U erpUser -d groupware_dev
+psql -h localhost -p 5110 -U [USERNAME] -d [DATABASE_NAME]
 
 # 3. 설정 재적용
 sudo pg_ctlcluster 14 dev reload

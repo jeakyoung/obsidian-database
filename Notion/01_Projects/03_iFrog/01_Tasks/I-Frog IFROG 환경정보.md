@@ -114,24 +114,10 @@ STAGING -
 
 Git clone 위치
 
-git c*lone -b lkh_org *[*git@*](mailto:git@)*:factory/ifrog_test.git*
-
-```sql
-git clone -b lkh_org https://github.com/Limkyuhwan/f1soft-starmap-service.git
-```
+> ⚠️ Git 자격증명 정보는 보안상 제거되었습니다.
+> 프로젝트 관리자에게 접근 정보를 요청하세요.
 
 → branch → lkh_org
-
-git lab →
-
-```sql
-git clone http://[removed marker deleted]:[removed marker deleted]@:2080/factory/ifrog_test.git
-```
-
-ATC 원격 접근방법
-[removed marker deleted]
-[removed]
-pw : [removed marker deleted]$^&
 
 — IDE는 vscode로 안됨 Visual Studio 받아서 진행하기
 
