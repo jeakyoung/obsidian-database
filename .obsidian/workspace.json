@@ -206,8 +206,10 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "00f2dd599abb790d",
+  "active": "483eb1907aa30a35",
   "lastOpenFiles": [
+    "Notion/index.md",
+    "quartz.config.ts",
     "프로젝트] 신진SM 프로젝트 DB/_INDEX.md",
     "Notion/03_Learning/DevOps/기술참고/[참고] vi-vim 명령어 가이드.md",
     "Notion/03_Learning/DevOps/기술참고/[참고] PostgreSQL 명령어 가이드.md",
@@ -238,14 +240,12 @@
     "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.14 업무미팅.md",
     "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.07 업무 미팅.md",
     "Notion/01_Projects/07_DataBoucher/01_Meetings/데이터 바우처 07.01 회의.md",
-    "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.03 업무 미팅.md",
     "dedup.py",
     "Notion/01_Projects/06_NoNAME/03_TechDocs",
     "Notion/01_Projects/06_NoNAME/01_Tasks/Project  Todo_프로젝트 Todo.base",
     "Notion/01_Projects/05_SeHanMT/01_Tasks/Project  Todo_프로젝트 Todo.base",
     "Notion/01_Projects/04_DongBang/01_Tasks/Project  Todo_프로젝트 Todo.base",
     "Notion/01_Projects/03_iFrog/03_TechDocs",
-    "Notion/01_Projects/03_iFrog/01_Tasks/Project  Todo_프로젝트 Todo.base",
     "Pasted image 20260629091450.png",
     "Pasted image 20260626110842.png",
     "Pasted image 20260618101053.png",
