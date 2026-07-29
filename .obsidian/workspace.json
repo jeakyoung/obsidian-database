@@ -11,10 +11,14 @@
             "id": "00f2dd599abb790d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Notion/03_Learning/DevOps/기술참고/[참고] vi-vim 명령어 가이드.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "새 탭"
+              "title": "[참고] vi-vim 명령어 가이드"
             }
           }
         ]
@@ -182,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -204,42 +208,44 @@
   },
   "active": "00f2dd599abb790d",
   "lastOpenFiles": [
-    "dedup.py",
+    "프로젝트] 신진SM 프로젝트 DB/_INDEX.md",
+    "Notion/03_Learning/DevOps/기술참고/[참고] vi-vim 명령어 가이드.md",
+    "Notion/03_Learning/DevOps/기술참고/[참고] PostgreSQL 명령어 가이드.md",
+    "Notion/03_Learning/DevOps/기술참고/[참고] NginX 명령어 가이드.md",
     "Notion/02_Career/04_Portfolio.md",
     "Notion/02_Career/03_CoverLetter.md",
     "Notion/02_Career/02_Resume.md",
     "Notion/02_Career/01_Technical_Skills.md",
-    "Notion/README.md",
-    "Notion/01_Projects/06_NoNAME/03_TechDocs/[기술] 개발 환경 구성 및 협업 가이드.md",
-    "Notion/01_Projects/06_NoNAME/03_TechDocs/_INDEX.md",
-    "Notion/01_Projects/06_NoNAME/03_TechDocs/[기술] 데이터베이스 최적화 종합 가이드.md",
-    "Notion/01_Projects/06_NoNAME/03_TechDocs/[기술] RT Database 관점의 Backend 아키텍처.md",
+    "Notion/01_Projects/02_IPACK/근태시스템 정리가이드.md",
+    "Notion/01_Projects/07_DataBoucher/01_Meetings/데이터 바우처 06.22 회의.md",
+    "Notion/01_Projects/01_ShinJinSM/문서 표준 양식 가이드.md",
+    "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.28 업무 미팅.md",
+    "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 04.28 업무 미팅.md",
+    "Notion/01_Projects/01_ShinJinSM/02_Docs/무제.md",
+    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260519] 포장처리및공장이송.md",
+    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260506] 성능최적화 보고.md",
+    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260428] 프로젝트개시.md",
+    "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.20 업무 미팅.md",
+    "Notion/01_Projects/07_DataBoucher/01_Meetings/데이터 바우처 07.23 회의.md",
+    "Notion/01_Projects/07_DataBoucher/01_Meetings",
+    "Notion/01_Projects/07_DataBoucher/01_Meetings/데이터 바우처 06.29 회의.md",
+    "Notion/01_Projects/07_DataBoucher/01_Meetings/데이터 바우처 07.22 회의.md",
+    "Notion/01_Projects/07_DataBoucher",
+    "무제",
+    "Pasted image 20260723101004.png",
+    "Notion/01_Projects/07_DataBoucher/01_Meetings/데이터 바우처 07.03 회의.md",
+    "Pasted image 20260720142623.png",
+    "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.14 업무미팅.md",
+    "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.07 업무 미팅.md",
+    "Notion/01_Projects/07_DataBoucher/01_Meetings/데이터 바우처 07.01 회의.md",
+    "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.03 업무 미팅.md",
+    "dedup.py",
     "Notion/01_Projects/06_NoNAME/03_TechDocs",
     "Notion/01_Projects/06_NoNAME/01_Tasks/Project  Todo_프로젝트 Todo.base",
-    "Notion/01_Projects/06_NoNAME/01_Tasks/Project  Todo_프로젝트 Todo 주간 회의.md",
     "Notion/01_Projects/05_SeHanMT/01_Tasks/Project  Todo_프로젝트 Todo.base",
-    "Notion/01_Projects/05_SeHanMT/01_Tasks/Project  Todo_프로젝트 Todo 주간 회의.md",
     "Notion/01_Projects/04_DongBang/01_Tasks/Project  Todo_프로젝트 Todo.base",
-    "Notion/01_Projects/04_DongBang/01_Tasks/Project  Todo_프로젝트 Todo 주간 회의.md",
-    "Notion/01_Projects/03_iFrog/03_TechDocs/_INDEX.md",
-    "Notion/01_Projects/03_iFrog/03_TechDocs/[완료] 프로젝트 최종 정리 및 아카이빙.md",
-    "Notion/01_Projects/03_iFrog/03_TechDocs/[기술] 환경별 설정 및 배포 가이드.md",
-    "Notion/01_Projects/03_iFrog/03_TechDocs/[기술] 데이터베이스 연결 및 최적화.md",
-    "Notion/01_Projects/03_iFrog/03_TechDocs/[기술] FCM 알림 시스템 통합 가이드.md",
     "Notion/01_Projects/03_iFrog/03_TechDocs",
     "Notion/01_Projects/03_iFrog/01_Tasks/Project  Todo_프로젝트 Todo.base",
-    "Notion/01_Projects/03_iFrog/01_Tasks/Project  Todo_프로젝트 Todo 주간 회의.md",
-    "Notion/프로젝트 문서화/프로젝트 문서화 (외부접속).md",
-    "Notion/01_Projects/02_IPACK/01_Tasks/Project  Todo_프로젝트 Todo.base",
-    "Notion/01_Projects/02_IPACK/01_Tasks/Project  Todo_프로젝트 Todo 주간 회의.md",
-    "Notion/01_Projects/01_ShinJinSM/05_References/[통합] 더존ERP 동기화.md",
-    "Notion/01_Projects/01_ShinJinSM/05_References/[배포] NginX 라우팅설정.md",
-    "Notion/01_Projects/01_ShinJinSM/05_References/[SQL] SP_WMA624_01_IUD.md",
-    "Notion/01_Projects/01_ShinJinSM/05_References",
-    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260522] 중복포장문제.md",
-    "Notion/01_Projects/01_ShinJinSM/04_Meetings/[20260605] 포장중복문제 및 성능최적화.md",
-    "Notion/01_Projects/01_ShinJinSM/04_Meetings",
-    "Notion/01_Projects/01_ShinJinSM/03_TechDocs",
     "Pasted image 20260629091450.png",
     "Pasted image 20260626110842.png",
     "Pasted image 20260618101053.png",
@@ -248,8 +254,6 @@
     "Pasted image 20260617162832.png",
     "Notion/resources/26eff720-d260-4879-892d-20f9569be651.png",
     "Notion/resources/image 16.png",
-    "Notion/resources/image 13.png",
-    "Notion/resources/eebd7c32-9855-4d66-a7ea-15aa8334d607 1.png",
     "무제.canvas"
   ]
 }

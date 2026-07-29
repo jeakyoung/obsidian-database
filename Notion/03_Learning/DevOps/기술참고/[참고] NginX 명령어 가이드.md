@@ -179,7 +179,7 @@ sudo systemctl restart nginx
 ---
 
 ## 🔍 6. 트러블슈팅
-
+	
 ### 문제: "Address already in use"
 ```
 nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
@@ -256,3 +256,11 @@ ps -ef | grep nginx
 **작성일:** 2026-06-11  
 **카테고리:** 배포/서버 관리
 
+/home/f1soft/data_boucher/dev\
+220이 운영
+110이 개발
+
+
+nohup dotnet F1Soft.Starmap.Service.dll --urls "http://localhost:30110" --serviceName data_boucher > data_boucher_prd.log 2>&1 &
+
+nohup dotnet F1Soft.Starmap.Service.dll --urls "http://localhost:30110" --serviceName data_boucher > data_boucher_dev.log 2>&1 &
