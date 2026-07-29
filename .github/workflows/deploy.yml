@@ -1,0 +1,90 @@
+name: Deploy Quartz site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      # Notion 폴더 변경 시에만 빌드 트리거
+      - "Notion/**"
+      - "quartz.config.ts"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:  # 수동 트리거 허용
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout obsidian vault
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Clone Quartz v4
+        run: |
+          git clone https://github.com/jackyzha0/quartz.git quartz-build
+          cd quartz-build
+          git checkout v4.4.0
+
+      - name: Install Quartz dependencies
+        run: |
+          cd quartz-build
+          npm ci
+
+      - name: Copy quartz config
+        run: |
+          cp quartz.config.ts quartz-build/quartz.config.ts
+
+      - name: Copy Notion content to Quartz
+        run: |
+          # Quartz content 폴더 초기화
+          rm -rf quartz-build/content
+          mkdir -p quartz-build/content
+
+          # Notion 폴더 복사 (05_Archive 제외)
+          rsync -av \
+            --exclude="05_Archive/" \
+            --exclude=".obsidian/" \
+            Notion/ \
+            quartz-build/content/
+
+          # 이미지 리소스 복사
+          if [ -d "Notion/resources" ]; then
+            mkdir -p quartz-build/quartz/static/resources
+            cp -r Notion/resources/. quartz-build/quartz/static/resources/
+          fi
+
+      - name: Build Quartz
+        run: |
+          cd quartz-build
+          npx quartz build
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quartz-build/public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
