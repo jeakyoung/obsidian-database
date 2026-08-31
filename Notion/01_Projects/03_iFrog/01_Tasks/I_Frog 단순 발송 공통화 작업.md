@@ -5,7 +5,7 @@ base: "[[Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Proje
 생성 일시: 2026-06-10T14:29:00
 담당자: []
 ---
-[[scheduler-test.zip]]
+
 
 api를 호출하면서
 request parameter로 (title,body,empList, type)를 받고,
@@ -15,11 +15,11 @@ TGI001에 포함된 유저의 token 추려낸 뒤
 TGI002 에 알림내역에 저장
 firebase Server에 전달 후 유저(client)에게 noti 알림 발생
 
-![[image 177.png]]
+![[Pasted image 20260831132642.png]]
 
 → 단순센더 요청 파라미터
 
-![[image 178.png]]
+![[Pasted image 20260831132652.png]]
 
 → 서버 전달부
 

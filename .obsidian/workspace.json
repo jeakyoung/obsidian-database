@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "2639aadd94eec2d8",
+        "id": "e45e3450c9d009b2",
         "type": "tabs",
         "children": [
           {
-            "id": "e5e2bf7cf3bfbc3d",
+            "id": "017bc19569220223",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notion/01_Projects/01_ShinJinSM/02_Docs/신진SM 07.28 업무 미팅.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "신진SM 07.28 업무 미팅"
+              "title": "새 탭"
             }
           }
         ]
@@ -41,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "파일 탐색기"
@@ -113,12 +111,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notion/프로젝트 문서화/프로젝트/23년 Open Soop/23년 Open Soop.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "23년 Open Soop 의 나가는 링크"
+              "title": "나가는 링크"
             }
           },
           {
@@ -156,17 +153,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notion/프로젝트 문서화/프로젝트/신진SM 프로젝트 DB/Project Docs- 프로젝트 문서 and New data source/신진SM 05.28 업무 미팅.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "신진SM 05.28 업무 미팅 의 개요"
+              "title": "개요"
             }
           },
           {
-            "id": "c54d4b8d3f28a330",
+            "id": "c5abd37945b2c498",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -174,23 +170,13 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "483eb1907aa30a35",
-            "type": "leaf",
-            "state": {
-              "type": "claudian-view",
-              "state": {},
-              "icon": "bot",
-              "title": "Claudian"
-            }
           }
         ],
         "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 465.5
+    "width": 683.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,59 +187,60 @@
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
       "bases:새 베이스 생성하기": false,
+      "obsidian-importer:노트 가져오기": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-importer:Open Importer": false,
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "c54d4b8d3f28a330",
+  "active": "017bc19569220223",
   "lastOpenFiles": [
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/저장용 대참사/저장용 대참사.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/Open Soop 개발팀/최서은.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/Open Soop 개발팀/정은유.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/Open Soop 개발팀/장현빈.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/Open Soop 개발팀/김도원.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/저장용 대참사",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/게시판 모니터링 페이지 구현.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/UniCertiSchSrch.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/SchlSrchData.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/Git, Github.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/endpoint.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/4.18 ~ Process 개발환경 분석.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/4.18 ~ Servlet 개발환경 분석.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/3.22 ~ JAVA FRAMEWORK, DATABASE.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임/2023 개발 진행중 끄적임 New Task.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/진행율 확인/전체 진행율.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/개발팀 구성/이하윤.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/개발팀 구성/이종태.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/개발팀 구성/안정연.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/개발팀 구성/안재경.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/개발팀 구성/박미현.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/개발팀 구성/류채현.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/개발팀 구성/Untitled.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트/회원가입 로직개발.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트/프로젝트 개요.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트/이미지 서버 저장.md",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트/게시판 Mapping back-end 개발.md",
-    "Notion/01_Projects/Archive/2023_OpenSoop/Open Soop 개발팀",
-    "Notion/01_Projects/Archive/2023_OpenSoop/2023 개발 진행중 끄적임",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/진행율 확인",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/개발팀 구성",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트",
-    "Notion/01_Projects/Archive/2024_PaekTaekApp",
-    "Notion/01_Projects/Archive/2023_OpenSoop",
-    "Notion/01_Projects/Archive",
-    "check_patterns.txt",
-    "Pasted image 20260723101004.png",
-    "Pasted image 20260720142623.png",
-    "Pasted image 20260629091450.png",
-    "Pasted image 20260626110842.png",
-    "Pasted image 20260618101053.png",
-    "Pasted image 20260618091217.png",
-    "Pasted image 20260617162837.png",
-    "Pasted image 20260617162832.png",
-    "Notion/resources/26eff720-d260-4879-892d-20f9569be651.png",
-    "Notion/resources/image 16.png",
-    "무제.canvas"
+    "무제.base",
+    "Notion/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 분석 결과 작업 08.28.md",
+    "Notion/01_Projects/07_DataBoucher/01_Tasks",
+    "Notion/01_Projects/07_DataBoucher/02_TechDocs",
+    "Notion/01_Projects/07_DataBoucher/03_Meetings/데이터 바우처 08.20 현장 회의 (송연).md",
+    "Notion/01_Projects/07_DataBoucher/03_Meetings/데이터 바우처 07.01 회의.md",
+    "Notion/01_Projects/07_DataBoucher/03_Meetings/데이터 바우처 06.22 회의.md",
+    "Notion/01_Projects/06_ReelTrip/01_Tasks/NoName 04-09 회의.md",
+    "Notion/01_Projects/06_ReelTrip/03_TechDocs/NoName LLM 토큰 최적화.md",
+    "Notion/01_Projects/06_ReelTrip/03_TechDocs/NoName GitHub 협업 세팅.md",
+    "Notion/01_Projects/06_ReelTrip/03_TechDocs/NoName 프로젝트 샘플 구조.md",
+    "Notion/01_Projects/06_ReelTrip/03_TechDocs/[기술] 개발 환경 구성 및 협업 가이드.md",
+    "Notion/01_Projects/06_ReelTrip/03_TechDocs/[기술] 데이터베이스 최적화 종합 가이드.md",
+    "Notion/01_Projects/06_ReelTrip/03_TechDocs/[기술] RT Database 관점의 Backend 아키텍처.md",
+    "Notion/01_Projects/06_ReelTrip/01_Tasks/RT DB 테이블 구조.md",
+    "Notion/01_Projects/06_ReelTrip/01_Tasks/RT Database 관점의 BE 아키텍처.md",
+    "Notion/01_Projects/06_ReelTrip/01_Tasks/Rt 서비스 구동 방식.md",
+    "Notion/01_Projects/06_ReelTrip/01_Tasks/RT 모바일 apk 빌드방식.md",
+    "Notion/01_Projects/06_ReelTrip/01_Tasks/NoName 시행방식.md",
+    "Notion/01_Projects/06_ReelTrip/01_Tasks/NoName 안재경.md",
+    "Notion/02_Career/03_CoverLetter.md",
+    "Notion/02_Career/02_Resume.md",
+    "Notion/02_Career/01_Technical_Skills.md",
+    "Notion/02_Career/04_Portfolio.md",
+    "Notion/03_Learning/DevOps/기술참고/[참고] vi-vim 명령어 가이드.md",
+    "Notion/03_Learning/DevOps/기술참고/[참고] PostgreSQL 명령어 가이드.md",
+    "Notion/03_Learning/DevOps/기술참고/[참고] NginX 명령어 가이드.md",
+    "Notion/03_Learning/Backend/개발정보 저장소/기초지식 FrameWork & Library/기초지식 FrameWork & Library.md",
+    "Pasted image 20260805165601.png",
+    "Notion/01_Projects/02_IPACK/03_Meetings",
+    "Pasted image 20260831133935.png",
+    "Pasted image 20260831133542.png",
+    "Pasted image 20260831133530.png",
+    "Pasted image 20260831133455.png",
+    "Pasted image 20260831133447.png",
+    "Pasted image 20260831133440.png",
+    "Pasted image 20260831133424.png",
+    "Pasted image 20260831133323.png",
+    "Pasted image 20260831133317.png",
+    "무제 1.canvas",
+    "무제.canvas",
+    "Notion/01_Projects/05_SeHanMT/03_Meetings",
+    "Notion/01_Projects/08_UNI/2023_OpenSoop/2023 개발 진행중 끄적임/저장용 대참사",
+    "Notion/01_Projects/08_UNI/2023_OpenSoop/Open Soop 개발팀",
+    "Notion/01_Projects/08_UNI/2023_OpenSoop/2023 개발 진행중 끄적임",
+    "Notion/01_Projects/08_UNI/2024_PaekTaekApp/진행율 확인",
+    "Notion/01_Projects/08_UNI/2024_PaekTaekApp/개발팀 구성",
+    "Notion/01_Projects/08_UNI/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트"
   ]
 }

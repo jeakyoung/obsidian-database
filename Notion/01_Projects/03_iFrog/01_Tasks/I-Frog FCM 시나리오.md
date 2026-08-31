@@ -7,7 +7,7 @@ base: "[[Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Proje
 ---
 ## 서버 구성
 
-![[FCM시나리오.png]]
+![[Pasted image 20260831133935.png]]
 
 업체별 교환코드로 도메인을 넘겨주기
 

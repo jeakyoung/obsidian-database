@@ -7,7 +7,7 @@ base: "[[Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Proje
 ---
 ㅇ 사내 firebase 계정
 
-[f1softmobile.team@gmail.com](mailto:f1softmobile.team@gmail.com) / f1soft@team
+- 계정 삭제 처리 ( 민감 정보 ) 26.08.31
 
 ㅇ firebase 구성
 
@@ -119,7 +119,7 @@ namespace F1Soft.Starmap.Service.Controllers.Notification
 
 6. service, controller 생성후 테스트 진행
 
-![[image 189.png]]
+
 
 → 테스트 결과 tocken 값이 없어 정상 진행되진 않으나 firebase내 FCM message Create 호출 성공
 

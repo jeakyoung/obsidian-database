@@ -15,15 +15,15 @@ base: "[[Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Proje
 
 ## ㅇ 업무현황
 
-![[스크린샷_2026-02-02_오후_5.55.01.png]]
+![[Pasted image 20260831133212.png]]
 
-→ flutter Webview를 활용 구현예정
+→ sencha Modern를 활용 구현예정
 
 ㅇ 사용 예정 화면배치
 
-![[image_(3) 1.png]]
 
-![[image_(3) 2.png]]
+![[Pasted image 20260831133241.png]]
+
 
 ---
 
@@ -525,16 +525,16 @@ Ext.define('iPlusCustOrder.view.main.OrderListItem', {
 
 ### → 수주현황 스크린
 
-![[image 174.png]]
+![[Pasted image 20260831133308.png]]
 
 ### → 생산현황 스크린
 
-![[image 175.png]]
+![[Pasted image 20260831133317.png]]
 
 
 ### → 납품현황 스크린
 
-![[image 176.png]]
+![[Pasted image 20260831133323.png]]
 
 
 [https://218.155.74.35/status/?service=order](https://218.155.74.35/status/?service=order)
@@ -543,4 +543,8 @@ Ext.define('iPlusCustOrder.view.main.OrderListItem', {
 
 [https://218.155.74.35/status/?service=deliver](https://218.155.74.35/status/?service=deliver)
 
-→ 최종 배포 URL 
+[https://218.155.74.35/status/?service=store](https://218.155.74.35/status/?service=store)
+
+→ 최종 배포 URL
+
+[https://218.155.74.35:40443/status/?service=store](https://218.155.74.35:40443/status/?service=store)

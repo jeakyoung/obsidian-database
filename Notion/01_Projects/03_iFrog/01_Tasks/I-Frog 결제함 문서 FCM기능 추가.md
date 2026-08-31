@@ -40,8 +40,6 @@ ARRIVAL_TIME: 나한테 도착한 시간 / 승인 활성화 기능 (EXE_TIME == 
 
 ---
 
-[[기안서 작성 상태값.xlsx]]
-
 ## ㅇ FCM 로직
 
 - EXE_SEQ를 받아와서 ORDER_SEQ값이 같은 것 들을 가져온다
@@ -483,11 +481,9 @@ public async Task<object> SendMessageAsync(
 
 ## ㅇ 프로시저명 수정작업
 
-<!-- Column 1 -->
-![[image 169.png]]
+![[Pasted image 20260831132906.png]]
 
-<!-- Column 2 -->
-![[image 170.png]]
+![[Pasted image 20260831132912.png]]
 
 TGI001_01_IUD
 

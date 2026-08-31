@@ -94,17 +94,17 @@ public string HtmlToPlainText(string html)
 
 ㅇ 조치 후 추가 개선 필요
 
-![[image 171.png]]
+![[Pasted image 20260831132951.png]]
 
 → JS 태그는 다 삭제했지만 html 태그내에 base64형식 이미지를 src 링크로 그대로 다 넣어버린 부분이 존재
 
-![[image 172.png]]
+![[Pasted image 20260831133004.png]]
 
 → SP내 공지사항 리스트 파라미터가 TODATE가 시작일 FROMDATE가 종료일로 꼬여있음
 
 → 백엔드 코드에서 억지로 수정해서 반대로 넣어주고 있지만 웹단 확인 후 프로시저 수정 필요
 
-![[image 173.png]]
+![[Pasted image 20260831133016.png]]
 
 → 해당부내에 COMMENT 칼럼은 댓글이아님 CONT에 해당되는 값을 담아주는중 (html요소 그대로)
 

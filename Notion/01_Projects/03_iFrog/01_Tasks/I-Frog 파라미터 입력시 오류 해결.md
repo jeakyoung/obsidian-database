@@ -9,13 +9,13 @@ base: "[[Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Proje
 
 ## ㅇ 입력 값 수정부
 
-![[image 191.png]]
+![[Pasted image 20260831133440.png]]
 
 `SP_WEB_FrmBP602_01_03_IUD` → CONFIRM_FLAG, SMS_FLAG, IUD 항목에 대해 빈 값 처리
 
 → ATC에만 빈 값 처리 완 → 송연 적용 미 진행
 
-![[image 192.png]]
+![[Pasted image 20260831133447.png]]
 
 ㅇ ResultList를 만들 때 오류가 발생하는 지점인 request6에 대한 호출을 임시 주석 처리
 
@@ -26,7 +26,7 @@ base: "[[Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Proje
 
 ## ㅇ 출력 값 수정부
 
-![[image 193.png]]
+![[Pasted image 20260831133455.png]]
 
 → BoardService → 서비스 내 Columns를 강제 제거 / 가공하는 부분 주석 처리 후 테스트 진행 시 결제 문서
 

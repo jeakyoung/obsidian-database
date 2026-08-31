@@ -5,8 +5,7 @@ base: "[[Notion/프로젝트 문서화/프로젝트/I-Frog 프로젝트 DB/Proje
 생성 일시: 2026-06-10T14:28:00
 담당자: []
 ---
-![[image 184.png]]
-
+![[Pasted image 20260831133530.png]]
 ```sql
 EXEC SP_WEB_STORE_FUNCTION_TEA131_IUD  '202601150001','001','31','202601151126','0000','100318','차장','0','신청전','','test2','0','','','','','','','<table style="border-collapse:collapse; width:677pt; border:none" width="895">
 	<colgroup>
@@ -67,7 +66,7 @@ EXEC SP_WEB_FrmEA101_Window_06_LIST '202601150001', '001', '2', '0000'
 EXEC SP_WEB_FrmEA101_Window_05_LIST '202601150001','2','001'
 ```
 
-![[image 185.png]]
+![[Pasted image 20260831133542.png]]
 
 → 기안을 만들때는 정상
 
