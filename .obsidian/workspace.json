@@ -170,13 +170,34 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "1ffbf06f78b158bf",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {
+                "tabWorkspace": {
+                  "version": 1,
+                  "openTabs": [
+                    {
+                      "tabId": "tab-1781080473880-xerm0y2",
+                      "conversationId": "conv-1788154896732-8uly50u1u"
+                    }
+                  ],
+                  "activeTabId": "tab-1781080473880-xerm0y2"
+                }
+              },
+              "icon": "bot",
+              "title": "Claudian"
+            }
           }
         ],
         "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 683.5
+    "width": 422.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,8 +213,22 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "017bc19569220223",
+  "active": "c5abd37945b2c498",
   "lastOpenFiles": [
+    "Notion/03_Learning/References/index.md",
+    "Notion/03_Learning/Tools/index.md",
+    "Notion/03_Learning/DevOps/index.md",
+    "Notion/03_Learning/Backend/index.md",
+    "Notion/03_Learning/index.md",
+    "Notion/01_Projects/08_UNI/index.md",
+    "Notion/01_Projects/07_DataBoucher/index.md",
+    "Notion/01_Projects/06_ReelTrip/index.md",
+    "Notion/01_Projects/05_SeHanMT/index.md",
+    "Notion/01_Projects/04_DongBang/index.md",
+    "Notion/01_Projects/03_iFrog/index.md",
+    "Notion/01_Projects/02_IPACK/index.md",
+    "Notion/01_Projects/01_ShinJinSM/index.md",
+    "Notion/01_Projects/index.md",
     "무제.base",
     "Notion/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 분석 결과 작업 08.28.md",
     "Notion/01_Projects/07_DataBoucher/01_Tasks",
@@ -209,19 +244,6 @@
     "Notion/01_Projects/06_ReelTrip/03_TechDocs/[기술] 데이터베이스 최적화 종합 가이드.md",
     "Notion/01_Projects/06_ReelTrip/03_TechDocs/[기술] RT Database 관점의 Backend 아키텍처.md",
     "Notion/01_Projects/06_ReelTrip/01_Tasks/RT DB 테이블 구조.md",
-    "Notion/01_Projects/06_ReelTrip/01_Tasks/RT Database 관점의 BE 아키텍처.md",
-    "Notion/01_Projects/06_ReelTrip/01_Tasks/Rt 서비스 구동 방식.md",
-    "Notion/01_Projects/06_ReelTrip/01_Tasks/RT 모바일 apk 빌드방식.md",
-    "Notion/01_Projects/06_ReelTrip/01_Tasks/NoName 시행방식.md",
-    "Notion/01_Projects/06_ReelTrip/01_Tasks/NoName 안재경.md",
-    "Notion/02_Career/03_CoverLetter.md",
-    "Notion/02_Career/02_Resume.md",
-    "Notion/02_Career/01_Technical_Skills.md",
-    "Notion/02_Career/04_Portfolio.md",
-    "Notion/03_Learning/DevOps/기술참고/[참고] vi-vim 명령어 가이드.md",
-    "Notion/03_Learning/DevOps/기술참고/[참고] PostgreSQL 명령어 가이드.md",
-    "Notion/03_Learning/DevOps/기술참고/[참고] NginX 명령어 가이드.md",
-    "Notion/03_Learning/Backend/개발정보 저장소/기초지식 FrameWork & Library/기초지식 FrameWork & Library.md",
     "Pasted image 20260805165601.png",
     "Notion/01_Projects/02_IPACK/03_Meetings",
     "Pasted image 20260831133935.png",
@@ -240,7 +262,6 @@
     "Notion/01_Projects/08_UNI/2023_OpenSoop/Open Soop 개발팀",
     "Notion/01_Projects/08_UNI/2023_OpenSoop/2023 개발 진행중 끄적임",
     "Notion/01_Projects/08_UNI/2024_PaekTaekApp/진행율 확인",
-    "Notion/01_Projects/08_UNI/2024_PaekTaekApp/개발팀 구성",
-    "Notion/01_Projects/08_UNI/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트"
+    "Notion/01_Projects/08_UNI/2024_PaekTaekApp/개발팀 구성"
   ]
 }

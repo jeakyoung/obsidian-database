@@ -25,8 +25,14 @@ Spring Boot 기반 ERP/MES 통합 시스템 개발 및 성능 최적화 프로�
 ### [[01_Projects/05_SeHanMT|🏪 세한MT POP]]
 광고 및 프로모션 관리 POP 시스템
 
-### [[01_Projects/06_NoNAME|🤖 NoNAME (개인 프로젝트)]]
+### [[01_Projects/06_ReelTrip|🤖 ReelTrip (개인 프로젝트)]]
 AI/LLM 기반 학습 프로젝트 - 백엔드 아키텍처 연구
+
+### [[01_Projects/07_DataBoucher|📈 데이터 바우처]]
+데이터 바우처 분석 프로젝트
+
+### [[01_Projects/08_UNI|🎓 대학 프로젝트]]
+Open Soop, 평택대학교 앱 리워크
 
 ### [[02_Career|💼 경력 문서]]
 - [[02_Career/01_Technical_Skills|경력기술서]] - 프로젝트별 기술 분석
@@ -51,7 +57,7 @@ AI/LLM 기반 학습 프로젝트 - 백엔드 아키텍처 연구
 - IDE 설정 및 플러그인
 - 개발 환경 구성
 
-### [[04_WorkFlow|📋 일상 작업]]
+### [[01_Projects|📋 전체 프로젝트 목록]]
 프로젝트별 작업 기록, 회의록, 학습 로그
 
 ---
