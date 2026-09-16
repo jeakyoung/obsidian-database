@@ -39,9 +39,15 @@ secrets.json
 *.pdf
 *.docm
 *.xlsm
+# Vault 루트에 붙여넣은 이미지는 블로그 빌드에 포함되지 않으므로 커밋하지 않음.
+# 블로그에 게시할 이미지는 Jeakyoung_Blog/resources/ 아래에 두세요 (아래 예외 규칙 참고).
 Pasted image *.png
 Pasted image *.jpg
 Pasted image *.jpeg
+
+# 블로그 content 안의 첨부 이미지는 게시 대상이므로 예외 처리
+!Jeakyoung_Blog/resources/
+!Jeakyoung_Blog/resources/**
 
 # =============================================
 # Quartz 빌드 (로컬에서 직접 빌드 시)

@@ -15,6 +15,8 @@ const config: QuartzConfig = {
       "01_Projects/Archive/**",
       ".obsidian/**",
       ".DS_Store",
+      // Obsidian Bases 파일 - 블로그에서 렌더링되지 않음
+      "**/*.base",
     ],
     defaultDateType: "created",
     theme: {

@@ -1,0 +1,175 @@
+---
+title: I-Frog NginX 명령어
+date: 2026-06-10
+type: 기술문서
+project: I-Frog
+status: 예정
+category: ""
+assignee: []
+tags: []
+created: 2026-06-10T14:28:00
+---
+
+# I-Frog NginX 명령어
+
+## 1. 개요
+
+| 항목 | 내용 |
+|------|------|
+| 대상 시스템 |  |
+| 적용 범위 |  |
+| 관련 모듈 |  |
+
+## 2. 배경 및 요구사항
+
+## 3. 설계 및 구현
+
+### **Nginx 관리 명령어**
+
+|**기능**|**명령어**|**설명**|
+|---|---|---|
+|상태 확인|`sudo systemctl status nginx`|nginx 서비스 상태 확인|
+|시작|`sudo systemctl start nginx`|nginx 서버 실행|
+|중지|`sudo systemctl stop nginx`|nginx 서버 정지|
+|재시작|`sudo systemctl restart nginx`|nginx 완전 재시작|
+|설정 reload|`sudo systemctl reload nginx`|설정만 재적용 (다운타임 없음)|
+|직접 reload|`sudo nginx -s reload`|nginx 설정 재적용|
+|설정 테스트|`sudo nginx -t`|nginx 설정 문법 검사|
+|프로세스 확인|`ps -ef|grep nginx`|
+
+---
+
+### **Nginx 로그 확인**
+
+|**기능**|**명령어**|**설명**|
+|---|---|---|
+|access 로그 확인|`tail -f /var/log/nginx/access.log`|접속 로그 실시간 확인|
+|error 로그 확인|`tail -f /var/log/nginx/error.log`|에러 로그 확인|
+|최근 로그 확인|`tail -n 100 /var/log/nginx/error.log`|최근 100줄 로그|
+
+---
+
+### **Nginx 설정 파일 위치 (Ubuntu)**
+
+|**항목**|**경로**|
+|---|---|
+|메인 설정|`/etc/nginx/nginx.conf`|
+|사이트 설정|`/etc/nginx/sites-available/`|
+|활성 사이트|`/etc/nginx/sites-enabled/`|
+|로그 디렉토리|`/var/log/nginx/`|
+
+---
+
+### **실제 운영에서 가장 많이 쓰는 순서**
+
+1. 설정 수정
+
+/etc/nginx/sites-available/파일
+
+1. 설정 검사
+
+sudo nginx -t
+
+1. 설정 적용
+
+sudo systemctl reload nginx
+
+---
+
+→ 백엔드 서비스 배포 정리
+
+```sql
+# 0: E드라이브로 변경
+e:
+
+# 1. 빌드 경로로 이동
+cd "E:\ajk\devgit\ifrog_test\DBfood_temp\f1soft-starmap-service\F1Soft.Starmap.Service\bin\Debug\net10.0"
+cd "E:\ajk\devgit\ifrog_test\DBfood_temp\f1soft-starmap-service\F1Soft.Starmap.Service\bin\Release\net10.0"
+
+# 2. 현재 폴더(.)의 모든 내용을 리눅스로 전송
+scp -r . f1soft@192.168.80.27:/home/f1soft/groupware/groupware_dev
+scp -r . f1soft@192.168.80.27:/home/f1soft/groupware/groupware_prod
+```
+
+nginx → availed_site내에 헤더 underscore 허용 규칙 추가함 ( security_code를 못가져와서 추가함 )
+
+```sql
+# 개발 닷넷 서비스 시행
+cd /home/f1soft/groupware/groupware_dev
+nohup dotnet F1Soft.Starmap.Service.dll --urls "http://127.0.0.1:40110" --serviceName dotnet_dev > service_dev.log 2>&1 &
+```
+
+```sql
+# 운영 닷넷 서비스 시행
+cd /home/f1soft/groupware/groupware_prod
+nohup dotnet F1Soft.Starmap.Service.dll --urls "http://127.0.0.1:40220" --serviceName dotnet_prod > service_prod.log 2>&1 &
+```
+
+```sql
+# 어떤포트에 어떤서비스가 몇번 pid인지 확인가능
+ps -ef | grep dotnet
+
+# 확인하고 특정 서비스만 내리는것또한 가능
+	kill -9 PID번호
+```
+
+→ 스케쥴링 배포 정리
+
+```sql
+# 실행 예시 (경로와 라이브러리 파일명은 환경에 맞게 수정)
+nohup java -cp ".:./lib/*" com.scheduler.SchedulerContextListener > scheduler.log 2>&1 &
+
+# 배포 경로
+scp -r . f1soft@192.168.80.27:/home/f1soft/groupware/groupware_cls/com/scheduler
+
+# ps id 탑색
+ps -ef | grep SchedulerContextListener
+```
+
+dotnet F1Soft.Starmap.Service.dll --urls "[](http://localhost:40110/)[http://localhost:40110](http://localhost:40110)"
+
+**nohup dotnet F1Soft.Starmap.Service.dll --urls** "[http://127.0.0.1:40220](http://127.0.0.1:40220)" > prd_service.log>&1 &
+
+→ 닷넷 서비스 실행 40110으로 BG실행임 ( 로그는 service.log로 쌓기 )
+
+ps -ef | grep dotnet
+
+→ dotnet 사용중인지 확인
+
+netstat -nlp | grep :40110 → 서비스 포트 가져오기
+
+tail -f service.log → 서비스 로그확인
+
+pkill -f F1Soft.Starmap.Service.dll → 서비스끄기
+
+ehls배포용
+
+[http://192.168.80.27:4110/swagger/index.html](http://192.168.80.27:4110/swagger/index.html)
+
+[](http://192.168.80.27:4110/swagger/index.html)[http://192.168.80.27:4220/swagger/index.html](http://192.168.80.27:4220/swagger/index.html)
+
+**ssh [f1soft@192.168.80.27](mailto:f1soft@192.168.80.27)**
+
+ps -ef | grep dotnet
+
+nohup dotnet F1Soft.Starmap.Service.dll --urls "http://127.0.0.1:30220" --serviceName data_boucher_prd > data_boucher_prd.log 2>&1 &
+
+tkd
+
+nohup dotnet F1Soft.Starmap.Service.dll --urls "http://127.0.0.1:30110" --serviceName data_boucher_dev > data_boucher_dev.log 2>&1 &
+
+scp -r . [f1soft@192.168.80.27](mailto:f1soft@192.168.80.27):/home/f1soft/data_boucher/dev
+
+scp -r . [f1soft@192.168.80.27](mailto:f1soft@192.168.80.27):/home/f1soft/data_boucher/prd
+
+4111
+
+4222
+
+5110
+
+5220
+
+## 4. 검증
+
+## 5. 참고

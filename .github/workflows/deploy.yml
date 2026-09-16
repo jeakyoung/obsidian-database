@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      # Notion 폴더 변경 시에만 빌드 트리거
-      - "Notion/**"
+      # 블로그 content 폴더 변경 시에만 빌드 트리거
+      - "Jeakyoung_Blog/**"
       - "quartz.config.ts"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:  # 수동 트리거 허용
@@ -49,24 +49,20 @@ jobs:
         run: |
           cp quartz.config.ts quartz-build/quartz.config.ts
 
-      - name: Copy Notion content to Quartz
+      - name: Copy vault content to Quartz
         run: |
           # Quartz content 폴더 초기화
           rm -rf quartz-build/content
           mkdir -p quartz-build/content
 
-          # Notion 폴더 복사 (05_Archive 제외)
+          # Jeakyoung_Blog 폴더 전체를 content 로 복사한다 (05_Archive 제외).
+          # 첨부 이미지(Jeakyoung_Blog/resources/)도 content 안에 그대로 들어가야
+          # ![[...]] 임베드가 Quartz 에서 해석된다. static/ 으로 따로 복사하지 말 것.
           rsync -av \
             --exclude="05_Archive/" \
             --exclude=".obsidian/" \
-            Notion/ \
+            Jeakyoung_Blog/ \
             quartz-build/content/
-
-          # 이미지 리소스 복사
-          if [ -d "Notion/resources" ]; then
-            mkdir -p quartz-build/quartz/static/resources
-            cp -r Notion/resources/. quartz-build/quartz/static/resources/
-          fi
 
       - name: Build Quartz
         run: |
