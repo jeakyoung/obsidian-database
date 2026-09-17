@@ -11,28 +11,28 @@ date: 2026-07-29
 ## 📚 주요 카테고리
 
 ### [[01_Projects/01_ShinJinSM|📊 신진SM ERP · MES]]
-Spring Boot 기반 ERP/MES 통합 시스템 개발 및 성능 최적화 프로젝트
+MES 개발 담당 · Sencha Ext JS + Java + MSSQL (POP 는 C# WPF 기술지원)
 
 ### [[01_Projects/02_IPACK|⏰ IPACK 근태 시스템]]
-실시간 근태 관리 및 통계 기능이 있는 근태 시스템
+ERP 근태 시스템 담당 · Sencha Ext JS + Java + MSSQL
 
-### [[01_Projects/03_iFrog|🍽️ I-Frog POS]]
-점포 관리 및 FCM 푸시 알림 시스템이 통합된 POS 솔루션
+### [[01_Projects/03_iFrog|📱 I-Frog]]
+모바일 백엔드 API 개발 담당 · C# .NET Core + MSSQL/PostgreSQL + NginX
 
 ### [[01_Projects/04_DongBang|🍲 동방푸드 ERP]]
-중식당 체인점 관리 ERP 시스템
+ERP 기술지원 담당 · Sencha Ext JS + Java + MSSQL
 
-### [[01_Projects/05_SeHanMT|🏪 세한MT POP]]
-광고 및 프로모션 관리 POP 시스템
+### [[01_Projects/05_SeHanMT|🏪 세한MT]]
+ERP 기술지원 담당 · Sencha Ext JS + Java + MSSQL
 
 ### [[01_Projects/06_ReelTrip|🤖 ReelTrip (개인 프로젝트)]]
 AI/LLM 기반 학습 프로젝트 - 백엔드 아키텍처 연구
 
 ### [[01_Projects/07_DataBoucher|📈 데이터 바우처]]
-데이터 바우처 분석 프로젝트
+모바일 백엔드 API 파이프라인 개발 담당 (신규사업) · C# .NET Core + MSSQL
 
 ### [[01_Projects/08_NPP|⚙️ 뉴파워 프라즈마 (NPP)]]
-AI 관제 서비스, LLM 대시보드, 폴리싱 공정 자동화 프로젝트
+MLOps 개발 담당 (신규사업) · 기술 스택 미확정
 
 ### [[01_Projects/99_UNI|🎓 대학 프로젝트]]
 Open Soop, 평택대학교 앱 리워크
@@ -65,12 +65,13 @@ Open Soop, 평택대학교 앱 리워크
 ## 🎯 기술 스택
 
 | 분야 | 기술 |
-|------|------|
-| **백엔드** | Spring Boot, Java, Mybatis |
-| **데이터베이스** | PostgreSQL, MSSQL |
-| **DevOps** | Docker, Kubernetes, GitHub Actions |
-| **배포** | AWS, Nginx, CI/CD |
+|:--|:--|
+| **백엔드** | Java (ERP·MES), C# .NET Core (모바일 백엔드 API) |
+| **프론트엔드** | Sencha Ext JS |
+| **데이터베이스** | MSSQL (주력), PostgreSQL |
+| **배포** | NginX |
 | **메시징** | FCM (Firebase Cloud Messaging) |
+| **기타** | C# WPF (POP 기술지원) |
 
 ---
 

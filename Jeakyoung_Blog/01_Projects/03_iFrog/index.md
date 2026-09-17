@@ -1,11 +1,20 @@
 ---
 date: 2026-08-31
-title: I-Frog POS
+title: I-Frog
 ---
 
-# I-Frog POS
+# I-Frog
 
-점포 관리 및 FCM 푸시 알림 시스템이 통합된 POS 솔루션
+모바일 백엔드 API 개발 담당.
+
+## 기술 스택
+
+| 항목 | 내용 |
+|:--|:--|
+| **담당 업무** | 모바일 백엔드 API 개발 |
+| **백엔드** | C# .NET Core |
+| **데이터베이스** | MSSQL, PostgreSQL (통합서버) |
+| **웹 서버** | NginX |
 
 ## 문서 분류
 

@@ -13,8 +13,8 @@ tags: []
 | 항목 | 내용 |
 |:--|:--|
 | **작성일** | 2026-06-11 |
-| **소속·역할** | — |
-| **주요 기술** | — |
+| **소속·역할** | F1soft 솔루션사업팀 · ERP/MES 백엔드, 모바일 백엔드 API |
+| **주요 기술** | Java, C# .NET Core, Sencha Ext JS, MSSQL, PostgreSQL |
 
 ## 🧭 경력 요약
 
@@ -52,10 +52,12 @@ tags: []
 ##### F1soft | 솔루션사업팀 사원
 **근무 기간:** [입사일] ~ 현재  
 **직급:** 사원  
-**직무:** Spring Boot 백엔드 개발
+**수행 업무:** ERP·MES 백엔드 (Java), 모바일 백엔드 API (C# .NET Core)  
+**희망 직무:** Spring Boot 백엔드 개발
 
 ###### 주요 담당 업무
-- ERP/MES 시스템 개발 및 유지보수
+- ERP/MES 시스템 개발 및 유지보수 (Sencha Ext JS + Java + MSSQL)
+- 모바일 백엔드 API 개발 (C# .NET Core)
 - 데이터베이스 설계 및 성능 최적화
 - 버그 분석 및 기능 개선
 - 기술 문서 작성 및 지식 공유
@@ -69,8 +71,8 @@ tags: []
    - 역할: 백엔드 개발, 기능 개선
    - 주요 업무: 시간계산 로직 개선, 증명서 발급 기능 개선, 부서 코드 동기화
 
-3. **I-Frog POS 시스템 - 알림 및 성능 개선 (2026.06 ~ 현재)**
-   - 역할: 백엔드 개발, 아키텍처 설계
+3. **I-Frog 모바일 백엔드 - 알림 및 성능 개선 (2026.06 ~ 현재)**
+   - 역할: 모바일 백엔드 API 개발
    - 주요 업무: FCM 알림 시스템 구현, DB 연결 최적화, 환경별 배포 가이드
 
 ---
@@ -78,15 +80,14 @@ tags: []
 #### 🛠 기술 스택
 
 ##### Backend
-- **Language:** Java
-- **Framework:** Spring Boot
-- **Database:** PostgreSQL, MSSQL
-- **ORM:** Mybatis, Spring Data JPA
-- **Query Optimization:** SQL 작성 및 인덱스 설계
+- **Language:** Java, C# (.NET Core, WPF)
+- **Database:** MSSQL (주력), PostgreSQL
+- **Query Optimization:** 저장프로시저 작성, SQL 작성 및 인덱스 설계
 
-##### DevOps & Infrastructure
-- **Container:** Docker
-- **Orchestration:** Kubernetes (기본)
+##### Frontend
+- **Framework:** Sencha Ext JS
+
+##### Infrastructure
 - **Web Server:** NginX
 - **CI/CD:** [경험 입력 필요]
 
@@ -115,7 +116,6 @@ tags: []
 
 ##### 개발 역량
 - 대규모 ERP/MES 시스템 개발 경험
-- 데이터베이스 마이그레이션 (MSSQL → PostgreSQL) 경험
 - FCM을 활용한 실시간 알림 시스템 구현
 - 환경별 배포 자동화 및 가이드 문서 작성
 
@@ -130,13 +130,13 @@ tags: []
 #### 🎯 기술 키워드
 
 **필수 기술:**  
-Spring Boot, Java, PostgreSQL, Mybatis, SQL 최적화
+Java, C# .NET Core, Sencha Ext JS, MSSQL, SQL 최적화
 
 **추가 기술:**  
-Docker, Kubernetes, NginX, Firebase FCM, Git Flow, Jira, 성능 분석
+NginX, Firebase FCM, C# WPF, Git Flow, Jira, 성능 분석
 
 **도메인 경험:**  
-ERP 시스템, MES 시스템, POS 시스템, 근태 관리, 재고 시스템, 실시간 알림
+ERP 시스템, MES 시스템, 모바일 백엔드 API, 근태 관리, 재고 시스템, 실시간 알림
 
 ---
 
@@ -146,7 +146,8 @@ ERP 시스템, MES 시스템, POS 시스템, 근태 관리, 재고 시스템, �
 - [자격증 입력 필요]
 
 ##### 교육/훈련
-- Spring Boot 내부 교육 (F1soft)
+- C# / WPF 내부 교육 (F1soft)
+- POP 업무 교육 (F1soft)
 - PostgreSQL 기본 및 성능 튜닝 학습
 - Git Flow 워크플로우 학습
 
@@ -158,7 +159,7 @@ ERP 시스템, MES 시스템, POS 시스템, 근태 관리, 재고 시스템, �
 - **한국어:** 모국어
 
 ##### 자격요건 일치도
-- ✅ Spring Boot를 이용한 백엔드 개발 경험 (3개 프로젝트)
+- ✅ 백엔드 개발 실무 경험 (Java·C# .NET Core, 3개 프로젝트 이상)
 - ✅ 데이터베이스 설계 및 최적화 경험
 - ✅ 팀 협업 및 코드 리뷰 경험
 - ✅ Git을 이용한 버전관리 경험

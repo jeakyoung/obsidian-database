@@ -13,8 +13,8 @@ tags: []
 | 항목 | 내용 |
 |:--|:--|
 | **작성일** | 2026-06-11 |
-| **소속·역할** | — |
-| **주요 기술** | — |
+| **소속·역할** | F1soft 솔루션사업팀 · ERP/MES 백엔드, 모바일 백엔드 API |
+| **주요 기술** | Java, C# .NET Core, Sencha Ext JS, MSSQL, PostgreSQL |
 
 ## 🧭 경력 요약
 
@@ -23,7 +23,8 @@ tags: []
 ### 경력기술서
 
 **이름:** 안재경  
-**직무:** Spring Boot 백엔드 개발  
+**희망 직무:** Spring Boot 백엔드 개발  
+**수행 업무:** ERP·MES 백엔드 (Java), 모바일 백엔드 API (C# .NET Core)  
 **현직:** F1soft 솔루션사업팀 사원  
 **학력:** 평택대학교 정보통신학과 (2025년 2월 졸업)  
 **작성일:** 2026년 6월 11일
@@ -35,10 +36,10 @@ tags: []
 평택대학교 정보통신학과 졸업 예정이며, F1soft에서 Enterprise 규모의 ERP/MES 시스템 개발 및 유지보수를 담당하고 있습니다. 
 
 **핵심 역량:**
-- Spring Boot 기반 백엔드 시스템 설계 및 개발
-- PostgreSQL/MSSQL을 포함한 데이터베이스 최적화
-- ERP/MES 연동 및 시스템 통합 경험
-- 성능 최적화를 통한 응답시간 개선 (응답시간 30% 이상 단축 경험)
+- Sencha Ext JS + Java 기반 ERP·MES 시스템 개발 및 유지보수
+- C# .NET Core 기반 모바일 백엔드 API 개발
+- MSSQL 저장프로시저 작성 및 쿼리 최적화 (일부 시스템은 PostgreSQL 병행)
+- ERP/MES 연동 및 시스템 통합 경험 (더존 ERP 연동)
 - 타임아웃 재시도 메커니즘 등 안정성 강화 기술 적용
 
 ---
@@ -49,7 +50,9 @@ tags: []
 **근무 기간:** 2024년 07월 ~ 현재 (약 1년 2개월)
 
 ###### 주요 책임 사항
-- 신진SM, IPACK, I-Frog 등 대규모 ERP 시스템 개발 및 유지보수
+- 신진SM(MES), IPACK(ERP 근태) 개발 및 유지보수
+- I-Frog, 데이터 바우처 모바일 백엔드 API 개발
+- 동방푸드·세한MT ERP 기술지원
 - 데이터베이스 설계 및 쿼리 최적화를 통한 성능 개선
 - 버그 분석 및 시스템 안정성 강화
 - 배포 및 운영 환경 관리
@@ -81,9 +84,11 @@ tags: []
   - 장부 재고와 실제 재고 100% 일치 달성 계획
 
 **기술 스택:**
-- Backend: Spring Boot, Java
-- Database: PostgreSQL, SQL 쿼리 최적화
-- ERP 연동: 더존 ERP API, Java 연동 코드
+- Frontend: Sencha Ext JS
+- Backend: Java
+- Database: MSSQL (저장프로시저, 쿼리 최적화)
+- ERP 연동: 더존 ERP 연동
+- POP (기술지원): C# WPF
 
 **성과:**
 - 포장 중복 문제의 기술적 근본 원인 분석 완료
@@ -113,8 +118,9 @@ tags: []
   - 데이터 정상 등록 프로세스 확인 및 문서화
 
 **기술 스택:**
-- Backend: Spring Boot, Java, SQL/PL-SQL
-- Database: PostgreSQL
+- Frontend: Sencha Ext JS
+- Backend: Java
+- Database: MSSQL (저장프로시저)
 - 시스템 연동: BioStar 근태기 데이터 연동
 
 **성과:**
@@ -124,10 +130,10 @@ tags: []
 
 ---
 
-##### 3. I-Frog POS 시스템 - FCM 알림 및 성능 최적화 (2026년 6월 진행중)
+##### 3. I-Frog 모바일 백엔드 - FCM 알림 및 성능 최적화 (2026년 6월 진행중)
 
 **프로젝트 개요**
-- 식품/외식업 POS 시스템의 실시간 주문 알림 기능 강화 및 성능 최적화
+- 모바일 앱 백엔드 API 개발. 실시간 알림 기능 강화 및 성능 최적화
 
 **담당 역할**
 - **FCM(Firebase Cloud Messaging) 알림 시스템 구현**
@@ -143,15 +149,15 @@ tags: []
   - 캐싱 전략 구현
 
 - **환경별 설정 및 배포 가이드 작성**
-  - 3가지 환경(개발/스테이징/운영)별 yml 완전 예제 작성
-  - Docker/Kubernetes 배포 프로세스 정의
+  - 3가지 환경(개발/스테이징/운영)별 설정 분리 및 예제 작성
+  - Env 파일 다형성 구현
   - 보안 설정 및 환경변수 관리
 
 **기술 스택:**
-- Backend: Spring Boot, Java
-- Database: PostgreSQL, Connection Pool (HikariCP)
+- Backend: C# .NET Core
+- Database: MSSQL, PostgreSQL (통합서버)
 - 메시징: Firebase Cloud Messaging (FCM)
-- DevOps: Docker, Kubernetes, NginX 라우팅
+- 인프라: NginX 라우팅
 
 **성과:**
 - FCM 기본 기능 개발 완료
@@ -201,31 +207,27 @@ tags: []
 
 #### 💻 기술 스택 및 역량
 
-##### Backend Framework & Language
-- **Spring Boot:** 프로젝트 구성, 의존성 관리, 자동 설정
-- **Java:** 객체지향 설계, 디자인패턴, Exception 처리
-- **SQL/PL-SQL:** 저장프로시저, 트리거, 쿼리 최적화
+##### Backend Language & Framework
+- **Java:** ERP·MES 백엔드 개발. 객체지향 설계, Exception 처리
+- **C# .NET Core:** 모바일 백엔드 API 개발
+- **C# WPF:** POP 화면 기술지원
+- **T-SQL:** 저장프로시저 작성 및 쿼리 최적화
+
+##### Frontend
+- **Sencha Ext JS:** ERP·MES 화면 개발 (그리드, 콤보, 조회 조건 등)
 
 ##### Database
-- **PostgreSQL:** 
-  - 기본 CRUD 및 복잡한 쿼리 작성
-  - 인덱스 설계 및 성능 분석
-  - 연동 시스템 데이터 동기화
-  
-- **MSSQL:** 
-  - 레거시 시스템 마이그레이션 경험
+- **MSSQL:** (주력)
   - 저장프로시저 및 뷰 작성
-  - 데이터 변환 및 검증
+  - 인덱스 설계 및 쿼리 성능 분석
+  - 연동 시스템 데이터 동기화 및 검증
 
-##### ORM & Query Tools
-- **Mybatis:** 동적 SQL, 복잡한 쿼리 매핑
-- **Spring Data JPA:** 기본적인 repository 사용
-- **Native Query:** 성능 최적화를 위한 직접 SQL 작성
+- **PostgreSQL:**
+  - I-Frog 통합서버 운영 DB
+  - 기본 CRUD 및 쿼리 작성
 
-##### DevOps & Infrastructure
-- **Docker:** 컨테이너 이미지 빌드 및 배포
-- **Kubernetes:** 기본 개념 및 배포 가이드 작성
-- **NginX:** 포트 라우팅 설정 및 로드 밸런싱
+##### Infrastructure
+- **NginX:** 포트 라우팅 설정
 
 ##### 메시징 & 알림
 - **Firebase Cloud Messaging (FCM):** 푸시 알림 서버 연동

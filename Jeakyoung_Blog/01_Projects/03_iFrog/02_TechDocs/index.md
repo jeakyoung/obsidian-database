@@ -1,9 +1,9 @@
 ---
-title: I-Frog POS - 기술 문서
+title: I-Frog - 기술 문서
 date: 2026-09-16
 ---
 
-# I-Frog POS - 기술 문서
+# I-Frog - 기술 문서
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 

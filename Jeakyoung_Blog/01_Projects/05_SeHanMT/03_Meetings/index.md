@@ -1,9 +1,9 @@
 ---
-title: 세한MT POP - 회의록
+title: 세한MT - 회의록
 date: 2026-09-16
 ---
 
-# 세한MT POP - 회의록
+# 세한MT - 회의록
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 

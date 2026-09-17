@@ -1,9 +1,9 @@
 ---
-title: 세한MT POP - 작업 목록
+title: 세한MT - 작업 목록
 date: 2026-09-16
 ---
 
-# 세한MT POP - 작업 목록
+# 세한MT - 작업 목록
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 

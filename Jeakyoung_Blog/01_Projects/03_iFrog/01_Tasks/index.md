@@ -1,9 +1,9 @@
 ---
-title: I-Frog POS - 작업 목록
+title: I-Frog - 작업 목록
 date: 2026-09-16
 ---
 
-# I-Frog POS - 작업 목록
+# I-Frog - 작업 목록
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 

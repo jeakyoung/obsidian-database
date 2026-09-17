@@ -5,7 +5,17 @@ title: 신진SM ERP · MES
 
 # 신진SM ERP · MES
 
-Spring Boot 기반 ERP/MES 통합 시스템 개발 및 성능 최적화 프로젝트
+MES 개발 담당. ERP 연동 및 POP 기술지원.
+
+## 기술 스택
+
+| 항목 | 내용 |
+|:--|:--|
+| **담당 업무** | MES 개발 (POP 는 기술지원만) |
+| **프론트엔드** | Sencha Ext JS |
+| **백엔드** | Java |
+| **데이터베이스** | MSSQL |
+| **POP (기술지원)** | C# WPF |
 
 ## 문서 분류
 

@@ -1,12 +1,12 @@
 ---
-title: 포트폴리오 - 안재경 Spring Boot 백엔드 개발자
+title: 포트폴리오 - 안재경 (백엔드 개발)
 date: 2026-06-11
 type: 경력문서
 status: 진행중
 tags: []
 ---
 
-# 포트폴리오 - 안재경 Spring Boot 백엔드 개발자
+# 포트폴리오 - 안재경 (백엔드 개발)
 
 ## 📋 개요
 
@@ -23,9 +23,10 @@ tags: []
 ### 포트폴리오
 
 **이름:** 안재경  
-**직무:** Spring Boot 백엔드 개발  
+**수행 업무:** ERP·MES 백엔드 (Java), 모바일 백엔드 API (C# .NET Core)  
+**희망 직무:** Spring Boot 백엔드 개발  
 **경력:** 약 [경력]개월  
-**주요 기술:** Spring Boot, Java, PostgreSQL, Mybatis
+**주요 기술:** Java, C# .NET Core, Sencha Ext JS, MSSQL, PostgreSQL
 
 ---
 
@@ -45,8 +46,8 @@ F1soft에서 약 [경력]개월간 **3개의 대규모 ERP 시스템**과 **1개
 | **기간** | 2026년 4월 ~ 진행중 |
 | **팀 구성** | 개발팀 4명 (Backend 2, Frontend 1, DevOps 1) |
 | **담당 역할** | Backend 개발, DB 최적화 리드 |
-| **기술 스택** | Spring Boot, Java, PostgreSQL, SQL 최적화 |
-| **성과** | 응답시간 30% 이상 개선, 포장 중복 문제 해결 |
+| **기술 스택** | Sencha Ext JS, Java, MSSQL, 더존 ERP 연동 |
+| **성과** | 포장 중복 문제 해결, 응답시간 30% 개선 목표 (진행중) |
 
 ##### 🎯 프로젝트 배경
 
@@ -93,85 +94,24 @@ WHERE p.status = 'PENDING';
 - 응답시간: 약 5초 → 1.5초 (70% 단축)
 
 **인덱스 재설계:**
-```sql
--- 기존: 단순 PRIMARY KEY만 존재
--- 추가: 자주 조회하는 컬럼에 인덱스 추가
+조회 조건으로 자주 쓰이는 컬럼에 인덱스를 추가하고 실행계획을 확인했습니다.
+상세 내역은 [[[완료] 성능최적화 및 로깅]] 참고.
 
-ALTER TABLE packing 
-ADD INDEX idx_status (status);
+**캐싱 메커니즘:** 자주 조회하는 상태값을 캐싱하도록 구성했습니다.
 
-ALTER TABLE packing_detail 
-ADD INDEX idx_packing_id (packing_id);
-
-ALTER TABLE packing 
-ADD INDEX idx_created_date (created_date DESC);
-```
-
-**캐싱 메커니즘:**
-```java
-// Spring Cache를 이용한 자주 조회하는 데이터 캐싱
-@Cacheable(value = "packingStatus", key = "#status")
-public List<Packing> findByStatus(String status) {
-    return packingRepository.findByStatus(status);
-}
-
-// 캐시 무효화 (새로운 데이터 추가 시)
-@CacheEvict(value = "packingStatus", allEntries = true)
-public void savePacking(Packing packing) {
-    packingRepository.save(packing);
-}
-```
 
 ###### 3단계: 포장 중복 문제 해결
 
 **중복 검증 로직 추가:**
-```java
-@Service
-public class PackingService {
-    
-    // 1. 포장 등록 전 중복 확인
-    public void savePacking(Packing packing) throws DuplicateException {
-        // 동일한 포장이 5분 이내에 등록되었는지 확인
-        Optional<Packing> duplicate = packingRepository
-            .findRecentDuplicate(
-                packing.getProductId(), 
-                packing.getQuantity(), 
-                Duration.ofMinutes(5)
-            );
-        
-        if (duplicate.isPresent()) {
-            throw new DuplicateException("이미 등록된 포장입니다");
-        }
-        
-        packingRepository.save(packing);
-    }
-}
-```
 
-**타임아웃 재시도 메커니즘:**
-```java
-@Service
-public class PackingIntegrationService {
-    
-    // Spring Retry를 이용한 자동 재시도
-    @Retryable(
-        maxAttempts = 3,
-        backoff = @Backoff(delay = 2000)
-    )
-    public void syncWithERP(Packing packing) {
-        // ERP API 호출
-        erpClient.updatePacking(packing);
-    }
-    
-    @Recover
-    public void syncFailed(RetryableException e, Packing packing) {
-        // 재시도 실패 시 처리
-        log.error("Failed to sync packing: {}", packing.getId());
-        // 메시지 큐에 저장하여 나중에 재처리
-        messagingService.enqueue(packing);
-    }
-}
-```
+`SP_WPR559_02_IUD_TEST` 에 `@ISEXISTS_OUT` OUTPUT 파라미터를 추가하고,
+`ProdReportService` / `ProdSLService` 에서 `CallableStatement` 로 전환해
+해당 값을 확인한 뒤 더존 문서 생성을 생략하도록 처리했습니다.
+상세 내역은 [[신진SM - 더존 중복 문서처리 방어]] 참고.
+
+
+**타임아웃 재시도 메커니즘:** ERP 연동 실패 시 재시도하도록 처리했습니다.
+
 
 ##### 📊 성과 및 영향도
 
@@ -214,7 +154,7 @@ public class PackingIntegrationService {
 | **기간** | 2025년 ~ 진행중 |
 | **팀 구성** | 운영팀 1명, 개발팀 2명 |
 | **담당 역할** | Backend 개발, 기능 개선 |
-| **기술 스택** | Spring Boot, Java, PostgreSQL, PL/SQL |
+| **기술 스택** | Sencha Ext JS, Java, MSSQL (저장프로시저) |
 | **성과** | 시간계산 정확도 100%, 민원 0건 |
 
 ##### 🎯 주요 개선 사항
@@ -336,17 +276,17 @@ public class ShiftService {
 
 ---
 
-#### 🏆 Project 3: I-Frog POS 시스템 - 알림 및 성능 개선
+#### 🏆 Project 3: I-Frog 모바일 백엔드 - 알림 및 성능 개선
 
 ##### 📋 프로젝트 개요
 
 | 항목 | 내용 |
 |------|------|
-| **프로젝트명** | I-Frog 식품/외식 POS 시스템 - 알림 강화 |
+| **프로젝트명** | I-Frog 모바일 백엔드 - 알림 강화 |
 | **기간** | 2026년 6월 ~ 진행중 |
 | **팀 구성** | 개발팀 3명 (Backend 2, Frontend 1) |
-| **담당 역할** | Backend 아키텍처 설계, FCM 구현 |
-| **기술 스택** | Spring Boot, Firebase FCM, PostgreSQL |
+| **담당 역할** | 모바일 백엔드 API 개발, FCM 구현 |
+| **기술 스택** | C# .NET Core, Firebase FCM, MSSQL, PostgreSQL (통합서버), NginX |
 
 ##### 🎯 주요 구현 사항
 
@@ -440,118 +380,17 @@ public class NotificationService {
 
 ###### 2. 데이터베이스 최적화
 
-**Connection Pool 설정:**
-```yaml
-spring:
-  datasource:
-    hikari:
-      maximum-pool-size: 20        # 최대 연결 수
-      minimum-idle: 5               # 최소 유휴 연결
-      connection-timeout: 30000     # 연결 타임아웃
-      idle-timeout: 600000          # 유휴 타임아웃
-      auto-commit: true
-```
+**Connection Pool 설정:** 최대 연결 수·유휴 연결·타임아웃 값을 환경별로 조정했습니다.
 
-**테이블 설계 (TGI003):**
-```sql
-CREATE TABLE order (
-    id BIGINT PRIMARY KEY,
-    store_id BIGINT NOT NULL,
-    table_number INT NOT NULL,
-    status VARCHAR(20) NOT NULL,
-    total_price DECIMAL(10, 2),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    -- 인덱스: 자주 조회하는 조건
-    INDEX idx_store_status (store_id, status),
-    INDEX idx_created_at (created_at DESC),
-    
-    FOREIGN KEY (store_id) REFERENCES store(id)
-);
 
-CREATE TABLE order_item (
-    id BIGINT PRIMARY KEY,
-    order_id BIGINT NOT NULL,
-    menu_id BIGINT NOT NULL,
-    quantity INT NOT NULL,
-    price DECIMAL(10, 2),
-    
-    INDEX idx_order_id (order_id),
-    FOREIGN KEY (order_id) REFERENCES order(id) ON DELETE CASCADE
-);
+**테이블 설계 (TGI003):** 조회 조건에 맞춰 정규화하고 인덱스를 설계했습니다.
 
-CREATE TABLE notification_log (
-    id BIGINT PRIMARY KEY,
-    order_id BIGINT NOT NULL,
-    message_id VARCHAR(255),
-    status VARCHAR(20),
-    sent_at TIMESTAMP,
-    
-    INDEX idx_order_id (order_id),
-    INDEX idx_status (status)
-);
-```
 
-###### 3. 환경별 배포 설정
+###### 3. 환경별 설정 분리
 
-**application-dev.yml:**
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/ifrog_dev
-    username: dev_user
-    password: ${DB_PASSWORD_DEV}
-  jpa:
-    hibernate:
-      ddl-auto: update
-
-firebase:
-  credentials-path: ${FIREBASE_CREDS_DEV}
-  
-logging:
-  level:
-    root: DEBUG
-```
-
-**application-prod.yml:**
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://${PROD_DB_HOST}:5432/ifrog_prod
-    username: ${PROD_DB_USER}
-    password: ${PROD_DB_PASSWORD}
-  jpa:
-    hibernate:
-      ddl-auto: validate
-
-firebase:
-  credentials-path: ${FIREBASE_CREDS_PROD}
-  
-logging:
-  level:
-    root: INFO
-    com.f1soft: INFO
-```
-
-**Docker 배포:**
-```dockerfile
-FROM openjdk:17-slim
-
-WORKDIR /app
-
-# JAR 파일 복사
-COPY target/*.jar app.jar
-
-# 환경변수
-ENV SPRING_PROFILES_ACTIVE=prod
-
-# 포트 노출
-EXPOSE 8080
-
-# 실행
-ENTRYPOINT ["java", "-jar", "app.jar"]
-```
+개발 / 스테이징 / 운영 3개 환경의 설정을 분리하고, Env 파일 다형성을 구현했습니다.
+DB 접속 정보와 Firebase 자격증명은 환경변수로 분리해 관리합니다.
+상세 내역은 [[I-FROG Env 파일 다형성 구현]], [[[기술] 환경별 설정 및 배포 가이드]] 참고.
 
 ##### 📚 생성된 기술 문서
 
@@ -746,11 +585,12 @@ main (프로덕션)
 
 | 영역 | 레벨 | 경험 |
 |------|------|------|
-| **Spring Boot** | ⭐⭐⭐⭐⭐ | 3개 대규모 프로젝트 |
-| **SQL 최적화** | ⭐⭐⭐⭐⭐ | 성능 30% 개선 경험 |
-| **Mybatis** | ⭐⭐⭐⭐ | 동적 SQL, 복잡한 쿼리 |
+| **Java** | ⭐⭐⭐⭐⭐ | ERP·MES 백엔드 (신진SM, IPACK 등) |
+| **C# .NET Core** | ⭐⭐⭐⭐ | 모바일 백엔드 API (I-Frog, 데이터 바우처) |
+| **SQL 최적화** | ⭐⭐⭐⭐⭐ | MSSQL 저장프로시저, 인덱스·실행계획 분석 |
+| **Sencha Ext JS** | ⭐⭐⭐⭐ | ERP·MES 화면 개발 |
 | **시스템 설계** | ⭐⭐⭐⭐ | 아키텍처 설계 경험 |
-| **DevOps** | ⭐⭐⭐ | Docker, Kubernetes 기본 |
+| **Spring Boot** | ⭐⭐ | 개인 학습 프로젝트(NoNAME) 수준 |
 | **Git Flow** | ⭐⭐⭐⭐ | 팀 협업 표준 정의 |
 
 ---
@@ -760,9 +600,7 @@ main (프로덕션)
 **GitHub:** [링크 입력 필요]
 
 주요 저장소:
-- `ifrog-notification-system`: FCM 알림 시스템
-- `noname-backend`: 개인 학습 프로젝트
-- `spring-boot-best-practices`: Spring Boot 최적화 가이드
+- [저장소 입력 필요]
 
 ---
 
