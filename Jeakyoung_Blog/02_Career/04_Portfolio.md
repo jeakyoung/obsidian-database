@@ -410,7 +410,7 @@ DB 접속 정보와 Firebase 자격증명은 환경변수로 분리해 관리합
 | **특성** | 개인 학습 프로젝트 (회사와 무관) |
 | **목표** | Spring Boot 심화 및 시스템 아키텍처 이해 |
 | **기간** | 2026년 진행중 |
-| **기술 스택** | Turborepo 모노레포 · Spring Boot 3 + Next.js 15 + React Native(Expo) · Mybatis, PostgreSQL |
+| **기술 스택** | Turborepo 모노레포 · Spring Boot 3 + Next.js 15 + React Native(Expo) · MyBatis, PostgreSQL(Neon), Flyway, pgvector |
 
 ##### 🎯 학습 내용
 

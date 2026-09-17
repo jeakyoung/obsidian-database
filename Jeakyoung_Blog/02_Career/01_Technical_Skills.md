@@ -196,8 +196,10 @@ tags: []
 - Mobile FE: React Native (Expo ~54, Expo Router v6) (`apps/mobile`)
 - 상태 관리: TanStack Query (서버 상태), Zustand (클라이언트 전역 상태)
 - 공유 타입: `packages/types`
-- ORM: Mybatis (SQL 매퍼)
-- Database: PostgreSQL
+- Database: PostgreSQL (Neon 서버리스), HikariCP 커넥션 풀
+- ORM: MyBatis (XML 매퍼)
+- 마이그레이션: Flyway
+- 벡터 검색: pgvector + OpenAI text-embedding-3-small (1536차원)
 - 버전관리: Git Flow, GitHub
 
 **학습 성과:**
