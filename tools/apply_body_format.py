@@ -119,6 +119,21 @@ def code_mask(lines):
     return mask
 
 
+def squash_ws(s):
+    """줄 구조는 유지한 채, 줄 안의 연속 공백과 표 구분선 길이만 지운다.
+
+    Obsidian 의 표 정렬 기능은 셀 안쪽을 공백으로 채우고 구분선 대시를
+    칸 너비만큼 늘린다. 렌더링 결과는 같으므로 이 차이로는 파일을 다시 쓰지 않는다.
+    """
+    out = []
+    for l in s.split("\n"):
+        l = re.sub(r"[ \t]+", " ", l).rstrip()
+        if re.match(r"^\|[ :\-|]+\|$", l):        # 표 구분선
+            l = re.sub(r"-+", "-", l).replace(" ", "")
+        out.append(l)
+    return "\n".join(out).strip()
+
+
 def squash(s):
     return re.sub(r"\s+", "", s).strip().lower()
 
@@ -267,7 +282,9 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
             new_body = build(title, spec, fm, legacy)
 
         new = fmblock.rstrip("\n") + "\n\n" + new_body
-        if new != raw:
+        # Obsidian 의 표 정렬(셀 안쪽 공백 채우기)과 서로 되돌리지 않도록,
+        # 공백만 다르면 그대로 둔다. 렌더링 결과는 어차피 같다.
+        if squash_ws(new) != squash_ws(raw):
             changed.append(rel)
             if APPLY:
                 io.open(full, "w", encoding="utf-8", newline="\n").write(new)
