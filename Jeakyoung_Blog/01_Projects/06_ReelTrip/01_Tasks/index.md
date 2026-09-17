@@ -38,7 +38,7 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (7)
+## 문서 목록 (8)
 
 - [[NoName 04-09 회의]]
 - [[NoName 시행방식]]
@@ -47,5 +47,6 @@ date: 2026-09-16
 - [[RT DB 테이블 구조]]
 - [[RT 모바일 apk 빌드방식]]
 - [[Rt 서비스 구동 방식]]
+- [[초대 에러 메시지 분기 처리]]
 
 <!-- AUTO-INDEX:END -->

@@ -47,4 +47,5 @@ AI/LLM 기반 학습 프로젝트 (구 NoName). Turborepo 모노레포로 구성
 ## 문서 분류
 
 - [[01_Projects/06_ReelTrip/01_Tasks|작업 목록]] - 서비스 구동, DB 아키텍처, 회의 기록
-- [[01_Projects/06_ReelTrip/03_TechDocs|기술 문서]] - GitHub 협업, DB 최적화, 환경 구성 가이드
+- [[01_Projects/06_ReelTrip/02_Docs|프로젝트 문서]] - 프로젝트 개요
+- [[01_Projects/06_ReelTrip/03_TechDocs|기술 문서]] - GitHub 협업, DB 최적화, 환경 구성 가이드, API 인증 흐름
