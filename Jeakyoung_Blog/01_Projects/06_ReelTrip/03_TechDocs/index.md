@@ -38,12 +38,13 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (8)
+## 문서 목록 (9)
 
 - [\[기술\] RT Database 관점의 Backend 아키텍처](<[기술] RT Database 관점의 Backend 아키텍처.md>)
 - [\[기술\] Web API 클라이언트 토큰 재발급 흐름](<[기술] Web API 클라이언트 토큰 재발급 흐름.md>)
 - [\[기술\] 개발 환경 구성 및 협업 가이드](<[기술] 개발 환경 구성 및 협업 가이드.md>)
 - [\[기술\] 데이터베이스 최적화 종합 가이드](<[기술] 데이터베이스 최적화 종합 가이드.md>)
+- [\[기술\] 리프레시 토큰 회전 구조](<[기술] 리프레시 토큰 회전 구조.md>)
 - [\[기술\] 모노레포 기반 설정](<[기술] 모노레포 기반 설정.md>)
 - [[NoName GitHub 협업 세팅]]
 - [[NoName LLM 토큰 최적화]]
