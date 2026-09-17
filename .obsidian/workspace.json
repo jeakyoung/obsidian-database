@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 09.15 업무 미팅.md",
+                "file": "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT 생산지시량 수정.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "신진SM 09.15 업무 미팅"
+              "title": "세한MT 생산지시량 수정"
             }
           }
         ]
@@ -187,11 +187,11 @@
                   "version": 1,
                   "openTabs": [
                     {
-                      "tabId": "tab-1781080473880-xerm0y2",
-                      "conversationId": "conv-1788154896732-8uly50u1u"
+                      "tabId": "tab-1789603810061-pmr3ne7",
+                      "conversationId": "conv-1789603892598-w9wd2y7pr"
                     }
                   ],
-                  "activeTabId": "tab-1781080473880-xerm0y2"
+                  "activeTabId": "tab-1789603810061-pmr3ne7"
                 }
               },
               "icon": "bot",
@@ -199,11 +199,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 357.5
+    "width": 399.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -221,6 +221,23 @@
   },
   "active": "0f973d73d3a2e2a1",
   "lastOpenFiles": [
+    "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT 소스 형상 관리 방식.md",
+    "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT POP 통합테스트 증적.md",
+    "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT POP 수정사항.md",
+    "Jeakyoung_Blog/01_Projects/08_NPP/03_Meetings/뉴파워 프라즈마 09.17 회의.md",
+    "Jeakyoung_Blog/01_Projects/08_NPP/03_Meetings/뉴파워 프라즈마 09.10 회의.md",
+    "Jeakyoung_Blog/01_Projects/08_NPP/03_Meetings/뉴파워 프리즈마 09.16 회의.md",
+    "_templates/_문서 양식 명세.md.tmp.25684.4afe07d2c4d4",
+    "tools/build_format_docs.py.tmp.25684.fa1fa4d1972e",
+    "quartz.custom.scss.tmp.25684.3cd5580543a9",
+    "tools/apply_body_format.py.tmp.25684.23c45da0e409",
+    "tools/apply_body_format.py.tmp.25684.716a1753a0ff",
+    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 09.15 업무 미팅.md",
+    "tools/apply_body_format.py.tmp.25684.c9da4e28d70e",
+    "quartz.custom.scss.tmp.25684.3c5689c3c478",
+    "tools/build_format_docs.py.tmp.25684.e41b81588c40",
+    "_templates/참고자료 (04_References).md.tmp.25684.a8bc1d2e1a25",
+    "_templates/기술문서 (02_TechDocs).md.tmp.25684.6b932434c4a8",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 시스템 설정 원복 쿼리.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM ERP 기말 재고 오류.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM MES 품목 정보 조치 방안.md",
@@ -230,29 +247,16 @@
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 05.19 업무 미팅.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 04.28 업무 미팅.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 06.05 업무 미팅.md",
-    "tools/__pycache__/apply_body_format.cpython-312.pyc",
-    "tools/__pycache__",
-    "tools/apply_body_format.py",
     "_templates/_문서 양식 명세.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 05.06 업무 미팅.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 도면가공 체계 MES 동기화 작업.md",
     "Jeakyoung_Blog/01_Projects/02_IPACK/02_TechDocs/근태_1기본개념/[참고] BioStar 근태기 코드정보.md",
     "Jeakyoung_Blog/01_Projects/02_IPACK/02_TechDocs/근태_1기본개념/[참고] IPACK 근태 구분 공통코드.md",
-    "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT POP 수정사항.md",
-    "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT 소스 형상 관리 방식.md",
     "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT 생산지시량 수정.md",
     "Jeakyoung_Blog/01_Projects/05_SeHanMT/03_Meetings/세한MT 감리 준비 현장방문 04-21.md",
     "Jeakyoung_Blog/03_Learning/References/index.md",
-    "Jeakyoung_Blog/01_Projects/08_NPP/03_Meetings/뉴파워 프리즈마 09.16 내부 회의.md",
-    "tools/build_format_docs.py",
     "_templates/참고자료 (04_References).md",
     "_templates/기술문서 (02_TechDocs).md",
-    "_templates/회의록 (03_Meetings).md",
-    "_templates/작업 (01_Tasks).md",
-    "_templates",
-    "tools/apply_schema.py.tmp.17172.7266697db011",
-    "tools/apply_schema.py",
-    "Jeakyoung_Blog/README.md.tmp.17172.5e8a157a57cd",
     "Jeakyoung_Blog/resources/Pasted image 20260915104409.png",
     "Jeakyoung_Blog/resources/Pasted image 20260910140131.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133935.png",
@@ -263,10 +267,6 @@
     "Jeakyoung_Blog/resources/Pasted image 20260831133440.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133424.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133323.png",
-    "Jeakyoung_Blog/resources",
-    "Notion/01_Projects/index.md.tmp.17172.da6ecad1d42d",
-    "Jeakyoung_Blog/03_Learning/DevOps/기술참고/index.md",
-    "Jeakyoung_Blog/03_Learning/Backend/Database/index.md",
     "무제 1.canvas",
     "무제.canvas"
   ]

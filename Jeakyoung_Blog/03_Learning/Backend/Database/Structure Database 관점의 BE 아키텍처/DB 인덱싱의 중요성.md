@@ -6,16 +6,30 @@ status: 진행중
 tags: []
 ---
 
+# DB 인덱싱의 중요성
+
+## 📋 개요
+
+| 항목 | 내용 |
+|:--|:--|
+| **분류** | — |
+| **관련 기술** | — |
+| **정리일** | 2026-06-10 |
+
+## 🧩 핵심 개념
+
+## 📖 상세 내용
+
 ---
 
-# Index — DB 조회 성능을 높이는 색인 구조
+### Index — DB 조회 성능을 높이는 색인 구조
 
 > 두꺼운 책에서 원하는 내용을 찾을 때, 처음부터 한 장씩 넘기지 않고 **목차(인덱스)**를 먼저 봅니다.
 DB Index도 마찬가지입니다. 수백만 rows에서 원하는 데이터를 빠르게 찾도록 도와주는 **색인**입니다.
 
 ---
 
-## 1. Index란 무엇인가
+#### 1. Index란 무엇인가
 
 Index는 특정 컬럼의 값과 그 값이 저장된 위치(row)를 미리 정렬해서 따로 저장해둔 구조입니다. Index는 DB 내부에서 **B-Tree(균형 트리)** 자료구조로 구현되며, 정렬된 트리에서 값을 찾으므로 탐색 시간이 `O(log N)`으로 매우 빠릅니다.
 
@@ -38,7 +52,7 @@ space_id 인덱스: [1→row1, 2→row4, 3→row2, 5→row3, ...]  ← 정렬된
 
 ---
 
-## 2. Index 없을 때 vs 있을 때 — 탐색 방식 비교
+#### 2. Index 없을 때 vs 있을 때 — 탐색 방식 비교
 
 | 구분 | 방식 | 10만 rows에서 탐색 |
 | --- | --- | --- |
@@ -49,7 +63,7 @@ space_id 인덱스: [1→row1, 2→row4, 3→row2, 5→row3, ...]  ← 정렬된
 
 ---
 
-## 3. Index를 생성하는 방법
+#### 3. Index를 생성하는 방법
 
 기본 Index 생성:
 
@@ -91,7 +105,7 @@ WHERE tablename = 'events';
 
 ---
 
-## 4. 어떤 컬럼에 Index를 걸어야 하는가
+#### 4. 어떤 컬럼에 Index를 걸어야 하는가
 
 Index가 효과적인 컬럼:
 
@@ -123,9 +137,9 @@ Index가 효과 없거나 역효과인 컬럼:
 
 ---
 
-## 5. Index의 종류
+#### 5. Index의 종류
 
-### 단일 Index vs 복합 Index
+##### 단일 Index vs 복합 Index
 
 ```sql
 -- 단일 Index
@@ -143,7 +157,7 @@ WHERE space_id = 1 AND start_date > '2026-01-01'     -- 활용됨
 WHERE start_date > '2026-01-01'                      -- 활용 안 됨
 ```
 
-### Partial Index — 조건부 Index
+##### Partial Index — 조건부 Index
 
 자주 조회하는 특정 조건의 데이터만 Index를 만들어 크기를 줄일 수 있습니다.
 
@@ -155,7 +169,7 @@ WHERE status = 'pending';
 
 ---
 
-## 6. Index의 단점 — 무조건 많이 걸면 안 되는 이유
+#### 6. Index의 단점 — 무조건 많이 걸면 안 되는 이유
 
 Index는 **읽기(SELECT) 성능을 높이지만, 쓰기(INSERT/UPDATE/DELETE) 성능을 낮춥니다.**
 
@@ -179,7 +193,7 @@ INSERT row 1개 발생 시:
 
 ---
 
-## 7. 이 프로젝트에서 Index를 걸어야 할 곳
+#### 7. 이 프로젝트에서 Index를 걸어야 할 곳
 
 ```sql
 -- events 테이블
@@ -202,7 +216,7 @@ CREATE INDEX idx_noti_unread  ON notifications(user_id) WHERE is_read = FALSE;  
 
 ---
 
-## 8. EXPLAIN으로 Index 활용 여부 확인하기
+#### 8. EXPLAIN으로 Index 활용 여부 확인하기
 
 ```sql
 EXPLAIN SELECT * FROM events WHERE space_id = 1;
@@ -229,9 +243,9 @@ Index Scan using idx_events_space_id on events  (cost=0.43..8.45 rows=10)
 
 ---
 
-## 9. 자주 하는 실수
+#### 9. 자주 하는 실수
 
-### ① 컬럼에 함수를 씌우면 Index를 못 씀
+##### ① 컬럼에 함수를 씌우면 Index를 못 씀
 
 ```sql
 -- ❌ TO_CHAR()로 감싸면 Index 미사용, Seq Scan 발생
@@ -242,7 +256,7 @@ WHERE start_date >= '2026-05-01'
   AND start_date < '2026-06-01'
 ```
 
-### ② LIKE 검색에서 앞에 와일드카드 사용
+##### ② LIKE 검색에서 앞에 와일드카드 사용
 
 ```sql
 -- ❌ 앞에 % 붙이면 Index 못 씀
@@ -252,7 +266,7 @@ WHERE title LIKE '%여행%'
 WHERE title LIKE '서울%'
 ```
 
-### ③ 카디널리티 낮은 컬럼에 단독 Index
+##### ③ 카디널리티 낮은 컬럼에 단독 Index
 
 ```sql
 -- ❌ TRUE/FALSE 2가지뿐 → Index 효과 거의 없음
@@ -263,3 +277,7 @@ CREATE INDEX idx_noti_unread ON notifications(user_id) WHERE is_read = FALSE;
 ```
 
 ---
+
+## 💡 정리 및 활용
+
+## 🔗 참고

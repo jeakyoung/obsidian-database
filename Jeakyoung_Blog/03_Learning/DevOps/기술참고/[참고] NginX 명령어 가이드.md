@@ -6,22 +6,36 @@ status: 진행중
 tags: []
 ---
 
-# NginX 명령어 가이드
+# NginX 서버 관리 명령어 가이드
+
+## 📋 개요
+
+| 항목 | 내용 |
+|:--|:--|
+| **분류** | — |
+| **관련 기술** | — |
+| **정리일** | 2026-06-11 |
+
+## 🧩 핵심 개념
+
+## 📖 상세 내용
+
+### NginX 명령어 가이드
 
 NginX 웹 서버의 관리, 설정, 디버깅을 위한 필수 명령어 모음
 
 ---
 
-## 🔧 1. 서비스 관리 명령어
+#### 🔧 1. 서비스 관리 명령어
 
-### 상태 확인
+##### 상태 확인
 ```bash
 sudo systemctl status nginx
 ```
 - nginx 서비스 현재 상태 확인
 - 실행 중/중지 상태 파악
 
-### 시작/중지/재시작
+##### 시작/중지/재시작
 ```bash
 # 시작
 sudo systemctl start nginx
@@ -33,7 +47,7 @@ sudo systemctl stop nginx
 sudo systemctl restart nginx
 ```
 
-### 설정 재적용 (다운타임 없음)
+##### 설정 재적용 (다운타임 없음)
 ```bash
 # systemctl 사용 (권장)
 sudo systemctl reload nginx
@@ -46,7 +60,7 @@ sudo nginx -s reload
 - `restart`: 완전히 종료 후 재시작 (잠깐 다운타임 있음)
 - `reload`: 설정만 다시 로드 (다운타임 없음)
 
-### 프로세스 확인
+##### 프로세스 확인
 ```bash
 ps -ef | grep nginx
 ```
@@ -59,9 +73,9 @@ www-data 1235  0.0  0.2  25000  8000 ?  S   10:00  0:01 nginx: worker process
 
 ---
 
-## 📋 2. 설정 검사 및 디버깅
+#### 📋 2. 설정 검사 및 디버깅
 
-### 설정 문법 검사
+##### 설정 문법 검사
 ```bash
 sudo nginx -t
 ```
@@ -77,7 +91,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 nginx: [emerg] duplicate upstream "backend" in /etc/nginx/nginx.conf:50
 ```
 
-### 설정 파일 위치 확인
+##### 설정 파일 위치 확인
 ```bash
 nginx -T
 ```
@@ -86,9 +100,9 @@ nginx -T
 
 ---
 
-## 📊 3. 로그 확인
+#### 📊 3. 로그 확인
 
-### Access 로그 실시간 확인
+##### Access 로그 실시간 확인
 ```bash
 tail -f /var/log/nginx/access.log
 ```
@@ -105,7 +119,7 @@ tail -f /var/log/nginx/access.log
 - 상태코드: 200
 - 응답 크기: 512 bytes
 
-### Error 로그 실시간 확인
+##### Error 로그 실시간 확인
 ```bash
 tail -f /var/log/nginx/error.log
 ```
@@ -115,7 +129,7 @@ tail -f /var/log/nginx/error.log
 2026/06/11 10:30:45 [error] 1234#0: *5 connect() failed (111: Connection refused)
 ```
 
-### 최근 N줄 로그 확인
+##### 최근 N줄 로그 확인
 ```bash
 # 최근 100줄
 tail -n 100 /var/log/nginx/error.log
@@ -124,14 +138,14 @@ tail -n 100 /var/log/nginx/error.log
 tail -n 50 /var/log/nginx/access.log
 ```
 
-### 로그 파일 크기 확인
+##### 로그 파일 크기 확인
 ```bash
 ls -lh /var/log/nginx/
 ```
 
 ---
 
-## 🗂️ 4. 설정 파일 위치 (Ubuntu)
+#### 🗂️ 4. 설정 파일 위치 (Ubuntu)
 
 | 항목 | 경로 | 설명 |
 |------|------|------|
@@ -145,9 +159,9 @@ ls -lh /var/log/nginx/
 
 ---
 
-## 💡 5. 실제 운영 플로우 (권장)
+#### 💡 5. 실제 운영 플로우 (권장)
 
-### 설정 변경 시
+##### 설정 변경 시
 ```bash
 # 1단계: 설정 파일 수정
 sudo nano /etc/nginx/sites-available/mysite
@@ -162,7 +176,7 @@ sudo systemctl reload nginx
 tail -f /var/log/nginx/access.log
 ```
 
-### 문제 발생 시
+##### 문제 발생 시
 ```bash
 # 1단계: 에러 로그 확인
 tail -f /var/log/nginx/error.log
@@ -179,9 +193,9 @@ sudo systemctl restart nginx
 
 ---
 
-## 🔍 6. 트러블슈팅
+#### 🔍 6. 트러블슈팅
 	
-### 문제: "Address already in use"
+##### 문제: "Address already in use"
 ```
 nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
 ```
@@ -199,7 +213,7 @@ sudo kill -9 [PID]
 sudo systemctl start nginx
 ```
 
-### 문제: "Permission denied"
+##### 문제: "Permission denied"
 ```
 nginx: [emerg] open() "/var/log/nginx/error.log" failed (13: Permission denied)
 ```
@@ -214,7 +228,7 @@ sudo chmod -R 755 /var/log/nginx
 sudo systemctl restart nginx
 ```
 
-### 문제: 설정 파일이 많아서 어디서 에러가 나는지 모를 때
+##### 문제: 설정 파일이 많아서 어디서 에러가 나는지 모를 때
 ```bash
 # 전체 설정 출력 (모든 include 파일 포함)
 sudo nginx -T | grep -A5 "error" 
@@ -225,7 +239,7 @@ sudo nginx -T | grep "server_name"
 
 ---
 
-## 📌 자주 사용하는 명령어 (Top 5)
+#### 📌 자주 사용하는 명령어 (Top 5)
 
 ```bash
 # 1. 상태 확인
@@ -246,7 +260,7 @@ ps -ef | grep nginx
 
 ---
 
-## 📚 참고
+#### 📚 참고
 
 - **Ubuntu 버전에 따라 경로가 다를 수 있음**
 - **권한 부족 시 `sudo` 필수**
@@ -265,3 +279,7 @@ ps -ef | grep nginx
 nohup dotnet F1Soft.Starmap.Service.dll --urls "http://localhost:30110" --serviceName data_boucher > data_boucher_prd.log 2>&1 &
 
 nohup dotnet F1Soft.Starmap.Service.dll --urls "http://localhost:30110" --serviceName data_boucher > data_boucher_dev.log 2>&1 &
+
+## 💡 정리 및 활용
+
+## 🔗 참고

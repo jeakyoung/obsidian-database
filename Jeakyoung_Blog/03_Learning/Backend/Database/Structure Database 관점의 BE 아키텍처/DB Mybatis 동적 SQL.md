@@ -6,16 +6,30 @@ status: 진행중
 tags: []
 ---
 
+# DB Mybatis 동적 SQL
+
+## 📋 개요
+
+| 항목 | 내용 |
+|:--|:--|
+| **분류** | — |
+| **관련 기술** | — |
+| **정리일** | 2026-06-10 |
+
+## 🧩 핵심 개념
+
+## 📖 상세 내용
+
 ---
 
-# MyBatis 동적 SQL — `<if>`, `<foreach>` 태그로 조건부 쿼리 작성하기
+### MyBatis 동적 SQL — `<if>`, `<foreach>` 태그로 조건부 쿼리 작성하기
 
 > 실무에서는 검색 조건이 있을 수도 있고 없을 수도 있습니다.
 동적 SQL은 이런 상황에서 **조건에 따라 SQL을 유연하게 조합**하는 기술입니다.
 
 ---
 
-## 1. 동적 SQL이 왜 필요한가
+#### 1. 동적 SQL이 왜 필요한가
 
 예를 들어 일정 목록 조회 API가 있다고 합시다. 프론트에서는 다음과 같이 다양한 조합으로 요청을 보낼 수 있습니다.
 
@@ -30,7 +44,7 @@ GET /api/events?spaceId=1&month=2026-05&status=confirmed
 
 ---
 
-## 2. `<if>` — 조건이 있을 때만 SQL 추가하기
+#### 2. `<if>` — 조건이 있을 때만 SQL 추가하기
 
 `<if test="...">` 안의 조건이 참일 때만 해당 SQL 조각이 붙습니다.
 
@@ -63,7 +77,7 @@ List<Event> findEvents(
 
 ---
 
-## 3. `<where>` — AND 중복/누락 문제 자동 해결
+#### 3. `<where>` — AND 중복/누락 문제 자동 해결
 
 `<if>`만 쓰면 모든 조건이 null일 때 `WHERE` 뒤에 아무것도 없어서 문법 오류가 납니다. 또 첫 번째 조건에 `AND`를 붙이면 `WHERE AND ...` 처럼 이상한 SQL이 됩니다. `<where>` 태그가 이 두 가지를 자동으로 해결합니다.
 
@@ -103,7 +117,7 @@ List<Event> findEvents(
 
 ---
 
-## 4. `<foreach>` — IN 절에 여러 값 넣기
+#### 4. `<foreach>` — IN 절에 여러 값 넣기
 
 여러 개의 ID를 한 번에 조회할 때 `IN (1, 2, 3)` 형태의 SQL이 필요합니다. Java 리스트를 `<foreach>`로 SQL IN 절에 변환할 수 있습니다.
 
@@ -142,7 +156,7 @@ SELECT id, title, start_date FROM events WHERE id IN (1, 2, 3)
 
 ---
 
-## 5. `<choose>` — if-else처럼 분기 처리
+#### 5. `<choose>` — if-else처럼 분기 처리
 
 여러 조건 중 **하나만** 적용하고 싶을 때 사용합니다. Java의 `if - else if - else`와 동일한 구조입니다.
 
@@ -167,7 +181,7 @@ SELECT id, title, start_date FROM events WHERE id IN (1, 2, 3)
 
 ---
 
-## 6. `<set>` — UPDATE할 때 동적으로 컬럼 지정
+#### 6. `<set>` — UPDATE할 때 동적으로 컬럼 지정
 
 UPDATE 시 변경된 컬럼만 골라서 업데이트할 때 사용합니다. `<where>`와 마찬가지로 마지막 콤마(`,`)를 자동으로 제거해줍니다.
 
@@ -194,7 +208,7 @@ UPDATE 시 변경된 컬럼만 골라서 업데이트할 때 사용합니다. `<
 
 ---
 
-## 7. 실무 예시 — 복합 검색 쿼리
+#### 7. 실무 예시 — 복합 검색 쿼리
 
 실제로 검색 기능을 만들 때 위 태그들을 조합해서 사용합니다.
 
@@ -229,9 +243,9 @@ UPDATE 시 변경된 컬럼만 골라서 업데이트할 때 사용합니다. `<
 
 ---
 
-## 8. 자주 하는 실수
+#### 8. 자주 하는 실수
 
-### ① 문자열 비교 시 null 체크 누락
+##### ① 문자열 비교 시 null 체크 누락
 
 ```xml
 <!-- ❌ status가 null이면 NullPointerException 발생 -->
@@ -241,7 +255,7 @@ UPDATE 시 변경된 컬럼만 골라서 업데이트할 때 사용합니다. `<
 <if test="status != null and status == 'confirmed'">
 ```
 
-### ② `<foreach>` collection 이름이 @Param과 다를 때
+##### ② `<foreach>` collection 이름이 @Param과 다를 때
 
 ```java
 List<Event> findByIds(@Param("ids") List<Long> ids);
@@ -257,7 +271,7 @@ List<Event> findByIds(@Param("ids") List<Long> ids);
 
 ---
 
-## 핵심 요약
+#### 핵심 요약
 
 | 태그 | 역할 | 사용 상황 |
 | --- | --- | --- |
@@ -268,3 +282,7 @@ List<Event> findByIds(@Param("ids") List<Long> ids);
 | `<set>` | UPDATE 컬럼 동적 지정 | 변경된 필드만 UPDATE |
 
 ---
+
+## 💡 정리 및 활용
+
+## 🔗 참고

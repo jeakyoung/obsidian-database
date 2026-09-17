@@ -7,13 +7,27 @@ tags: []
 팀: []
 ---
 
-# DB 관점의 백엔드 아키텍처
+# RT Database 관점의 BE 아키텍처 (1)
+
+## 📋 개요
+
+| 항목 | 내용 |
+|:--|:--|
+| **분류** | — |
+| **관련 기술** | — |
+| **정리일** | 2026-06-10 |
+
+## 🧩 핵심 개념
+
+## 📖 상세 내용
+
+### DB 관점의 백엔드 아키텍처
 
 ---
 
-## 1. DB 연결은 어떻게 이루어지는가
+#### 1. DB 연결은 어떻게 이루어지는가
 
-### DataSourceConfig.java — 백엔드와 DB를 연결하는 설정 파일
+##### DataSourceConfig.java — 백엔드와 DB를 연결하는 설정 파일
 
 백엔드 서버가 시작될 때 가장 먼저 하는 일 중 하나가 **DB에 접속하는 것**입니다.
 사람으로 치면 "어느 회사 어느 부서에 출근할지" 알아야 일을 시작할 수 있는 것과 같습니다.
@@ -31,7 +45,7 @@ DB 접속 정보(URL, 비밀번호)를 코드에 직접 쓰면 GitHub에 올렸�
 그래서 `.env` 파일이나 서버 환경변수에 저장하고, 코드에서는 그 값을 읽어오는 방식을 사용합니다.
 이것은 실무에서 **절대 지켜야 하는 보안 규칙**입니다.
 
-### Connection Pool 이란?
+##### Connection Pool 이란?
 
 DB 연결을 맺고 끊는 작업은 비용이 큽니다. 요청이 올 때마다 연결을 새로 만들면 성능이 떨어집니다.
 그래서 미리 여러 개의 연결을 만들어두고 돌려쓰는 방식을 **Connection Pool**이라고 합니다.
@@ -45,7 +59,7 @@ DB 연결을 맺고 끊는 작업은 비용이 큽니다. 요청이 올 때마�
 
 ---
 
-## 2. SQL이 실행되기까지의 흐름
+#### 2. SQL이 실행되기까지의 흐름
 
 예시 요청: `GET /api/events?spaceId=1&month=2026-05`
 
@@ -65,11 +79,11 @@ Controller.java
 
 ---
 
-## 3. MyBatis가 하는 일 — Mapper 인터페이스 vs XML
+#### 3. MyBatis가 하는 일 — Mapper 인터페이스 vs XML
 
 이 프로젝트는 **MyBatis**라는 라이브러리를 사용해 Java 코드와 SQL을 연결합니다.
 
-### Mapper 인터페이스 — `EventMapper.java`
+##### Mapper 인터페이스 — `EventMapper.java`
 
 **"이런 DB 조회 함수가 있다"고 선언만 하는 파일입니다.**
 함수 이름과 파라미터만 정의하고, 실제 SQL은 작성하지 않습니다.
@@ -87,7 +101,7 @@ public interface EventMapper {
 > `@Mapper` 어노테이션이 붙으면 MyBatis가 이 인터페이스를 자동으로 구현체로 만들어줍니다.
 개발자가 직접 구현 클래스를 만들 필요가 없습니다.
 
-### Mapper XML — `EventMapper.xml`
+##### Mapper XML — `EventMapper.xml`
 
 **실제 SQL이 작성되는 파일입니다.**
 인터페이스의 함수 이름과 XML의 `id`가 **정확히 일치**해야 연결됩니다.
@@ -116,7 +130,7 @@ public interface EventMapper {
 
 ---
 
-## 4. resultMap 이란 무엇인가
+#### 4. resultMap 이란 무엇인가
 
 DB와 Java는 변수명 규칙이 다릅니다.
 
@@ -146,7 +160,7 @@ DB와 Java는 변수명 규칙이 다릅니다.
 > `<id>`는 Primary Key 컬럼에 사용하고, `<result>`는 일반 컬럼에 사용합니다.
 PK를 `<id>`로 명시하면 MyBatis가 캐싱 등을 최적화할 때 활용합니다.
 
-### resultMap 없이도 되는 경우
+##### resultMap 없이도 되는 경우
 
 MyBatis 설정에서 `map-underscore-to-camel-case: true`를 켜두면
 `snake_case → camelCase` 변환을 자동으로 해줍니다.
@@ -154,7 +168,7 @@ MyBatis 설정에서 `map-underscore-to-camel-case: true`를 켜두면
 
 ---
 
-## 5. DB에서 데이터를 꺼내 프론트까지 전달되는 전체 과정
+#### 5. DB에서 데이터를 꺼내 프론트까지 전달되는 전체 과정
 
 데이터가 DB에서 시작해서 프론트 화면에 표시되기까지, 총 **3번의 객체 변환**이 일어납니다.
 
@@ -169,7 +183,7 @@ PostgreSQL
   JSON 응답                          ← 프론트가 받는 최종 형태
 ```
 
-### 왜 Event와 EventResponse를 굳이 분리하나요?
+##### 왜 Event와 EventResponse를 굳이 분리하나요?
 
 `Event` 객체는 DB 테이블 구조를 그대로 반영합니다.
 하지만 프론트에 보낼 때는 DB의 내부 필드를 모두 노출하면 안 되는 경우가 있습니다.
@@ -189,9 +203,9 @@ Event (DB 모델)          EventResponse (응답 모델)
 
 ---
 
-## 6. 자주 하는 실수와 주의할 점
+#### 6. 자주 하는 실수와 주의할 점
 
-### ① Mapper 함수명과 XML id가 다를 때
+##### ① Mapper 함수명과 XML id가 다를 때
 
 ```java
 // EventMapper.java
@@ -205,7 +219,7 @@ MyBatis는 함수명과 XML `id`를 연결하므로 **철자 하나까지 정확
 
 ---
 
-### ② `#{}` 안의 파라미터명이 `@Param`과 다를 때
+##### ② `#{}` 안의 파라미터명이 `@Param`과 다를 때
 
 ```java
 // EventMapper.java
@@ -225,7 +239,7 @@ WHERE space_id = #{id}        // ❌ @Param("spaceId") 인데 #{id} 쓰면 null
 
 ---
 
-### ③ resultMap을 안 쓰고 snake_case 컬럼을 그냥 받으면
+##### ③ resultMap을 안 쓰고 snake_case 컬럼을 그냥 받으면
 
 ```java
 // Event.java
@@ -239,7 +253,7 @@ event.getSpaceId();     // → null (DB에서 space_id로 오는데 매핑 안 �
 
 ---
 
-### ④ DB에 없는 컬럼을 FE에서 쓰려고 할 때
+##### ④ DB에 없는 컬럼을 FE에서 쓰려고 할 때
 
 이 프로젝트에서 실제로 발생한 이슈들입니다.
 
@@ -254,7 +268,7 @@ FE에서 특정 필드가 계속 null이거나 `-`로 뜬다면 DB 컬럼부터 
 
 ---
 
-## ✅ 핵심 요약
+#### ✅ 핵심 요약
 
 | 개념 | 한 줄 요약 |
 | --- | --- |
@@ -269,7 +283,7 @@ FE에서 특정 필드가 계속 null이거나 `-`로 뜬다면 DB 컬럼부터 
 
 ---
 
-## 참고 문서
+#### 참고 문서
 
 [[Notion/정보 저장소/RT Database 관점의 BE 아키텍처 (1)/RT DB 테이블 구조 (1)]]
 
@@ -282,3 +296,7 @@ FE에서 특정 필드가 계속 null이거나 `-`로 뜬다면 DB 컬럼부터 
 [[Notion/정보 저장소/RT Database 관점의 BE 아키텍처 (1)/DB 인덱싱의 중요성]]
 
 [[Notion/정보 저장소/RT Database 관점의 BE 아키텍처 (1)/BE PreparedStatement란]]
+
+## 💡 정리 및 활용
+
+## 🔗 참고

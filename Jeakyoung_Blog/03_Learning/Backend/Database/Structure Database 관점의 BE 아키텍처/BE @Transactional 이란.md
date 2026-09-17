@@ -6,9 +6,23 @@ status: 진행중
 tags: []
 ---
 
+# BE @Transactional 이란
+
+## 📋 개요
+
+| 항목 | 내용 |
+|:--|:--|
+| **분류** | — |
+| **관련 기술** | — |
+| **정리일** | 2026-06-10 |
+
+## 🧩 핵심 개념
+
+## 📖 상세 내용
+
 ---
 
-# @Transactional — 여러 DB 작업을 하나의 단위로 묶는 트랜잭션 처리
+### @Transactional — 여러 DB 작업을 하나의 단위로 묶는 트랜잭션 처리
 
 > "계좌 이체"를 생각해보세요.
 A 계좌에서 돈을 빼고, B 계좌에 돈을 넣는 두 작업이 있습니다.
@@ -17,7 +31,7 @@ A 계좌에서 돈을 빼고, B 계좌에 돈을 넣는 두 작업이 있습니�
 
 ---
 
-## 1. 트랜잭션이란 무엇인가
+#### 1. 트랜잭션이란 무엇인가
 
 트랜잭션(Transaction)은 **하나의 논리적 작업 단위**입니다. 여러 개의 DB 작업이 묶여서, 전부 성공하면 반영(Commit)하고 하나라도 실패하면 전부 되돌립니다(Rollback).
 
@@ -33,7 +47,7 @@ A 계좌에서 돈을 빼고, B 계좌에 돈을 넣는 두 작업이 있습니�
 
 ---
 
-## 2. ACID 원칙 — 트랜잭션의 4가지 보장
+#### 2. ACID 원칙 — 트랜잭션의 4가지 보장
 
 | 원칙 | 이름 | 설명 |
 | --- | --- | --- |
@@ -46,7 +60,7 @@ A 계좌에서 돈을 빼고, B 계좌에 돈을 넣는 두 작업이 있습니�
 
 ---
 
-## 3. Spring에서 @Transactional 사용하기
+#### 3. Spring에서 @Transactional 사용하기
 
 `@Transactional`은 Service 메서드에 붙입니다. 붙이면 해당 메서드 안의 모든 DB 작업이 하나의 트랜잭션으로 묶입니다.
 
@@ -76,7 +90,7 @@ public class EventServiceImpl {
 
 ---
 
-## 4. 커밋(Commit)과 롤백(Rollback)
+#### 4. 커밋(Commit)과 롤백(Rollback)
 
 정상 흐름:
 
@@ -98,7 +112,7 @@ public class EventServiceImpl {
 → 자동 롤백 (작업 1, 2 모두 취소)
 ```
 
-### 롤백이 되는 예외 vs 안 되는 예외
+##### 롤백이 되는 예외 vs 안 되는 예외
 
 기본적으로 **RuntimeException** (Unchecked Exception)이 발생해야 자동 롤백됩니다.
 
@@ -117,9 +131,9 @@ public void createEvent(...) { ... }
 
 ---
 
-## 5. @Transactional 주요 옵션
+#### 5. @Transactional 주요 옵션
 
-### readOnly — 읽기 전용 트랜잭션
+##### readOnly — 읽기 전용 트랜잭션
 
 ```java
 @Transactional(readOnly = true)
@@ -132,7 +146,7 @@ public List<EventResponse> findBySpace(Long spaceId) {
 > `readOnly = true`를 붙이면 DB가 쓰기 잠금을 걸지 않아 **성능이 향상**됩니다.
 데이터를 조회만 하는 메서드에는 항상 붙이는 것이 좋습니다.
 
-### propagation — 트랜잭션 전파 방식
+##### propagation — 트랜잭션 전파 방식
 
 이미 트랜잭션이 실행 중인데 또 다른 `@Transactional` 메서드를 호출하면 어떻게 될까요?
 
@@ -157,9 +171,9 @@ public void sendNotification(Event event, Long userId) {
 
 ---
 
-## 6. 트랜잭션이 적용되지 않는 함정
+#### 6. 트랜잭션이 적용되지 않는 함정
 
-### ① 같은 클래스 내부 호출 (Self-Invocation)
+##### ① 같은 클래스 내부 호출 (Self-Invocation)
 
 `@Transactional`은 Spring이 프록시(Proxy)로 처리합니다. 같은 클래스 안에서 `this.`로 직접 호출하면 프록시를 거치지 않아 트랜잭션이 적용되지 않습니다.
 
@@ -181,7 +195,7 @@ public class EventService {
 
 해결: 별도 Service 클래스로 분리하거나, ApplicationContext에서 Bean을 꺼내서 호출합니다.
 
-### ② private 메서드에 붙일 때
+##### ② private 메서드에 붙일 때
 
 ```java
 @Transactional  // ❌ private 메서드엔 트랜잭션 적용 안 됨
@@ -192,7 +206,7 @@ private void saveEvent(Event event) {
 
 `@Transactional`은 `public` 메서드에만 적용됩니다.
 
-### ③ Controller에 붙일 때
+##### ③ Controller에 붙일 때
 
 ```java
 @RestController
@@ -208,7 +222,7 @@ public class EventController {
 
 ---
 
-## 7. 실무 예시 — 스페이스 생성 + 멤버 자동 추가
+#### 7. 실무 예시 — 스페이스 생성 + 멤버 자동 추가
 
 팀 스페이스를 만들 때 생성자를 자동으로 멤버로 등록해야 합니다. 두 INSERT가 반드시 함께 성공하거나 함께 실패해야 합니다.
 
@@ -241,7 +255,7 @@ public TeamSpaceResponse createTeamSpace(TeamSpaceRequest req, String username) 
 
 ---
 
-## 8. 자주 하는 실수 — 오류 발생 시 직접 catch 해버리기
+#### 8. 자주 하는 실수 — 오류 발생 시 직접 catch 해버리기
 
 ```java
 @Transactional
@@ -264,3 +278,7 @@ public void createEvent(...) {
 ```
 
 ---
+
+## 💡 정리 및 활용
+
+## 🔗 참고

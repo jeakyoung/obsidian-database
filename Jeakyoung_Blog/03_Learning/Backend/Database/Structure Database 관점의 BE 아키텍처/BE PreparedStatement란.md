@@ -6,9 +6,23 @@ status: 진행중
 tags: []
 ---
 
+# BE PreparedStatement란
+
+## 📋 개요
+
+| 항목 | 내용 |
+|:--|:--|
+| **분류** | — |
+| **관련 기술** | — |
+| **정리일** | 2026-06-10 |
+
+## 🧩 핵심 개념
+
+## 📖 상세 내용
+
 ---
 
-# PreparedStatement — SQL Injection을 막는 쿼리 실행 방식
+### PreparedStatement — SQL Injection을 막는 쿼리 실행 방식
 
 > SQL Injection은 공격자가 악의적인 SQL을 입력해 DB를 마음대로 조작하는 공격입니다.
 실제 서비스에서 발생하면 전체 데이터가 유출되거나 삭제될 수 있는 **치명적인 보안 취약점**입니다.
@@ -16,7 +30,7 @@ PreparedStatement는 이를 원천 차단하는 기술입니다.
 
 ---
 
-## 1. SQL Injection이란 무엇인가
+#### 1. SQL Injection이란 무엇인가
 
 사용자가 입력한 값이 SQL 쿼리에 **직접 문자열로 삽입**될 때 발생하는 보안 취약점입니다. 공격자가 입력값에 SQL 문법을 섞어 넣어 원래 의도와 다른 쿼리가 실행되도록 만듭니다.
 
@@ -30,9 +44,9 @@ OWASP(국제 웹 보안 기구)가 발표하는 **웹 보안 취약점 Top 10에
 
 ---
 
-## 2. SQL Injection 공격 예시
+#### 2. SQL Injection 공격 예시
 
-### 로그인 우회 공격
+##### 로그인 우회 공격
 
 취약한 코드 — 입력값을 그대로 SQL에 삽입:
 
@@ -54,7 +68,7 @@ SELECT * FROM users WHERE username = '' OR '1'='1' --' AND password = '...'
 -- -- 이후는 주석 처리되어 password 조건 무시됨
 ```
 
-### 데이터 삭제 공격
+##### 데이터 삭제 공격
 
 공격자가 검색창에 `'; DROP TABLE users; --` 를 입력하면:
 
@@ -63,7 +77,7 @@ SELECT * FROM events WHERE title = ''; DROP TABLE users; --'
 -- users 테이블 전체 삭제!
 ```
 
-### 데이터 전체 유출 공격
+##### 데이터 전체 유출 공격
 
 ```sql
 SELECT id, title FROM events WHERE space_id = 1 UNION SELECT id, password FROM users --
@@ -72,7 +86,7 @@ SELECT id, title FROM events WHERE space_id = 1 UNION SELECT id, password FROM u
 
 ---
 
-## 3. PreparedStatement란 무엇인가
+#### 3. PreparedStatement란 무엇인가
 
 PreparedStatement는 SQL의 **구조(틀)와 데이터(값)를 분리해서 실행**하는 방식입니다.
 
@@ -102,7 +116,7 @@ PreparedStatement (안전):
 
 ---
 
-## 4. PreparedStatement가 SQL Injection을 막는 원리
+#### 4. PreparedStatement가 SQL Injection을 막는 원리
 
 공격자가 `' OR '1'='1' --` 를 입력해도 막히는 이유:
 
@@ -121,7 +135,7 @@ SQL 구조가 이미 확정된 뒤에 값이 바인딩되므로 **어떤 입력�
 
 ---
 
-## 5. MyBatis에서 `#{}` vs `${}` — 실무 적용
+#### 5. MyBatis에서 `#{}` vs `${}` — 실무 적용
 
 | 구분 | 방식 | SQL Injection |
 | --- | --- | --- |
@@ -167,7 +181,7 @@ SELECT id, username, email FROM users WHERE username = '' OR '1'='1' --'
 
 ---
 
-## 6. 실제로 위험한 `${}` 사용 사례
+#### 6. 실제로 위험한 `${}` 사용 사례
 
 검색 기능에서 잘못 사용:
 
@@ -207,7 +221,7 @@ WHERE title LIKE #{keyword}
 
 ---
 
-## 7. `${}` 를 써야만 하는 경우와 안전하게 쓰는 법
+#### 7. `${}` 를 써야만 하는 경우와 안전하게 쓰는 법
 
 `${}` 가 필요한 경우는 **테이블명이나 컬럼명을 동적으로 지정**할 때입니다. PreparedStatement는 값만 파라미터로 바인딩할 수 있고, 테이블명/컬럼명은 바인딩이 불가합니다.
 
@@ -241,9 +255,9 @@ public List<EventResponse> findEventsSorted(String sortColumn, String sortDirect
 
 ---
 
-## 8. 자주 하는 실수
+#### 8. 자주 하는 실수
 
-### ① `${}` 로 검색어 받기
+##### ① `${}` 로 검색어 받기
 
 ```xml
 <!-- 가장 흔한 실수 -->
@@ -253,7 +267,7 @@ WHERE title LIKE '%${keyword}%'
 WHERE title LIKE '%' || #{keyword} || '%'
 ```
 
-### ② LIKE에 특수문자 이스케이프 안 하기
+##### ② LIKE에 특수문자 이스케이프 안 하기
 
 사용자가 `%`나 `_`를 검색어로 입력하면 LIKE 패턴으로 해석됩니다.
 
@@ -265,7 +279,7 @@ String safeKeyword = keyword
     .replace("_", "\\_");
 ```
 
-### ③ `#{}` 쓸 때 따옴표를 직접 추가하는 실수
+##### ③ `#{}` 쓸 때 따옴표를 직접 추가하는 실수
 
 `#{}` 는 값 타입에 따라 따옴표를 자동으로 처리합니다. 직접 추가하면 오류가 납니다.
 
@@ -278,3 +292,7 @@ WHERE username = #{username}
 ```
 
 ---
+
+## 💡 정리 및 활용
+
+## 🔗 참고

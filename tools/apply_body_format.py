@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """Reshape every note body to the shared 5-step document format.
 
-See `_templates/_문서 양식 명세.md`. Existing content is never deleted: its
-headings are demoted so they nest under the step that owns legacy content.
+See `_templates/_문서 양식 명세.md`. Every note outside index.md gets the
+skeleton, whatever folder it sits in. Existing content is never deleted: its
+headings are demoted so they nest under the step that owns legacy content,
+even when that content does not really match the step. Notes with no body end
+up as an empty skeleton.
 
 Idempotent. Also migrates notes written against an earlier revision of the
 spec (plain `## 1. 개요` headings) to the current one instead of re-wrapping.
@@ -40,10 +43,38 @@ SPEC = {
         "landing": 3,
         "meta": [("용도", ""), ("대상 시스템", ""), ("최종 확인일", "@date")],
     },
+    "학습자료": {
+        "steps": ["📋 개요", "🧩 핵심 개념", "📖 상세 내용", "💡 정리 및 활용", "🔗 참고"],
+        "plain": ["개요", "핵심 개념", "상세 내용", "정리 및 활용", "참고"],
+        "landing": 3,
+        "meta": [("분류", "@category"), ("관련 기술", ""), ("정리일", "@date")],
+    },
+    "경력문서": {
+        "steps": ["📋 개요", "🧭 경력 요약", "🛠 주요 수행 내용", "🏆 성과 및 역량", "🔗 참고"],
+        "plain": ["개요", "경력 요약", "주요 수행 내용", "성과 및 역량", "참고"],
+        "landing": 3,
+        "meta": [("작성일", "@date"), ("소속·역할", ""), ("주요 기술", "")],
+    },
+    "프로젝트문서": {
+        "steps": ["📋 개요", "🎯 목표 및 범위", "🏗 진행 내용", "✅ 결과 및 회고", "🔗 참고"],
+        "plain": ["개요", "목표 및 범위", "진행 내용", "결과 및 회고", "참고"],
+        "landing": 3,
+        "meta": [("프로젝트", "@project"), ("기간", "@date"), ("역할", ""), ("기술 스택", "")],
+    },
 }
 
+# 유형 판정은 (1) 디렉토리 이름 (2) frontmatter 의 type 순서로 본다.
+# 디렉토리를 먼저 보는 이유: 유형 전용 폴더 안에서는 폴더가 정답이고,
+# frontmatter 가 어긋난 문서를 폴더 유형으로 흡수해야 문서 간 비교가 유지된다.
 DIRT = {"01_Tasks": "작업", "02_TechDocs": "기술문서", "03_TechDocs": "기술문서",
         "03_Meetings": "회의록", "04_References": "참고자료"}
+
+# 유형 전용 폴더 밖(02_Career, 03_Learning, 99_UNI 등)의 문서는 이 표로 가른다.
+FM_TYPE = {"작업": "작업", "기술문서": "기술문서", "회의록": "회의록", "참고자료": "참고자료",
+           "학습자료": "학습자료", "경력문서": "경력문서", "프로젝트문서": "프로젝트문서"}
+
+# 위 어느 쪽에도 걸리지 않으면 이 유형으로 처리하고 실행 로그에 따로 찍는다.
+FALLBACK = "참고자료"
 
 FENCE = re.compile(r"^(\s*)(```|~~~)")
 HEADING = re.compile(r"^(#{1,6})(\s+)(.*)$")
@@ -88,12 +119,23 @@ def code_mask(lines):
     return mask
 
 
-def strip_leading_h1(body):
+def squash(s):
+    return re.sub(r"\s+", "", s).strip().lower()
+
+
+def strip_leading_h1(body, title):
+    """Drop the opening H1 only when it merely repeats the document title.
+
+    The generated skeleton always starts with `# {title}`, so an identical H1
+    would be a duplicate. An H1 that says something else is real content, so it
+    is left alone and gets demoted with the rest of the legacy body instead.
+    """
     lines = body.split("\n")
     for i, ln in enumerate(lines):
         if not ln.strip():
             continue
-        if re.match(r"^#\s+\S", ln):
+        m = re.match(r"^#\s+(\S.*)$", ln)
+        if m and squash(m.group(1)) == squash(title):
             return "\n".join(lines[i + 1:]).lstrip("\n")
         return body
     return body
@@ -195,37 +237,46 @@ def build(title, spec, fm, legacy):
     return "\n".join(parts).rstrip() + "\n"
 
 
-changed, migrated = [], 0
+changed, migrated, guessed = [], 0, []
 for dirpath, dirnames, filenames in os.walk(ROOT):
     dirnames[:] = [d for d in dirnames if d not in (".obsidian", "resources")]
     parts = os.path.relpath(dirpath, ROOT).replace(os.sep, "/").split("/")
-    dtype = next((DIRT[p] for p in parts if p in DIRT), None)
-    if not dtype:
-        continue
-    spec = SPEC[dtype]
+    dirtype = next((DIRT[p] for p in parts if p in DIRT), None)
     for fn in sorted(filenames):
+        # index.md 는 폴더 안내 페이지라 5단계 골격을 씌우지 않는다
         if not fn.endswith(".md") or fn in ("index.md", "README.md"):
             continue
         full = os.path.join(dirpath, fn)
+        rel = os.path.relpath(full, ROOT).replace(os.sep, "/")
         raw = io.open(full, encoding="utf-8").read()
         fmblock, fm, body = split_fm(raw)
         title = fm_get(fm, "title") or fn[:-3]
+
+        dtype = dirtype or FM_TYPE.get(fm_get(fm, "type"))
+        if not dtype:
+            dtype = FALLBACK
+            guessed.append(rel)
+        spec = SPEC[dtype]
 
         body2 = migrate_headings(body, spec)
         if is_formatted(body2, spec):
             new_body = rebuild_meta(body2, spec, fm).strip() + "\n"
             migrated += 1
         else:
-            legacy = shift_headings(strip_leading_h1(body.strip()).strip())
+            legacy = shift_headings(strip_leading_h1(body.strip(), title).strip())
             new_body = build(title, spec, fm, legacy)
 
         new = fmblock.rstrip("\n") + "\n\n" + new_body
         if new != raw:
-            changed.append(os.path.relpath(full, ROOT).replace(os.sep, "/"))
+            changed.append(rel)
             if APPLY:
                 io.open(full, "w", encoding="utf-8", newline="\n").write(new)
 
 print("본문 양식 적용: %d건 변경 (기존 양식 인식 %d건, apply=%s)" % (len(changed), migrated, APPLY))
+if guessed:
+    print("유형 불명 %d건 -> '%s' 로 처리:" % (len(guessed), FALLBACK))
+    for g in guessed:
+        print("   ", g)
 if "--show" in sys.argv:
     for c in changed:
         print("   ", c)

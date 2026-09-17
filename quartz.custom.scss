@@ -1,0 +1,300 @@
+// Quartz 커스텀 스타일 (문서 양식 v2 전용)
+//
+// 배포 시 .github/workflows/deploy.yml 이 이 파일을
+// quartz-build/quartz/styles/custom.scss 로 덮어쓴다.
+// 그래서 첫 줄의 `@use "./base.scss";` 는 반드시 남겨 두어야 한다.
+// (Quartz 의 모든 기본 스타일이 이 import 로 들어온다.)
+//
+// 색은 전부 quartz.config.ts 의 테마 변수(--light, --lightgray, --gray,
+// --darkgray, --dark, --secondary, --tertiary, --highlight)로만 쓴다.
+// 그래야 라이트/다크 모드가 자동으로 함께 맞는다.
+
+@use "./base.scss";
+@use "./variables.scss" as *;
+
+/* ------------------------------------------------------------------
+   0. 디자인 토큰
+------------------------------------------------------------------ */
+
+:root {
+  --doc-radius: 10px;
+  --doc-accent: var(--secondary);
+  --doc-border: var(--lightgray);
+  --doc-surface: #f3f1f1; // 표 머리글·메타 칸·인용문 배경
+  --doc-code-bg: #f7f5f5;
+}
+
+[saved-theme="dark"] {
+  --doc-surface: #1e1e21;
+  --doc-code-bg: #1b1b1e;
+}
+
+/* ------------------------------------------------------------------
+   1. 문서 제목
+
+   본문은 `# 제목` 으로 시작하지만 Quartz 는 frontmatter 의 title 을
+   이미 .article-title 로 출력한다. 그대로 두면 제목이 두 번 보이므로
+   본문 최상단 H1 만 숨긴다. (Obsidian·GitHub 에서는 그대로 보인다.)
+------------------------------------------------------------------ */
+
+article > h1:first-child {
+  display: none;
+}
+
+.article-title {
+  margin: 2rem 0 0.25rem 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+/* ------------------------------------------------------------------
+   2. 5단계 골격 (H2) 과 세부 구분 (H3 이하)
+------------------------------------------------------------------ */
+
+article > h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--doc-border);
+  font-size: 1.28rem;
+  letter-spacing: -0.02em;
+}
+
+// 첫 단계(개요)는 제목 바로 아래라 위 여백을 줄인다
+article > h2:first-of-type {
+  margin-top: 1.5rem;
+}
+
+article > h3 {
+  margin-top: 1.9rem;
+  margin-bottom: 0.6rem;
+  padding-left: 0.6rem;
+  border-left: 3px solid var(--doc-accent);
+  font-size: 1.06rem;
+  line-height: 1.4;
+}
+
+// H4~H6 는 기본값이 전부 1rem 이라 구분이 안 된다.
+// 기존 문서를 골격 안으로 밀어 넣으면 원래 H1~H3 이 여기까지 내려오므로
+// 단계별로 크기·색을 조금씩 낮춰 깊이가 보이게 한다.
+article > h4 {
+  margin: 1.4rem 0 0.4rem;
+  color: var(--darkgray);
+  font-size: 0.99rem;
+}
+
+article > h5 {
+  margin: 1.2rem 0 0.35rem;
+  color: var(--darkgray);
+  font-size: 0.93rem;
+  opacity: 0.92;
+}
+
+article > h6 {
+  margin: 1rem 0 0.3rem;
+  color: var(--gray);
+  font-size: 0.89rem;
+}
+
+// 빈 단계가 연달아 오면 여백만 남아 허전해 보이므로 간격을 좁힌다
+article > h2 + h2 {
+  margin-top: 1.6rem;
+}
+
+/* ------------------------------------------------------------------
+   3. 표 — 개요 메타 표 / 변경 대상 표 / 후속 조치 표
+------------------------------------------------------------------ */
+
+.table-container {
+  margin: 1.1rem 0 1.6rem;
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-radius);
+  overflow-x: auto; // 넓은 표는 가로 스크롤. 둥근 모서리 클리핑도 여기서 걸린다.
+
+  & > table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 0.92rem;
+    border-collapse: collapse;
+
+    & > * {
+      line-height: 1.6rem;
+    }
+  }
+}
+
+th {
+  padding: 0.55rem 0.9rem;
+  background: var(--doc-surface);
+  border-bottom: 1px solid var(--doc-border);
+  color: var(--darkgray);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+td {
+  padding: 0.5rem 0.9rem;
+  vertical-align: top;
+}
+
+tbody > tr {
+  border-bottom: 1px solid var(--doc-border);
+  transition: background-color 0.15s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: var(--highlight);
+  }
+}
+
+// 개요 메타 표: 항목 이름을 `**굵게**` 로 쓰므로 그 칸만 라벨처럼 보이게 한다
+td:first-child:has(> strong:only-child) {
+  width: 1%;
+  white-space: nowrap;
+  background: var(--doc-surface);
+  color: var(--darkgray);
+
+  & > strong {
+    font-weight: 600;
+  }
+}
+
+/* ------------------------------------------------------------------
+   4. 인용문 (한 줄 요약) · 콜아웃
+------------------------------------------------------------------ */
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1rem;
+  border-left: 3px solid var(--doc-accent);
+  border-radius: 0 var(--doc-radius) var(--doc-radius) 0;
+  background: var(--doc-surface);
+  color: var(--darkgray);
+
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.callout {
+  border-radius: var(--doc-radius);
+  margin: 1.2rem 0;
+}
+
+/* ------------------------------------------------------------------
+   5. 코드 · 쿼리
+------------------------------------------------------------------ */
+
+code {
+  padding: 0.1rem 0.32rem;
+  border: 1px solid var(--doc-border);
+  border-radius: 4px;
+  background: var(--doc-code-bg);
+  font-size: 0.86em;
+}
+
+pre {
+  margin: 1.1rem 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--doc-radius);
+  background: var(--doc-code-bg);
+
+  & > code {
+    border: none;
+    background: none;
+    padding: 0.6rem 0;
+  }
+}
+
+figure[data-rehype-pretty-code-figure] {
+  margin: 1.1rem 0;
+}
+
+/* ------------------------------------------------------------------
+   6. 목록 · 체크박스 (검증 항목)
+------------------------------------------------------------------ */
+
+article li {
+  margin: 0.2rem 0;
+}
+
+article li:has(> input[type="checkbox"]) {
+  list-style: none;
+}
+
+// 완료된 검증 항목은 흐리게
+article li:has(> input[type="checkbox"]:checked) {
+  color: var(--gray);
+}
+
+/* ------------------------------------------------------------------
+   7. 태그 · 이미지 · 구분선
+------------------------------------------------------------------ */
+
+.tags > li > a.tag-link {
+  border-radius: 999px;
+  padding: 0.16rem 0.7rem;
+  font-size: 0.82rem;
+  background: var(--doc-surface);
+  border: 1px solid var(--doc-border);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover {
+    background: var(--highlight);
+    border-color: var(--doc-accent);
+  }
+}
+
+article img {
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-radius);
+  margin: 1.1rem 0;
+}
+
+article hr {
+  margin: 2.2rem 0;
+  border-color: var(--doc-border);
+}
+
+/* ------------------------------------------------------------------
+   8. 폴더 index 페이지 — 문서 목록을 카드 느낌의 행으로
+------------------------------------------------------------------ */
+
+article > ul > li > a.internal {
+  background-color: transparent;
+}
+
+/* ------------------------------------------------------------------
+   9. 모바일
+------------------------------------------------------------------ */
+
+@media all and ($mobile) {
+  .article-title {
+    font-size: 1.5rem;
+  }
+
+  article > h2 {
+    font-size: 1.15rem;
+    margin-top: 2rem;
+  }
+
+  .table-container > table {
+    font-size: 0.86rem;
+  }
+
+  td:first-child:has(> strong:only-child) {
+    white-space: normal;
+  }
+}

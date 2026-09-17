@@ -7,6 +7,21 @@ status: 진행중
 tags: []
 ---
 
+# SchlSrchData
+
+## 📋 개요
+
+| 항목 | 내용 |
+|:--|:--|
+| **프로젝트** | 대학프로젝트 |
+| **기간** | 2026-06-10 |
+| **역할** | — |
+| **기술 스택** | — |
+
+## 🎯 목표 및 범위
+
+## 🏗 진행 내용
+
 ```typescript
 // 대학교명 데이터의 전체 형식을 정의하는 SchlSrchData 인터페이스
 export interface SchlSrchData {
@@ -42,3 +57,7 @@ export interface SchlSrchData {
     return schlsrchdata;
   }
 ```
+
+## ✅ 결과 및 회고
+
+## 🔗 참고

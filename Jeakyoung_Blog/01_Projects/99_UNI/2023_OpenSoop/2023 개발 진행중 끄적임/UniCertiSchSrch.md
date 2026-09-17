@@ -7,6 +7,21 @@ status: 진행중
 tags: []
 ---
 
+# UniCertiSchSrch
+
+## 📋 개요
+
+| 항목 | 내용 |
+|:--|:--|
+| **프로젝트** | 대학프로젝트 |
+| **기간** | 2026-06-10 |
+| **역할** | — |
+| **기술 스택** | — |
+
+## 🎯 목표 및 범위
+
+## 🏗 진행 내용
+
 ```typescript
 import { View, Text } from "react-native";
 import React, { useState } from "react";
@@ -92,3 +107,7 @@ const UniCertiSchSrch: React.FC<ScreenProps> = ({ navigation }) => {
 
 export default UniCertiSchSrch;
 ```
+
+## ✅ 결과 및 회고
+
+## 🔗 참고

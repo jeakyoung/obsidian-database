@@ -8,6 +8,7 @@ on:
       # 블로그 content 폴더 변경 시에만 빌드 트리거
       - "Jeakyoung_Blog/**"
       - "quartz.config.ts"
+      - "quartz.custom.scss"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:  # 수동 트리거 허용
 
@@ -48,6 +49,11 @@ jobs:
       - name: Copy quartz config
         run: |
           cp quartz.config.ts quartz-build/quartz.config.ts
+
+          # 커스텀 스타일. Quartz 는 quartz/styles/custom.scss 하나만 읽으므로
+          # 저장소 루트의 quartz.custom.scss 로 그 파일을 통째로 덮어쓴다.
+          # (파일 첫 줄의 `@use "./base.scss";` 가 기본 스타일을 끌어온다.)
+          cp quartz.custom.scss quartz-build/quartz/styles/custom.scss
 
       - name: Copy vault content to Quartz
         run: |
