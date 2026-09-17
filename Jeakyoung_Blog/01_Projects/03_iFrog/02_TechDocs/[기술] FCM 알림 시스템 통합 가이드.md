@@ -15,433 +15,133 @@ tags: []
 
 | 항목 | 내용 |
 |:--|:--|
-| **대상 시스템** | — |
+| **대상 시스템** | I-Frog 모바일 백엔드 (`F1Soft.Starmap.Service`) |
 | **적용 범위** | 알림시스템 |
-| **관련 모듈** | — |
+| **관련 모듈** | `FirebaseMessagingService`, `TGI001`, `TGI002`, `TGI003` |
 
-> [!warning] 기술 스택 전제가 잘못된 문서
-> 이 문서는 **Spring Boot / JPA·HikariCP / Docker·Kubernetes** 를 전제로 작성되어 있으나,
-> I-Frog 의 실제 스택은 **C# .NET Core + MSSQL · PostgreSQL + NginX** 다.
-> 설정 예시와 코드 조각은 그대로 쓸 수 없으니, 개념 설명 용도로만 참고하고
-> 실제 구현은 별도로 확인해야 한다. 재작성 필요.
 
 ## 🎯 배경 및 요구사항
 
+결재 문서의 상태가 바뀔 때 모바일 앱으로 푸시를 보낸다.
+Android / iOS / WebApp 세 가지를 하나의 Firebase 프로젝트에서 처리한다.
+
 ## 🏗 설계 및 구현
 
-**시스템:** Firebase Cloud Messaging (FCM)  
-**목적:** 실시간 푸시 알림 전송 (주문, 시스템 메시지)  
-**상태:** 완료 및 운영 중  
-**마지막 업데이트:** 2026-06-11
+### 1. 패키지 설치
 
----
-
-### 📋 개요
-
-I-Frog 모바일 백엔드의 핵심 기능인 FCM 알림 시스템을 위한 서버 설정, 기능 개발, 운영 가이드
-
----
-
-### 🔧 FCM 시스템 구성
-
-#### 1️⃣ 서버 세팅
-
-##### 초기 설정 단계
-```
-1. Firebase 프로젝트 생성
-   - Google Firebase Console 접속
-   - 프로젝트 생성 (I-Frog)
-   - 서비스 계정 생성
-   - Private Key 다운로드
-
-2. Spring Boot 통합
-   - firebase-admin-sdk 의존성 추가
-   - 서비스 계정 Key 파일 설정
-   - FirebaseApp 초기화
-
-3. 권한 설정
-   - FCM 토픽 구독 권한
-   - 클라이언트 디바이스 토큰 관리
-```
-
-##### 설정 파일 예시
-```yaml
-# application.yml
-firebase:
-  credentials-path: classpath:firebase-credentials.json
-  project-id: ifrog-project-id
-  database-url: https://ifrog-project-id.firebaseio.com
-```
-
----
-
-#### 2️⃣ 기능 개발
-
-##### A. 디바이스 토큰 관리
-```javascript
-// 클라이언트에서 토큰 등록
-firebase.messaging().getToken().then((token) => {
-  // 서버로 토큰 전송
-  fetch('/api/fcm/register-token', {
-    method: 'POST',
-    body: JSON.stringify({ token: token }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-});
-```
-
-**서버 처리:**
-```java
-@PostMapping("/api/fcm/register-token")
-public void registerToken(@RequestBody TokenRequest request) {
-  // 사용자의 디바이스 토큰 저장
-  deviceTokenRepository.save(
-    new DeviceToken(userId, request.getToken())
-  );
-}
-```
-
-##### B. 메시지 전송
-
-**단일 기기 전송:**
-```java
-Message message = Message.builder()
-  .setToken(deviceToken)
-  .setNotification(new Notification(
-    "주문 신청",
-    "새로운 주문이 들어왔습니다"
-  ))
-  .putData("orderId", "ORDER-12345")
-  .build();
-
-FirebaseMessaging.getInstance().send(message);
-```
-
-**토픽 기반 전송 (다중 기기):**
-```java
-Message message = Message.builder()
-  .setTopic("new-orders")  // 모든 구독자에게 전송
-  .setNotification(new Notification(
-    "신규 주문",
-    "새로운 주문이 들어왔습니다"
-  ))
-  .putData("timestamp", System.currentTimeMillis())
-  .build();
-
-FirebaseMessaging.getInstance().send(message);
-```
-
-##### C. 토픽 구독 관리
-```java
-// 토픽 구독
-FirebaseMessaging.getInstance()
-  .subscribeToTopic(Arrays.asList(deviceToken), "new-orders");
-
-// 토픽 구독 해제
-FirebaseMessaging.getInstance()
-  .unsubscribeFromTopic(Arrays.asList(deviceToken), "new-orders");
-```
-
----
-
-#### 3️⃣ 시나리오 및 활용
-
-##### 시나리오 1: 주문 수신 알림
-```
-사용자 → POS 주문 → 매장 POP 화면
-                 ↓
-         FCM 알림 발송
-                 ↓
-         웹 브라우저 알림 + 음성
-```
-
-**구현:**
-```java
-@Service
-public class OrderService {
-  @Autowired
-  private FCMService fcmService;
-  
-  public void createOrder(Order order) {
-    // 주문 저장
-    orderRepository.save(order);
-    
-    // FCM 알림 발송
-    fcmService.notifyNewOrder(order);
-  }
-}
-```
-
-##### 시나리오 2: 결제함 문서 알림
-```
-문서 업로드 → 상태 변경 → FCM 알림
-     ↓
-  결제 담당자에게 알림
-```
-
-**구현:**
-```java
-public void notifyPaymentDocument(Document doc) {
-  List<String> tokens = getPaymentManagerTokens();
-  
-  for (String token : tokens) {
-    sendNotification(token, 
-      "결제 문서: " + doc.getDocumentNumber(),
-      "새로운 결제 문서가 도착했습니다"
-    );
-  }
-}
-```
-
----
-
-### 📊 메시지 포맷
-
-#### 알림 메시지 구조
-```json
-{
-  "token": "device-token",
-  "notification": {
-    "title": "알림 제목",
-    "body": "알림 내용"
-  },
-  "data": {
-    "orderId": "ORDER-12345",
-    "type": "new_order",
-    "timestamp": "2026-06-11T10:30:00"
-  }
-}
-```
-
-#### 데이터 필드 정의
-
-| 필드 | 타입 | 설명 | 예시 |
-|------|------|------|------|
-| title | String | 알림 제목 | "주문 신청" |
-| body | String | 알림 본문 | "새로운 주문이 들어왔습니다" |
-| orderId | String | 주문 번호 | "ORDER-12345" |
-| type | String | 메시지 타입 | "new_order", "payment", "status" |
-| timestamp | String | 발송 시간 | "2026-06-11T10:30:00" |
-
----
-
-### 🔌 API 엔드포인트
-
-#### 클라이언트 API
-
-##### 토큰 등록
-```
-POST /api/fcm/register-token
-{
-  "token": "device-token",
-  "deviceType": "web|mobile"
-}
-```
-
-##### 알림 권한 확인
-```
-GET /api/fcm/permission-status
-응답:
-{
-  "granted": true,
-  "permission": "granted|denied|default"
-}
-```
-
-##### 토픽 구독/해제
-```
-POST /api/fcm/subscribe
-{
-  "topic": "new-orders"
-}
-
-POST /api/fcm/unsubscribe
-{
-  "topic": "new-orders"
-}
-```
-
-#### 서버 API
-
-##### 단일 기기에 알림 전송
-```
-POST /admin/fcm/send-to-device
-{
-  "deviceToken": "...",
-  "notification": { "title": "...", "body": "..." },
-  "data": { ... }
-}
-```
-
-##### 토픽으로 알림 전송
-```
-POST /admin/fcm/send-to-topic
-{
-  "topic": "new-orders",
-  "notification": { "title": "...", "body": "..." },
-  "data": { ... }
-}
-```
-
----
-
-### ⚙️ 환경 설정
-
-#### 개발 환경
-```properties
-# dev-config.properties
-fcm.enabled=true
-fcm.credentials-path=/config/dev-firebase.json
-fcm.retry-count=3
-fcm.timeout=10000
-```
-
-#### 운영 환경
-```properties
-# prod-config.properties
-fcm.enabled=true
-fcm.credentials-path=/config/prod-firebase.json
-fcm.retry-count=5
-fcm.timeout=30000
-fcm.batch-size=100
-```
-
----
-
-### 🐛 문제 해결
-
-#### 문제 1: CORS 이슈
-```
-에러: Cross-Origin Request Blocked
-원인: 브라우저 보안 정책
-해결:
-```
-
-```java
-@Configuration
-public class CorsConfig implements WebMvcConfigurer {
-  @Override
-  public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("/api/**")
-      .allowedOrigins("*")
-      .allowedMethods("GET", "POST", "PUT", "DELETE")
-      .allowedHeaders("*");
-  }
-}
-```
-
-#### 문제 2: 토큰 만료
-```
-에러: Invalid Token
-원인: 토큰 유효기간 만료 (약 60일)
-해결: 클라이언트에서 토큰 갱신 후 재등록
-```
-
-```javascript
-// 토큰 갱신 모니터링
-firebase.messaging().onTokenRefresh(() => {
-  firebase.messaging().getToken().then((newToken) => {
-    // 서버에 새 토큰 등록
-    registerNewToken(newToken);
-  });
-});
-```
-
-#### 문제 3: 알림 미수신
-```
-확인 사항:
-1. 브라우저 알림 권한 확인
-2. Service Worker 등록 확인
-3. 디바이스 토큰 유효성 확인
-4. 네트워크 연결 확인
-```
-
----
-
-### 📈 성능 최적화
-
-#### 배치 전송
-```java
-// 대량의 기기에 한 번에 전송
-List<String> tokens = getAllActiveDeviceTokens();
-List<Message> messages = tokens.stream()
-  .map(token -> Message.builder()
-    .setToken(token)
-    .setNotification(notification)
-    .build())
-  .collect(Collectors.toList());
-
-FirebaseMessaging.getInstance().sendAll(messages);
-```
-
-#### 토픽 활용 (권장)
-```
-개별 토큰: 1대1 전송 (느림)
-토픽: N명에게 한 번에 전송 (빠름)
-```
-
----
-
-### 🔒 보안
-
-#### 1. 자격증명 관리
-- Firebase 서비스 계정 Key는 환경 변수로 관리
-- Git에 포함되지 않도록 .gitignore에 추가
+`.csproj` 가 있는 경로에서 실행한다.
 
 ```bash
-# .gitignore
-firebase-credentials.json
+dotnet add package FirebaseAdmin
 ```
 
-#### 2. 토큰 보안
-- 토큰은 사용자별로 저장 및 관리
-- 토큰 갱신 시 이전 토큰 무효화
+### 2. 서비스 계정 키 준비
 
-#### 3. 메시지 검증
-- 메시지 서명 검증 (선택)
-- Rate Limiting 적용
+1. Firebase 콘솔 → **프로젝트 설정 → 서비스 계정 → 비공개 키 생성**
+2. 내려받은 JSON 을 프로젝트의 `Keys/` 디렉토리에 둔다 (`Keys/firebase-admin.json`)
+3. 서비스 계정 화면의 키 값과 내려받은 JSON 의 키가 같은지 확인한다
+4. 해당 계정에 IAM 권한을 준다
 
-```java
-@Component
-public class RateLimitingFilter implements Filter {
-  @Override
-  public void doFilter(ServletRequest request, 
-                       ServletResponse response,
-                       FilterChain chain) {
-    // Rate limiting 구현
-  }
+> [!warning] 권한이 없으면 연결이 거부된다
+> IAM 역할에서 **FCM API 관리자 → 메시징 권한**이 부여되어 있어야 한다.
+> 이 권한이 없으면 설정이 전부 맞아도 연결 거부로 떨어진다.
+> 발송이 안 될 때 코드부터 보지 말고 여기를 먼저 확인한다.
+
+> [!warning] 키 파일은 커밋하지 않는다
+> `Keys/firebase-admin.json` 은 서비스 계정 비공개 키다.
+> 저장소에 올라가지 않도록 하고, 노출되면 즉시 콘솔에서 키를 폐기한다.
+
+### 3. 초기화 및 의존성 주입
+
+`Program.cs` 에서 builder 생성 직후에 넣는다.
+
+```csharp
+// Firebase 초기화
+if (FirebaseApp.DefaultInstance == null)
+{
+    FirebaseApp.Create(new AppOptions()
+    {
+        Credential = GoogleCredential.FromFile(
+            Path.Combine(builder.Environment.ContentRootPath, "Keys/firebase-admin.json"))
+    });
+}
+
+// Firebase 의존성 주입
+builder.Services.AddScoped<FirebaseMessagingService>();
+```
+
+### 4. 발송 엔드포인트
+
+```
+POST /api/Fcm/FcmSendMsg
+```
+
+요청 본문:
+
+```json
+{
+    "notiGbn": "1",
+    "companyCode": "000001",
+    "senderCode": "0000",
+    "exeId": "202103290003",
+    "exeSeq": 1,
+    "detailDivision": "approve"
 }
 ```
 
----
+| 파라미터 | 의미 |
+|:--|:--|
+| `notiGbn` | 게시판 고유 코드 (`1` = 기안함) |
+| `companyCode` | 회사 고유 코드 |
+| `senderCode` | `gUserId` |
+| `exeId` | 결재 문서 번호 |
+| `exeSeq` | 결재 순번 |
+| `detailDivision` | 호출 분기 |
 
-### 📚 참고 자료
+`detailDivision` 값: `validation`(확인), `agreement`(합의), `confirm`(결재완료),
+`approve`(승인), `reject`(반려)
 
-- Firebase Documentation: https://firebase.google.com/docs
-- FCM 최신 기능: https://firebase.google.com/docs/cloud-messaging
-- Spring Boot Firebase Integration: [관련 기술 문서]
+### 5. 사용 테이블
 
----
+| 테이블 | 용도 |
+|:--|:--|
+| `TGI001` | 토큰 정보 저장부 |
+| `TGI002` | 발송 내역 저장부 |
+| `TGI003` | 사용자별 알림 수신 설정 |
 
-### ✅ 체크리스트
+`TGI003` 은 `COMPANY_CODE` + `EMPLOYEE_NO` 가 키이고, 알림 종류별 수신 여부를 가진다.
 
-- [ ] Firebase 프로젝트 생성
-- [ ] 서비스 계정 Key 다운로드
-- [ ] Spring Boot 의존성 추가
-- [ ] FirebaseApp 초기화
-- [ ] 디바이스 토큰 관리 API 구현
-- [ ] 메시지 전송 API 구현
-- [ ] CORS 설정 완료
-- [ ] 개발 환경 테스트
-- [ ] 운영 환경 배포
-- [ ] 모니터링 대시보드 설정
+| 컬럼 | 의미 |
+|:--|:--|
+| `APPROVAL_CHK_FLAG` | 결재 알림 |
+| `BOARD_CHK_FLAG` | 게시 현황 알림 |
+| `NOTI_CHK_FLAG` | 공지 알림 |
+| `SCHEDULE_CHK_FLAG` | 일정 알림 |
 
----
+**FCM 발송 여부는 `APPROVAL_CHK_FLAG` 로 판단한다.**
 
-**작성일:** 2026-06-11  
-**상태:** 완료 및 운영 중  
-**담당자:** I-Frog 개발팀
+### 6. 발송 흐름
+
+```
+SP 호출 → 결과를 JSON 으로 담기 → API 로 전달 → FCM 발송 → TGI002 에 내역 기록
+```
+
+토큰은 ACCESS(만료 2주) / REFRESH 구조이며 REFRESH 는 헤더로 넘긴다.
+업체별 교환코드로 도메인을 넘겨준다.
 
 ## ✅ 검증
 
+- [ ] IAM 에 FCM 메시징 권한이 부여되어 있는지
+- [ ] `Keys/firebase-admin.json` 이 저장소에 올라가지 않는지
+- [ ] `TGI001` 에 디바이스 토큰이 정상 적재되는지
+- [ ] `APPROVAL_CHK_FLAG = N` 인 사용자에게 발송되지 않는지
+- [ ] `detailDivision` 5종이 각각 의도한 문구로 가는지
+- [ ] 발송 후 `TGI002` 에 내역이 남는지
+
 ## 🔗 참고
+
+- [[I-Frog FCM 서버 세팅]]
+- [[I-Frog FCM 서비스 호출 방법]]
+- [[I-Frog FCM 시나리오]]
+- [[I-Frog TGI003 테이블 설계 명세]]
+- [[I-Frog 결제함 문서 FCM기능 추가]]
