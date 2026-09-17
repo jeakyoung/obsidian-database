@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "40b0e8d8cd698da6",
+        "id": "9782f74e727d19cf",
         "type": "tabs",
         "children": [
           {
-            "id": "0f973d73d3a2e2a1",
+            "id": "118189113ffc7855",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 환경별 설정 및 배포 가이드.md",
+                "file": "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/NoName LLM 토큰 최적화.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "[기술] 환경별 설정 및 배포 가이드"
+              "title": "NoName LLM 토큰 최적화"
             }
           }
         ]
@@ -199,7 +199,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -219,15 +219,32 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "1ffbf06f78b158bf",
+  "active": "c5abd37945b2c498",
   "lastOpenFiles": [
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] Web API 클라이언트 토큰 재발급 흐름.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/02_Docs/index.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/02_Docs/ReelTrip 프로젝트 개요.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/01_Tasks/초대 에러 메시지 분기 처리.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/01_Tasks/RT Database 관점의 BE 아키텍처.md",
+    "Notion/프로젝트 문서화/프로젝트/NoNAME 프로젝트 DB/Project  Todo - 프로젝트 Todo/RT Database 관점의 BE 아키텍처/BE PreparedStatement란.md",
+    "Notion/프로젝트 문서화/프로젝트/NoNAME 프로젝트 DB/Project  Todo - 프로젝트 Todo/RT Database 관점의 BE 아키텍처",
+    "Notion/프로젝트 문서화/프로젝트/NoNAME 프로젝트 DB/Project  Todo - 프로젝트 Todo",
+    "Notion/프로젝트 문서화/프로젝트/NoNAME 프로젝트 DB",
+    "Notion/프로젝트 문서화/프로젝트",
+    "Notion/프로젝트 문서화",
+    "Notion",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/01_Tasks/Rt 서비스 구동 방식.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/01_Tasks/RT 모바일 apk 빌드방식.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/01_Tasks/NoName 시행방식.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/01_Tasks/NoName 04-09 회의.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] 데이터베이스 최적화 종합 가이드.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] 개발 환경 구성 및 협업 가이드.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 환경별 설정 및 배포 가이드.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 데이터베이스 연결 및 최적화.md",
     "Jeakyoung_Blog/02_Career/01_Technical_Skills.md.tmp.25684.03c6011988d9",
     "Jeakyoung_Blog/02_Career/01_Technical_Skills.md.tmp.25684.4341540b88f2",
     "Jeakyoung_Blog/02_Career/01_Technical_Skills.md.tmp.25684.d9333a1d19e8",
     "Jeakyoung_Blog/02_Career/01_Technical_Skills.md.tmp.25684.30a0fdb0940e",
-    "Jeakyoung_Blog/02_Career/01_Technical_Skills.md.tmp.25684.ff8973b0ff50",
-    "Jeakyoung_Blog/01_Projects/08_NPP/index.md.tmp.25684.5a378f44e46c",
     "Jeakyoung_Blog/01_Projects/04_DongBang/01_Tasks/동방푸드 거래명세서.md",
     "Jeakyoung_Blog/01_Projects/04_DongBang/01_Tasks/동방푸드원부자재투입예정현황 (WPR512).md",
     "Jeakyoung_Blog/01_Projects/04_DongBang/01_Tasks/동방푸드 DB 재반영, 테스트 (WRD203, WPR512, WMA202).md",
@@ -240,23 +257,6 @@
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/04_References/[SQL] SP_WMA624_01_IUD.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/04_References/[통합] 더존ERP 동기화.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/04_References/[배포] NginX 라우팅설정.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/02_TechDocs/[완료] 성능최적화 및 로깅.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM - 더존 중복 문서처리 방어.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM ERP 기말 재고 오류 ( 입 출고 내역에 이상이 없을경우 ).md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM ERP 기말 재고 오류.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 중복 포장문제 ( 05.22 ).md",
-    "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT 생산지시량 수정.md",
-    "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT 소스 형상 관리 방식.md",
-    "Jeakyoung_Blog/01_Projects/05_SeHanMT/01_Tasks/세한MT POP 수정사항.md",
-    "Jeakyoung_Blog/01_Projects/08_NPP/03_Meetings/뉴파워 프라즈마 09.17 회의.md",
-    "Jeakyoung_Blog/01_Projects/08_NPP/03_Meetings/뉴파워 프라즈마 09.10 회의.md",
-    "Jeakyoung_Blog/01_Projects/08_NPP/03_Meetings/뉴파워 프리즈마 09.16 회의.md",
-    "_templates/_문서 양식 명세.md.tmp.25684.4afe07d2c4d4",
-    "tools/build_format_docs.py.tmp.25684.fa1fa4d1972e",
-    "quartz.custom.scss.tmp.25684.3cd5580543a9",
-    "tools/apply_body_format.py.tmp.25684.23c45da0e409",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 09.15 업무 미팅.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 시스템 설정 원복 쿼리.md",
     "Jeakyoung_Blog/resources/Pasted image 20260915104409.png",
     "Jeakyoung_Blog/resources/Pasted image 20260910140131.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133935.png",
