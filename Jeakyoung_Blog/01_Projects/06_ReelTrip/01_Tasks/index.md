@@ -1,9 +1,9 @@
 ---
-title: ReelTrip - 작업 목록
+title: ReeL-Trip - 작업 목록
 date: 2026-09-16
 ---
 
-# ReelTrip - 작업 목록
+# ReeL-Trip - 작업 목록
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 

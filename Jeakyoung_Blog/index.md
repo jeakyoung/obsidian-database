@@ -25,8 +25,8 @@ ERP 기술지원 담당 · Sencha Ext JS + Java + MSSQL
 ### [[01_Projects/05_SeHanMT|🏪 세한MT]]
 ERP 기술지원 담당 · Sencha Ext JS + Java + MSSQL
 
-### [[01_Projects/06_ReelTrip|🤖 ReelTrip (개인 프로젝트)]]
-AI/LLM 기반 학습 프로젝트 - 백엔드 아키텍처 연구
+### [[01_Projects/06_ReelTrip|🤖 ReeL-Trip (개인 프로젝트)]]
+AI/LLM 기반 학습 프로젝트 · Turborepo 모노레포 (Next.js 15 + React Native/Expo + Spring Boot 3)
 
 ### [[01_Projects/07_DataBoucher|📈 데이터 바우처]]
 모바일 백엔드 API 파이프라인 개발 담당 (신규사업) · C# .NET Core + MSSQL

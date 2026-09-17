@@ -400,17 +400,17 @@ DB 접속 정보와 Firebase 자격증명은 환경변수로 분리해 관리합
 
 ---
 
-#### 🏆 Project 4: NoNAME - 개인 학습 프로젝트
+#### 🏆 Project 4: ReeL-Trip (구 NoNAME) - 개인 학습 프로젝트
 
 ##### 📋 프로젝트 개요
 
 | 항목 | 내용 |
 |------|------|
-| **프로젝트명** | NoNAME: AI/LLM 백엔드 아키텍처 설계 |
+| **프로젝트명** | ReeL-Trip: AI/LLM 백엔드 아키텍처 설계 |
 | **특성** | 개인 학습 프로젝트 (회사와 무관) |
 | **목표** | Spring Boot 심화 및 시스템 아키텍처 이해 |
 | **기간** | 2026년 진행중 |
-| **기술 스택** | Spring Boot, Mybatis, PostgreSQL, Git Flow |
+| **기술 스택** | Turborepo 모노레포 · Spring Boot 3 + Next.js 15 + React Native(Expo) · Mybatis, PostgreSQL |
 
 ##### 🎯 학습 내용
 
@@ -590,7 +590,7 @@ main (프로덕션)
 | **SQL 최적화** | ⭐⭐⭐⭐⭐ | MSSQL 저장프로시저, 인덱스·실행계획 분석 |
 | **Sencha Ext JS** | ⭐⭐⭐⭐ | ERP·MES 화면 개발 |
 | **시스템 설계** | ⭐⭐⭐⭐ | 아키텍처 설계 경험 |
-| **Spring Boot** | ⭐⭐ | 개인 학습 프로젝트(NoNAME) 수준 |
+| **Spring Boot** | ⭐⭐ | 개인 학습 프로젝트(ReeL-Trip, Spring Boot 3) 수준 |
 | **Git Flow** | ⭐⭐⭐⭐ | 팀 협업 표준 정의 |
 
 ---

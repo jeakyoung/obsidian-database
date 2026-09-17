@@ -1,9 +1,9 @@
 ---
-title: ReelTrip - 기술 문서
+title: ReeL-Trip - 기술 문서
 date: 2026-09-16
 ---
 
-# ReelTrip - 기술 문서
+# ReeL-Trip - 기술 문서
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 

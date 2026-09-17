@@ -166,7 +166,7 @@ tags: []
 
 ---
 
-##### 4. NoNAME 프로젝트 - Backend 아키텍처 설계 (개인 학습 프로젝트, 진행중)
+##### 4. ReeL-Trip (구 NoNAME) - Backend 아키텍처 설계 (개인 학습 프로젝트, 진행중)
 
 **프로젝트 개요**
 - AI/LLM 기반 애플리케이션의 Spring Boot 백엔드 아키텍처 설계
@@ -190,12 +190,15 @@ tags: []
   - 테스트 표준 정의
   - 온보딩 체크리스트 작성
 
-**기술 스택:**
-- Backend: Spring Boot, Java
+**기술 스택:** (Turborepo 모노레포)
+- API: Spring Boot 3 (`apps/api-spring`)
+- Web FE: Next.js 15 (App Router) (`apps/web`)
+- Mobile FE: React Native (Expo ~54, Expo Router v6) (`apps/mobile`)
+- 상태 관리: TanStack Query (서버 상태), Zustand (클라이언트 전역 상태)
+- 공유 타입: `packages/types`
 - ORM: Mybatis (SQL 매퍼)
 - Database: PostgreSQL
 - 버전관리: Git Flow, GitHub
-- 개발환경: Docker, IDE (IntelliJ IDEA)
 
 **학습 성과:**
 - N+1 문제 해결 방법 3가지 습득
@@ -267,7 +270,7 @@ tags: []
 - Spring Boot 심화 학습 (아키텍처, 성능 최적화)
 - DB 최적화 연구 (인덱싱, N+1 문제, 쿼리 분석)
 - DevOps 기초 (Docker, Kubernetes, CI/CD)
-- LLM 기반 애플리케이션 설계 (NoNAME 프로젝트)
+- LLM 기반 애플리케이션 설계 (ReeL-Trip 프로젝트)
 
 ##### 기술 역량 강화
 - 대규모 ERP 시스템 개발 경험
@@ -286,7 +289,7 @@ tags: []
 
 ##### 단기 (6개월)
 - [ ] Spring Boot 성능 최적화 자격증 취득
-- [ ] NoNAME 프로젝트 완성 및 GitHub 공개
+- [ ] ReeL-Trip 프로젝트 완성 및 GitHub 공개
 - [ ] 3개 프로젝트의 성능 개선 목표 달성
 
 ##### 중기 (1년)
