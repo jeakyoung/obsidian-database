@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 데이터베이스 연결 및 최적화.md",
+                "file": "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 환경별 설정 및 배포 가이드.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "[기술] 데이터베이스 연결 및 최적화"
+              "title": "[기술] 환경별 설정 및 배포 가이드"
             }
           }
         ]
@@ -219,8 +219,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "0f973d73d3a2e2a1",
+  "active": "1ffbf06f78b158bf",
   "lastOpenFiles": [
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 데이터베이스 연결 및 최적화.md",
     "Jeakyoung_Blog/02_Career/01_Technical_Skills.md.tmp.25684.03c6011988d9",
     "Jeakyoung_Blog/02_Career/01_Technical_Skills.md.tmp.25684.4341540b88f2",
     "Jeakyoung_Blog/02_Career/01_Technical_Skills.md.tmp.25684.d9333a1d19e8",
@@ -254,7 +255,6 @@
     "tools/build_format_docs.py.tmp.25684.fa1fa4d1972e",
     "quartz.custom.scss.tmp.25684.3cd5580543a9",
     "tools/apply_body_format.py.tmp.25684.23c45da0e409",
-    "tools/apply_body_format.py.tmp.25684.716a1753a0ff",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 09.15 업무 미팅.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 시스템 설정 원복 쿼리.md",
     "Jeakyoung_Blog/resources/Pasted image 20260915104409.png",
