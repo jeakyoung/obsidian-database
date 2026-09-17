@@ -38,13 +38,13 @@ tags: []
 
 ### 3. NestJS → Spring Boot 마이그레이션 (2026-05-20 ~ 21)
 
-`Refactor Ahn / Nest.js -> Spring-Boot 마이그레이션 #1` ~ `#11`. 이틀에 걸쳐 백엔드 프레임워크 자체를 갈아엎었다. NestJS 쪽 인증/벡터 검색 로직을 Spring Boot + MyBatis 조합으로 다시 짠 구간. 마이그레이션 직후 바로 `Feat Ahn / Application 개발 환경 세팅`, `FE Web Page #1`, `BE Web Page #1`로 이어지는 걸 보면, 프레임워크를 바꾼 다음에야 실제 화면 기능 붙이기가 본격적으로 시작된 셈이다.
+`Refactor Ahn / Nest.js -> Spring-Boot 마이그레이션 #1` ~ `#11`. 이틀에 걸쳐 백엔드 프레임워크 자체를 갈아엎었다. NestJS 쪽 인증/벡터 검색 로직을 Spring Boot + MyBatis 조합으로 다시 짠 구간. 마이그레이션 직후 바로 `Feat Ahn / Application 개발 환경 세팅`, `FE Web Page #1`, `BE Web Page #1`로 이어지는 걸 보면, 프레임워크를 바꾼 다음에야 실제 화면 기능 붙이기가 본격적으로 시작된 셈이다. 상세 내용은 [[NestJS에서 Spring Boot로 마이그레이션]].
 
 ### 4. 통합 개발 & 모바일 상태관리 정착 (2026-05-28 ~ 06-02)
 
 `Feat Ahn / 통합 개발 app, web, BE` 커밋들로 세 앱을 같이 굴리기 시작했고, `버전 충돌 해결, App 가배포 완료`를 거쳐 `mobile 전역 상태·서버 캐싱 도입 및 feature 구조 완성`으로 이어진다. 이 시점에 Mobile이 지금의 `features/` 단위 구조 + Zustand(클라이언트 상태) + TanStack Query(서버 상태) 조합으로 자리를 잡았다 — 자세한 내용은 [[Mobile 전역 상태·서버 캐싱 도입]].
 
-같은 날 `Apify Test`, `Gemini API Test`가 연달아 찍혀있는데, URL 파서(유튜브 쇼츠/인스타 릴스 크롤링)를 Apify로, 크롤링한 콘텐츠에서 여행 정보 추출을 Gemini로 붙이는 실험이 이 무렵 진행됐다. 원래 이 자리는 Claude(Anthropic)로 설계했던 흔적이 `AiService` 인터페이스 주석과 `ErrorCode.ANTHROPIC_API_KEY_MISSING`에 남아있는데, 실제로는 Gemini로 스왑됐다 — 이름만 안 바뀐 상태로 지금까지 남아있음 ([\[기술\] 모노레포 기반 설정](<../03_TechDocs/[기술] 모노레포 기반 설정.md>) 참고).
+같은 날 `Apify Test`, `Gemini API Test`가 연달아 찍혀있는데, URL 파서(유튜브 쇼츠/인스타 릴스 크롤링)를 Apify로, 크롤링한 콘텐츠에서 여행 정보 추출을 Gemini로 붙이는 실험이 이 무렵 진행됐다. 원래 이 자리는 Claude(Anthropic)로 설계했던 흔적이 `AiService` 인터페이스 주석과 `ErrorCode.ANTHROPIC_API_KEY_MISSING`에 남아있는데, 실제로는 Gemini로 스왑됐다 — 이름만 안 바뀐 상태로 지금까지 남아있음. 실제로는 유튜브 쇼츠는 Apify 없이 공식 oEmbed + 자체 스크래핑으로 처리하고, 인스타만 Apify를 쓴다 — 자세한 내용은 [\[기술\] URL 파서 수집 전략](<../03_TechDocs/[기술] URL 파서 수집 전략.md>).
 
 ### 5. 리프레시 토큰 도입 (2026-06-04)
 
@@ -73,6 +73,8 @@ EAS 빌드 스테이지 분리, UX 리팩토링/AI 파서 연동에 이어 `feat
 - [\[기술\] 개발 환경 구성 및 협업 가이드](<../03_TechDocs/[기술] 개발 환경 구성 및 협업 가이드.md>)
 - [\[기술\] 모노레포 기반 설정](<../03_TechDocs/[기술] 모노레포 기반 설정.md>)
 - [\[기술\] 리프레시 토큰 회전 구조](<../03_TechDocs/[기술] 리프레시 토큰 회전 구조.md>)
+- [\[기술\] URL 파서 수집 전략](<../03_TechDocs/[기술] URL 파서 수집 전략.md>)
 - [[Mobile 전역 상태·서버 캐싱 도입]]
 - [[ESLint 도입 및 로그인 화면 재구현]]
+- [[NestJS에서 Spring Boot로 마이그레이션]]
 - `git log --reverse` (전체 242 커밋)

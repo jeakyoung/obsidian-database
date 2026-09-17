@@ -38,9 +38,10 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (9)
+## 문서 목록 (10)
 
 - [\[기술\] RT Database 관점의 Backend 아키텍처](<[기술] RT Database 관점의 Backend 아키텍처.md>)
+- [\[기술\] URL 파서 수집 전략](<[기술] URL 파서 수집 전략.md>)
 - [\[기술\] Web API 클라이언트 토큰 재발급 흐름](<[기술] Web API 클라이언트 토큰 재발급 흐름.md>)
 - [\[기술\] 개발 환경 구성 및 협업 가이드](<[기술] 개발 환경 구성 및 협업 가이드.md>)
 - [\[기술\] 데이터베이스 최적화 종합 가이드](<[기술] 데이터베이스 최적화 종합 가이드.md>)
