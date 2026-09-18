@@ -330,27 +330,91 @@ article > ul > li > a.internal {
 ------------------------------------------------------------------ */
 
 .popover-hint .hero-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
   margin: 0.5rem 0 2rem;
-  padding: 1.5rem;
+  padding: 1.5rem 1.75rem;
   border: 1px solid var(--doc-border);
   border-radius: var(--doc-radius);
   background: var(--doc-surface);
+  overflow: hidden;
 
-  h2 {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-top: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: var(--secondary);
   }
 
-  img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--light);
-    box-shadow: 0 0 0 1px var(--doc-border);
-    margin: 0;
+  .hero-avatar {
     flex-shrink: 0;
+
+    img {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--light);
+      box-shadow: 0 0 0 1px var(--doc-border);
+      margin: 0;
+    }
+  }
+
+  .hero-body {
+    min-width: 0;
+
+    h3 {
+      display: inline;
+      margin: 0;
+      font-size: 1.3rem;
+    }
+  }
+
+  .hero-en {
+    margin-left: 0.4rem;
+    color: var(--gray);
+    font-size: 0.95rem;
+    font-weight: 400;
+  }
+
+  .hero-role {
+    display: block;
+    margin: 0.2rem 0 0.7rem;
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+
+  .hero-contact {
+    margin-top: 0.75rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--doc-border);
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1.4rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      margin: 0;
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+  }
+
+  @media all and ($mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+
+    .hero-contact ul {
+      gap: 0.35rem 1rem;
+    }
   }
 }

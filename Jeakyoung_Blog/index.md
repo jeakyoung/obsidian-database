@@ -6,14 +6,31 @@ date: 2026-09-18
 
 <div class="hero-profile">
 
-## 안재경 (Jaekyoung Ahn) ![[profile.jpg|48]]
+<div class="hero-avatar">
 
-백엔드 개발자 · F1soft 솔루션사업팀 (2025.07 ~)
+![[profile.jpg]]
+
+</div>
+
+<div class="hero-body">
+
+### 안재경 <span class="hero-en">Jaekyoung Ahn</span>
+
+<span class="hero-role">백엔드 개발자 · F1soft 솔루션사업팀 (2025.07 ~)</span>
 
 ERP·MES(Java + Sencha Ext JS)와 모바일 백엔드 API(C# .NET Core)를 함께 개발합니다.
 단순 CRUD를 넘어 성능 최적화·시스템 아키텍처에 관심이 많고, 진행한 작업을 기술 문서로 남기는 걸 좋아합니다.
 
-[[02_Career|💼 About Me]] · [GitHub](https://github.com/jeakyoung) · 📞 010-4486-2232 · ✉️ [dwahn4823@gmail.com](mailto:dwahn4823@gmail.com)
+<div class="hero-contact">
+
+- 📞 010-4486-2232
+- ✉️ [dwahn4823@gmail.com](mailto:dwahn4823@gmail.com)
+- 🔗 [GitHub](https://github.com/jeakyoung)
+- 💼 [[02_Career|About Me]]
+
+</div>
+
+</div>
 
 </div>
 
