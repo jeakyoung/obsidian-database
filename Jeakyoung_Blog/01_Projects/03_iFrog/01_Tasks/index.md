@@ -38,7 +38,7 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (18)
+## 문서 목록 (21)
 
 - [[I-Frog 02.09 마무리 작업]]
 - [[I-Frog CORS 문제 해결]]
@@ -49,11 +49,14 @@ date: 2026-09-16
 - [[I-Frog FCM 시나리오]]
 - [[I-Frog IFROG 환경정보]]
 - [[I-Frog TGI003 테이블 설계 명세]]
+- [[I-Frog 결재서비스 조회 파라미터 추가]]
 - [[I-Frog 결제함 문서 FCM기능 추가]]
 - [[I-Frog 공지사항 조회기능 수정]]
 - [[I-Frog 스케줄러 빌드 배포방식]]
+- [[I-Frog 업무연락 FCM 알림 문서정보 첨부]]
 - [[I-Frog 업무현황 UI BF]]
 - [[I-Frog 업무현황 스크린 web 제작]]
+- [[I-Frog 업무현황판 중복 컨트롤러 정리 및 공정진행 조회 추가]]
 - [[I-Frog 파라미터 입력시 오류 해결]]
 - [[I-Frog 합의동작 오류 점검]]
 - [[I-Frog 회사 코드 체계 ( 발의안 )]]
