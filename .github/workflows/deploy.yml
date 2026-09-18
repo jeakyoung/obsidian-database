@@ -8,7 +8,9 @@ on:
       # 블로그 content 폴더 변경 시에만 빌드 트리거
       - "Jeakyoung_Blog/**"
       - "quartz.config.ts"
+      - "quartz.layout.ts"
       - "quartz.custom.scss"
+      - "quartz.overrides/**"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:  # 수동 트리거 허용
 
@@ -50,10 +52,21 @@ jobs:
         run: |
           cp quartz.config.ts quartz-build/quartz.config.ts
 
+          # 레이아웃 커스터마이징 (Explorer/TOC/Graph/Backlinks 구성, 홈페이지 전용 처리 포함)
+          cp quartz.layout.ts quartz-build/quartz.layout.ts
+
           # 커스텀 스타일. Quartz 는 quartz/styles/custom.scss 하나만 읽으므로
           # 저장소 루트의 quartz.custom.scss 로 그 파일을 통째로 덮어쓴다.
           # (파일 첫 줄의 `@use "./base.scss";` 가 기본 스타일을 끌어온다.)
           cp quartz.custom.scss quartz-build/quartz/styles/custom.scss
+
+          # 컴포넌트 오버라이드 (원본 Quartz 컴포넌트 파일을 그 자리에서 통째로 교체)
+          # - FolderContent: 폴더 인덱스 페이지의 문서 목록 중복 제거
+          # - Backlinks: 역링크가 없는 페이지에서는 빈 블록을 보여주지 않음
+          # - ExplorerNode: 탐색기 링크에 title(hover 툴팁) 속성 추가
+          cp quartz.overrides/FolderContent.tsx quartz-build/quartz/components/pages/FolderContent.tsx
+          cp quartz.overrides/Backlinks.tsx quartz-build/quartz/components/Backlinks.tsx
+          cp quartz.overrides/ExplorerNode.tsx quartz-build/quartz/components/ExplorerNode.tsx
 
       - name: Copy vault content to Quartz
         run: |

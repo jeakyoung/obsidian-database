@@ -16,7 +16,7 @@ FOLDER_NAMES = {
     "03_Meetings": "\ud68c\uc758\ub85d",
     "04_References": "\ucc38\uace0 \uc790\ub8cc",
     "01_Projects": "\ud504\ub85c\uc81d\ud2b8",
-    "02_Career": "\uacbd\ub825 \ubb38\uc11c",
+    "02_Career": "About Me",
     "03_Learning": "\ud559\uc2b5 \uc790\ub8cc",
     "99_UNI": "\ub300\ud559 \ud504\ub85c\uc81d\ud2b8",
     "2023_OpenSoop": "2023 Open Soop",

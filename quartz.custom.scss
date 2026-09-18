@@ -298,3 +298,61 @@ article > ul > li > a.internal {
     white-space: normal;
   }
 }
+
+/* ------------------------------------------------------------------
+   10. 탐색기 — 긴 한글 제목(특히 [기술]/[프로젝트] 접두어가 붙은 TechDoc)이
+   여러 줄로 줄바꿈되면서 트리가 들쭉날쭉해 보이는 문제를 말줄임으로 정리.
+   전체 이름은 ExplorerNode 오버라이드에서 추가한 title 속성으로 hover 시 확인.
+------------------------------------------------------------------ */
+
+.folder-container div > a,
+.folder-container div > button span {
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#explorer-content li > a {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+/* ------------------------------------------------------------------
+   11. 홈페이지 — 프로필/포트폴리오 히어로 섹션
+   Jeakyoung_Blog/index.md 상단의 ![[profile.jpg]] + 이름/한줄소개 블록을
+   카드형 히어로로 보이게 한다. 홈(index) 페이지에만 적용되도록
+   quartz.layout.ts 에서 Graph/TOC/Backlinks 를 숨긴 것과 짝을 이룬다.
+------------------------------------------------------------------ */
+
+.popover-hint .hero-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0.5rem 0 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-radius);
+  background: var(--doc-surface);
+
+  img {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--light);
+    box-shadow: 0 0 0 1px var(--doc-border);
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  @media all and ($mobile) {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}

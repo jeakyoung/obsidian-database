@@ -1,9 +1,9 @@
 ---
-title: 경력 문서
+title: About Me
 date: 2026-09-16
 ---
 
-# 경력 문서
+# About Me
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
