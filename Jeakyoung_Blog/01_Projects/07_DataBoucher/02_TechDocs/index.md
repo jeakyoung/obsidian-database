@@ -38,9 +38,10 @@ date: 2026-09-18
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (4)
+## 문서 목록 (5)
 
 - [\[기술\] Controller-Service-DatabaseHelper 계층과 ApiResponse·인증 구조](<[기술] Controller-Service-DatabaseHelper 계층과 ApiResponse·인증 구조.md>)
+- [\[기술\] Search 조회 API와 동적 컬럼 매핑 구조](<[기술] Search 조회 API와 동적 컬럼 매핑 구조.md>)
 - [\[기술\] SECURITY_CODE 기반 멀티테넌시 구조 (TickerMiddleware)](<[기술] SECURITY_CODE 기반 멀티테넌시 구조 (TickerMiddleware).md>)
 - [\[기술\] 입고 라벨 이미지 촬영·업로드·적재 파이프라인](<[기술] 입고 라벨 이미지 촬영·업로드·적재 파이프라인.md>)
 - [\[기술\] 입고(Input) 등록과 임베디드 이미지 동시 저장 (InputSaveService)](<[기술] 입고(Input) 등록과 임베디드 이미지 동시 저장 (InputSaveService).md>)
