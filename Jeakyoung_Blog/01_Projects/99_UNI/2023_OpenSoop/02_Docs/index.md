@@ -1,14 +1,9 @@
 ---
-date: 2026-08-31
-title: 대학 프로젝트
+title: 23년 Open Soop - 프로젝트 문서
+date: 2026-09-18
 ---
 
-# 대학 프로젝트
-
-## 프로젝트 목록
-
-- [[01_Projects/99_UNI/2023_OpenSoop|23년 Open Soop]] - 대학 커뮤니티 앱, 게시판 모니터링 API 개발
-- [[01_Projects/99_UNI/2024_PaekTaekApp|2024 평택대학교 앱 리워크]] - 모바일 앱 리뉴얼
+# 23년 Open Soop - 프로젝트 문서
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
@@ -36,3 +31,12 @@ title: 대학 프로젝트
 | 5 | 🔗 참고 |
 
 <!-- FORMAT:END -->
+
+<!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
+
+## 문서 목록 (2)
+
+- [[23년 Open Soop 개발 과정]]
+- [[23년 Open Soop 프로젝트 개요]]
+
+<!-- AUTO-INDEX:END -->
