@@ -38,7 +38,7 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (26)
+## 문서 목록 (27)
 
 - [[I-Frog 02.09 마무리 작업]]
 - [[I-Frog Board·Calendar·Emp 그룹웨어 조회 모듈]]
@@ -48,6 +48,7 @@ date: 2026-09-16
 - [[I-Frog FCM 서버 세팅]]
 - [[I-Frog FCM 서비스 호출 방법]]
 - [[I-Frog FCM 시나리오]]
+- [[I-Frog FTP 첨부파일 다운로드 기능]]
 - [[I-Frog IFROG 환경정보]]
 - [[I-Frog Setting 서비스 신규 구현]]
 - [[I-Frog TGI003 테이블 설계 명세]]
