@@ -5,7 +5,7 @@ title: I-Frog
 
 # I-Frog
 
-그룹웨어·ERP 연동 백엔드 API(F1Soft.Starmap.Service) 개발 담당. 결재/게시판/일정/공지 등 그룹웨어 기능과 SAP·생산현황(MES) 연동, FCM 푸시를 하나의 ASP.NET Core 서비스로 제공.
+F1Soft.Starmap.Service 백엔드 개발 담당. 합류 당시 기본 틀(프로젝트 구조, EnvService 멀티테넌시 패턴)은 이미 잡혀있었고, 그 위에 Approval·Board·Calendar 세 개만 대략 구현되어 있던 상태였음. 이 세 개도 전부 다시 손봤고, WorkStatus(업무현황판)·FCM·SAP 연동·Setting·Notice·Emp·DB 원시쿼리 컨트롤러 등 나머지는 전부 직접 만든 것.
 
 ## 기술 스택
 
@@ -19,20 +19,23 @@ title: I-Frog
 
 ### 도메인 구성 (`Controllers/` 기준)
 
-| 영역 | 경로 | 내용 |
-|:--|:--|:--|
-| **Auth / Users** | `Auth`, `Users` | 로그인(ATC/SYN 전략), 토큰 발급 |
-| **Groupware** | `Groupware/Approval`, `Board`, `Calendar`, `Emp`, `Notice`, `WorkStatus` | 결재, 게시판, 일정, 직원, 공지, 업무현황판(생산현황) |
-| **Notification** | `Notification/FcmController` | FCM 발송·수신 이력, 업무연락 알림 |
-| **Interface** | `Interface/Sap` | SAP RFC 연동 |
-| **Database** | `Database/{Oracle,PostgreSQL,SQLServer}` | 원시 쿼리/프로시저 실행 컨트롤러 |
-| **Setting** | `Setting` | 사용자·회사 설정 |
+| 영역 | 경로 | 내용 | 비고 |
+|:--|:--|:--|:--|
+| Groupware - Approval | `Groupware/Approval` | 결재 | 기존 뼈대 있던 것 → 대부분 재작업 |
+| Groupware - Board | `Groupware/Board` | 게시판 | 기존 뼈대 있던 것 → 재작업 |
+| Groupware - Calendar | `Groupware/Calendar` | 일정 | 기존 뼈대 있던 것 → 재작업 |
+| Groupware - 나머지 | `Groupware/{Emp,Notice,WorkStatus}` | 직원, 공지, 업무현황판(생산현황) | 직접 구현 |
+| Auth / Users | `Auth`, `Users` | 로그인(ATC/SYN 전략), 토큰 발급 | 직접 구현 |
+| Notification | `Notification/FcmController` | FCM 발송·수신 이력, 업무연락 알림 | 직접 구현 |
+| Interface | `Interface/Sap` | SAP RFC 연동 | 직접 구현 |
+| Database | `Database/{Oracle,PostgreSQL,SQLServer}` | 원시 쿼리/프로시저 실행 컨트롤러 | 직접 구현 |
+| Setting | `Setting` | 사용자·회사 설정 | 직접 구현 |
 
 > [!note] 멀티테넌시
-> 요청 헤더의 보안 코드(SECURITY_CODE)로 회사(Ticker)와 DB 환경(Dev/Stg/Prd)을 구분해 `EnvService`가 연결 문자열을 동적으로 선택하는 구조. 배포는 하나지만 여러 회사·환경을 동시에 서비스함.
+> 요청 헤더의 보안 코드(SECURITY_CODE)로 회사(Ticker)와 DB 환경(Dev/Stg/Prd)을 구분해서 `EnvService`가 연결 문자열을 골라주는 구조. 배포 하나로 여러 회사·환경을 같이 돌림.
 
-> [!note] `F1Soft.Starmap.Core`는 아직 미사용
-> `IApprovalService`, `IEnvService` 등 인터페이스가 존재하지만 `F1Soft.Starmap.Service`에서 프로젝트 참조·사용 이력이 없는 빈 스텁 상태. 공용 코드가 있다고 가정하지 말 것.
+> [!note] `F1Soft.Starmap.Core`는 아직 안 씀
+> `IApprovalService`, `IEnvService` 인터페이스가 들어있긴 한데 `F1Soft.Starmap.Service` 쪽에서 참조도 안 하고 쓴 적도 없음. 공용 코드 있는 줄 알고 찾지 말 것.
 
 ## 문서 분류
 
