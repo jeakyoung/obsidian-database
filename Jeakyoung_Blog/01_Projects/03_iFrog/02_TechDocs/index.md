@@ -38,10 +38,12 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (12)
+## 문서 목록 (14)
 
 - [\[기술\] FCM 알림 시스템 통합 가이드](<[기술] FCM 알림 시스템 통합 가이드.md>)
+- [\[기술\] Ticker 전략 패턴(ITickerStrategy) 설계](<[기술] Ticker 전략 패턴(ITickerStrategy) 설계.md>)
 - [\[기술\] 데이터베이스 연결 및 최적화](<[기술] 데이터베이스 연결 및 최적화.md>)
+- [\[기술\] 보안코드 기반 멀티테넌시 커넥션 구조](<[기술] 보안코드 기반 멀티테넌시 커넥션 구조.md>)
 - [\[기술\] 환경별 설정 및 배포 가이드](<[기술] 환경별 설정 및 배포 가이드.md>)
 - [[C 3-25 POP 교육]]
 - [[I-Frog NginX 명령어]]
