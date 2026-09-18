@@ -15,335 +15,77 @@ system: 더존(DZ) ERP / 신진SM ERP
 
 | 항목 | 내용 |
 |:--|:--|
-| **용도** | — |
-| **대상 시스템** | — |
-| **최종 확인일** | 2026-06-11 |
+| **용도** | MES/신진SM ERP(TMA536) 입출고를 더존(DZ) ERP 수불 체계로 반영 |
+| **대상 시스템** | `src/com/MA/WMA620/jvWMA624_01_IUD.java` |
+| **최종 확인일** | 2026-09-18 (실제 소스 기준) |
 
 ## ⚙️ 환경 및 전제
 
+- 두 개의 서로 다른 DB에 대한 커넥션을 하나의 서블릿에서 연다: `conn`(신진SM `iPlusERP_SJ`)과 `connDZ`(더존). 접속 정보는 `web.xml`의 `driver`/`url`/`username`/`password`(MES)와 `urlDZ`/`usernameDZ`/`passwordDZ`(더존) context-param.
+- **더존 연결은 best-effort다.** `connDZ` 생성이 실패하면 `catch`로 잡아 경고 로그만 남기고 `connDZ = null`로 진행 — MES 저장은 더존 연결 여부와 무관하게 계속된다.
+
 ## 📖 상세 내용
 
-### 시스템 구조
+### 전체 흐름 (jvWMA624_01_IUD.service() 기준)
 
 ```
-신진SM 시스템                더존(DZ) ERP
-(우리 ERP/MES)        ↔      (고객사 ERP)
-                    
-- TMA536 (계정대체출고)       - UP_PU_ITR_UPDATE
-- TMA922 (재고이력)           - UP_PU_CGI_UPDATE
-- TPR601M (투입자재)          - 기타 조정 함수
+1. conn(MES) / connDZ(더존) 연결. connDZ 실패해도 계속 진행(null)
+2. JSON 배열의 레코드들 중 IO_DATE(연월) 추출
+3. connDZ != null 이면: 입고(405)/출고(406) 그룹별로 딱 1번씩
+   NEOE.CP_GETNO(cdClass 20=입고→TGI.., 19=출고→TGO..) 호출해
+   "배치 공용 IO_NO"를 미리 채번 (sharedInputIoNo / sharedOutputIoNo)
+4. 레코드 루프:
+   a. EXEC SP_WMA624_01_IUD (MES, IO_NO=3번 값 또는 connDZ 없으면 '')
+   b. conn.commit()  ← 더존 처리 결과와 무관하게 MES는 여기서 확정
+   c. (connDZ != null 이면) 창고/품목 매핑 후 더존 반영:
+      - TCO102/TCO101/TCO403(MES) + DZSN_MA_PITEM(더존)으로
+        CD_PLANT / CD_ITEM / CD_QTIOTP 조회
+      - 배치 내 첫 레코드에서만 NEOE.UP_PU_MM_QTIOH_INSERT (헤더, IO_NO당 1회)
+      - 레코드마다 NEOE.UP_PU_ITR_INSERT(입고) 또는 NEOE.UP_PU_CGI_INSERT(출고)
+5. connDZ.commit() (전체 레코드 처리 후 1회)
 ```
 
----
+> [!warning] MES와 더존은 하나의 트랜잭션이 아니다
+> `conn.commit()`이 3단계 루프 **안에서 레코드마다** 먼저 실행되고, 더존 쪽 INSERT들은 그 이후 별도 커넥션(`connDZ`)으로 진행된다. 즉 MES 저장은 성공했는데 더존 반영 단계(품목 매핑 실패, `NEOE.UP_PU_ITR_INSERT` 예외 등)에서 문제가 생겨도 **MES 쪽 커밋은 이미 끝난 뒤**라 자동으로 되돌아가지 않는다. `catch` 블록에서 `connDZ.rollback()`을 시도하긴 하지만 MES(`conn`)는 이미 커밋된 상태라 의미가 없다. [\[완료\] 포장중복문제 분석](<../02_TechDocs/[완료] 포장중복문제 분석.md>)에서 다루는 "MES는 맞는데 더존만 틀어짐" 현상의 구조적 원인이 여기 있다.
 
-### 데이터 동기화 함수
+### IO_NO 채번 — 두 가지 체계가 공존
 
-#### UP_PU_ITR_UPDATE - 입고 조정
+| 구분 | 채번 로직 | 사용 시점 |
+|---|---|---|
+| 더존 발번 (`NEOE.CP_GETNO`) | `docu_ym` + `cdClass`(19/20) 기준, 더존 DB에서 발급 | `connDZ`가 정상 연결됐을 때 — 입고/출고 배치당 1개, 여러 레코드가 공유 |
+| SP 자체 발번 | `SP_WMA624_01_IUD` 내부, `YYYYMMDD`+당일 4자리 순번, `TMA536` 기준 | `connDZ`가 null이거나 IO_NO 사전 채번을 못 받은 레코드 — 레코드마다 새로 채번됨 |
 
-**목적:** 입고(구매입고) 정정 및 조정  
-**호출 시기:** 재고 입고 처리 후  
-**파라미터:**
-```
-materialCode    - 자재 코드
-systemLotNo     - 시스템 LOT 번호
-qty             - 조정 수량
-warehouseCode   - 입고 창고 코드
-```
+두 체계가 같은 `TMA536.IO_NO` 컬럼에 섞여 들어간다. 더존이 정상일 때는 "입고 1건당 공용 IO_NO", 더존이 끊겼을 때는 "레코드마다 새 IO_NO" — 이 전환 자체가 암묵적이라 코드만 봐서는 지금 어느 쪽 번호 체계로 저장됐는지 구분하기 어렵다. 자세한 채번 로직은 [\[SQL\] SP_WMA624_01_IUD](<[SQL] SP_WMA624_01_IUD.md>) 참고.
 
-#### UP_PU_CGI_UPDATE - 기타 조정
+### 품목/창고 코드 매핑
 
-**목적:** 비용 가동/개산 조정  
-**호출 시기:** 특수한 비용 처리 필요시
+| MES | 더존 | 조회 테이블 |
+|---|---|---|
+| `WAREHOUSE_CODE` | `CD_SL`(창고) | `TCO102.ETC` |
+| `PLANT_CODE`(창고로 역산) | `CD_PLANT`(사업장) | `TCO101` (`CODE_ID1='132'`) `.ETC` |
+| `MATERIAL_CODE` | `CD_ITEM`(품목) | `TCO403.PART_NO` (FACTORY_CODE 단위 관리) |
+| 더존 `CLS_ITEM`(품목계정) | `CD_QTIOTP`(수불형태) | `DZSN_MA_PITEM.CLS_ITEM` → `005`=상품→`906`, `003`=제품→`908`, `004`=반제품→`930`, `001`=원자재→`910` (입고 세부는 별도로 `410`, 출고 세부는 `400` 고정값 사용) |
 
----
+### 더존 쪽 실제 호출 프로시저
 
-### Java 연동 코드
+- `NEOE.CP_GETNO` — 수불번호 채번
+- `NEOE.UP_PU_MM_QTIOH_INSERT` — 수불 헤더(QTIOH) 생성, IO_NO당 1회
+- `NEOE.UP_PU_ITR_INSERT` — 입고 세부내역
+- `NEOE.UP_PU_CGI_INSERT` — 출고 세부내역
 
-#### 더존 ERP 데이터베이스 연결
-
-```java
-private Connection getConnectionDZ(ServletRequest request, ServletContext sc) throws Exception {
-    // 더존 ERP 데이터베이스 드라이버 로드
-    Class.forName(sc.getInitParameter("driver")).newInstance();
-    
-    // 더존 ERP 데이터베이스 연결
-    return DriverManager.getConnection(
-        sc.getInitParameter("urlDZ"),           // 더존 DB URL
-        sc.getInitParameter("usernameDZ"),       // 더존 DB 사용자
-        sc.getInitParameter("passwordDZ")        // 더존 DB 비밀번호
-    );
-}
-```
-
-#### 환경 설정 (web.xml)
-
-```xml
-<context-param>
-    <param-name>driver</param-name>
-    <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
-</context-param>
-
-<context-param>
-    <param-name>urlDZ</param-name>
-    <param-value>jdbc:sqlserver://[더존_서버_IP]:1433;databaseName=더존_DB명;...</param-value>
-</context-param>
-
-<context-param>
-    <param-name>usernameDZ</param-name>
-    <param-value>[더존_DB_사용자]</param-value>
-</context-param>
-
-<context-param>
-    <param-name>passwordDZ</param-name>
-    <param-value>[더존_DB_비밀번호]</param-value>
-</context-param>
-```
-
----
-
-### 동기화 프로세스
-
-#### 정상 흐름
-
-```
-신진SM 저장 요청
-    ↓
-SP_WMA624_01_IUD 실행
-    ├─ TMA536 업데이트/삽입
-    ├─ TMA922 업데이트
-    ↓
-트랜잭션 검증 (재고 부족 체크)
-    ↓
-더존 ERP 연결
-    ↓
-UP_PU_ITR_UPDATE 호출
-    ↓
-더존 DB 업데이트 (입고 조정)
-    ↓
-트랜잭션 COMMIT
-    ↓
-완료 응답
-```
-
-#### 오류 흐름 (현재 문제)
-
-```
-신진SM 저장 요청
-    ↓
-SP_WMA624_01_IUD 실행
-    ├─ TMA536 업데이트/삽입 ✓
-    ├─ TMA922 업데이트 ✓
-    ↓
-트랜잭션 COMMIT ✓
-    ↓
-[타임아웃 발생]
-    ↓
-더존 ERP 연결 ✗ (미실행 또는 지연)
-    ↓
-[문제] 신진SM: 완료, 더존: 미반영
-       또는
-       신진SM: 미처리, 더종: 완료 (경쟁 조건)
-```
-
----
-
-### 동기화 수정 계획
-
-#### 단계 1: 순차 처리 보장
-
-```java
-public void syncMESToERP(String materialCode, String systemLotNo, float qty) throws Exception {
-    Connection dzConn = null;
-    try {
-        // 1단계: 신진SM 처리
-        executeStoredProcedure("SP_WMA624_01_IUD", params);
-        
-        // 2단계: 더존 연결 (동기식)
-        dzConn = getConnectionDZ(request, sc);
-        
-        // 3단계: 더존 함수 호출
-        callDozenFunction(dzConn, "UP_PU_ITR_UPDATE", 
-            materialCode, systemLotNo, qty);
-        
-        // 4단계: 트랜잭션 커밋
-        dzConn.commit();
-        
-        // 5단계: 성공 로깅
-        logSyncSuccess(materialCode, systemLotNo);
-        
-    } catch (Exception e) {
-        // 롤백 처리
-        if (dzConn != null) dzConn.rollback();
-        logSyncError(e);
-        throw e;
-    } finally {
-        if (dzConn != null) dzConn.close();
-    }
-}
-```
-
-#### 단계 2: 더존 함수 호출 래퍼
-
-```java
-private void callDozenFunction(Connection dzConn, String funcName, 
-        String materialCode, String systemLotNo, float qty) throws Exception {
-    
-    String sql = "EXEC " + funcName + " @MATERIAL_CODE=?, @SYSTEM_LOT_NO=?, @QTY=?";
-    
-    try (PreparedStatement pstmt = dzConn.prepareStatement(sql)) {
-        pstmt.setString(1, materialCode);
-        pstmt.setString(2, systemLotNo);
-        pstmt.setFloat(3, qty);
-        
-        // 타임아웃 설정 (5초)
-        pstmt.setQueryTimeout(5);
-        
-        int result = pstmt.executeUpdate();
-        
-        if (result == 0) {
-            throw new Exception("더존 ERP 함수 실행 실패: " + funcName);
-        }
-        
-    } catch (SQLException e) {
-        throw new Exception("더존 ERP 연동 오류 [" + funcName + "]: " + e.getMessage());
-    }
-}
-```
-
-#### 단계 3: 타임아웃 재시도
-
-```java
-private void callDozenFunctionWithRetry(Connection dzConn, String funcName,
-        String materialCode, String systemLotNo, float qty, int maxRetries) throws Exception {
-    
-    int attempts = 0;
-    long backoffMs = 1000;  // 시작: 1초
-    
-    while (attempts < maxRetries) {
-        try {
-            callDozenFunction(dzConn, funcName, materialCode, systemLotNo, qty);
-            return;  // 성공
-        } catch (Exception e) {
-            attempts++;
-            
-            if (attempts >= maxRetries) {
-                throw e;  // 최종 실패
-            }
-            
-            // Exponential backoff
-            Thread.sleep(backoffMs);
-            backoffMs *= 2;  // 2초, 4초, 8초...
-            
-            logRetryAttempt(funcName, attempts, e);
-        }
-    }
-}
-```
-
----
-
-### 데이터 매핑
-
-#### 신진SM TMA536 → 더존 UP_PU_ITR_UPDATE
-
-| 신진SM | 더존 | 설명 |
-|--------|------|------|
-| MATERIAL_CODE | @MATERIAL_CODE | 자재 코드 |
-| SYSTEM_LOT_NO | @SYSTEM_LOT_NO | LOT 번호 |
-| IO_QTY | @QTY | 수량 |
-| WAREHOUSE_CODE | @WAREHOUSE_CODE | 창고 |
-| IO_DATE | @IO_DATE | 거래 일자 |
-| ACC_FLAG | @ACC_FLAG | 계정 코드 |
-
----
-
-### 동기화 상태 모니터링
-
-#### 로깅 항목
-
-```java
-public class SyncLog {
-    String materialCode;
-    String systemLotNo;
-    long startTime;
-    long endTime;
-    String status;  // SUCCESS, FAILED, TIMEOUT
-    String errorMsg;
-    int retryCount;
-}
-```
-
-#### 조회 쿼리
-
-```sql
--- 동기화 실패 목록
-SELECT *
-FROM SYNC_LOG
-WHERE STATUS = 'FAILED'
-AND SYNC_DATE >= DATEADD(DAY, -1, GETDATE())
-ORDER BY SYNC_DATE DESC
-```
-
----
-
-### 더존 ERP 함수 확인
-
-#### 더존에서 확인 필요한 항목
-
-1. **UP_PU_ITR_UPDATE 함수 위치**
-   ```
-   데이터베이스: [더존_DB명]
-   스키마: dbo
-   함수명: UP_PU_ITR_UPDATE
-   ```
-
-2. **파라미터 확인**
-   - 정확한 파라미터명
-   - 데이터 타입
-   - 필수/선택 여부
-
-3. **반환값**
-   - 성공/실패 코드
-   - 오류 메시지
-
----
-
-### 테스트 시나리오
-
-#### 시나리오 1: 정상 동기화
-
-```
-1. 신진SM에서 입고 처리
-2. 더존 ERP에 UP_PU_ITR_UPDATE 호출
-3. 양쪽 모두 데이터 반영 확인
-```
-
-#### 시나리오 2: 타임아웃 후 재시도
-
-```
-1. 신진SM에서 입고 처리
-2. 더존 연결 타임아웃 (5초)
-3. 자동 재시도 (1초 후)
-4. 성공 확인
-```
-
-#### 시나리오 3: 실패 및 롤백
-
-```
-1. 신진SM에서 입고 처리
-2. 더존 함수 실행 실패
-3. 신진SM 트랜잭션 롤백
-4. 동기화 로그에 기록
-```
-
----
-
-### 참고 링크
-
-- [[20260605] 포장중복문제 및 성능최적화]] - 기술 논의
-- [[진행중] 포장중복문제 분석]] - 근본 원인
-- [[진행중] 재고보정 및 데이터동기화]] - 구현 계획
+> [!note] 회의 시점 설계와 실제 구현이 다르다
+> [[신진SM 05.28 업무 미팅]](문서 내부 날짜는 06-05)에서 논의된 초안은 "`SP_WMA624_01_IUD` 저장 시 더존 `UP_PU_ITR_UPDATE`/`UP_PU_CGI_UPDATE`를 같이 호출"하는 방식이었다. 실제 구현은 `UPDATE`가 아니라 **헤더(QTIOH)+세부(ITR/CGI) 분리 INSERT** 방식으로, 그리고 SP 안이 아니라 **Java 서블릿에서 별도 커넥션으로** 호출하는 방식으로 바뀌었다 — 배치당 헤더 1개 + 라인 여러 개 구조가 필요해지면서 설계가 진화한 것으로 보인다. 회의록 원문은 그대로 두되, 이 문서가 "지금 실제로 동작하는 방식"의 기준이다.
 
 ## ⚠️ 주의사항
 
+- 더존 연결 실패는 예외로 튀지 않고 조용히 경고 로그(`더존 DB 연결 실패 (MES 저장은 계속 진행)`)만 남긴다 — 더존 미반영 여부를 알려면 로그(`C:/logs/Log.log`)를 직접 봐야 한다. 화면상 저장 성공 메시지만으로는 더존 반영 여부를 알 수 없다.
+- `TCO403`/`TCO102`/`TCO101` 매핑 조회 중 하나라도 빈 값이면 그 이후 더존 INSERT 전체가 조용히 스킵된다(`if (connDZ != null && !CD_ITEM_DZ.isEmpty())` 가드) — 매핑 누락이 곧 "더존 미반영"으로 이어지지만 사용자에게는 알림이 없다.
+
 ## 🔗 참고
+
+- `src/com/MA/WMA620/jvWMA624_01_IUD.java`
+- [\[SQL\] SP_WMA624_01_IUD](<[SQL] SP_WMA624_01_IUD.md>)
+- [\[완료\] 포장중복문제 분석](<../02_TechDocs/[완료] 포장중복문제 분석.md>)
+- [\[완료\] 재고보정 및 데이터동기화](<../02_TechDocs/[완료] 재고보정 및 데이터동기화.md>)
+- [[신진SM 중복 포장문제 ( 05.22 )]]
+- [[신진SM 05.28 업무 미팅]]

@@ -15,31 +15,24 @@ server: 신진SM 프로덕션
 
 | 항목 | 내용 |
 |:--|:--|
-| **용도** | — |
-| **대상 시스템** | — |
-| **최종 확인일** | 2026-06-11 |
+| **용도** | 신진SM 서비스 트래픽을 경로 기준으로 여러 백엔드 포트에 분기 |
+| **대상 시스템** | 배포 서버 nginx (IPlusMES 소스 저장소 밖 — 설정 파일은 이 SVN 리포지토리에 없음) |
+| **최종 확인일** | 2026-06-11, [[신진SM 05.28 업무 미팅]](문서 내부 날짜 06-05)에 공유된 설정 원문 기준 |
 
 ## ⚙️ 환경 및 전제
 
+> [!note] 출처
+> 아래 `server` 블록은 미팅 노트에 실제로 붙여넣어진 설정 원문이다. 포트 번호(4110 / 40110 / 40111 / 40112)는 그 출처를 신뢰한 값이며, IPlusMES 코드 저장소 자체에는 nginx 설정 파일이 없다(배포 서버에서 직접 관리). 아래 "트러블슈팅/성능 튜닝" 항목 중 실제로 이 서버에서 확인된 것은 없고, nginx 일반 지식 기준의 참고용이다 — 실제 파일 경로·운영 방식(systemd vs 다른 방식)은 서버 담당자 확인 필요.
+
 ## 📖 상세 내용
 
-### 서버 정보
+### 라우팅 규칙 (미팅 노트 원문)
 
-**포트:** 4110  
-**용도:** 신진SM 시스템 트래픽 분기  
-**설정 파일:** `/etc/nginx/sites-available/sinjin` (또는 `nginx.conf`)
-
----
-
-### 라우팅 규칙
-
-#### 포트 4110 설정
 ```nginx
 server {
     listen 4110;
     underscores_in_headers on;  # 언더스코어가 있는 헤더 허용
-    
-    # 1. /abc 로 시작하는 요청
+
     location /abc {
         proxy_pass http://localhost:40111;
         proxy_http_version 1.1;
@@ -49,7 +42,6 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 
-    # 2. /abcd 로 시작하는 요청
     location /abcd {
         proxy_pass http://localhost:40112;
         proxy_http_version 1.1;
@@ -59,7 +51,6 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 
-    # 3. 기본 라우팅 (나머지 모든 요청)
     location / {
         proxy_pass http://localhost:40110;
         proxy_http_version 1.1;
@@ -71,219 +62,26 @@ server {
 }
 ```
 
----
+`/abc`, `/abcd`는 실제 운영 경로명을 그대로 옮긴 것이 아니라 미팅 노트에 있던 예시 표기다 — 실제 경로 프리픽스는 서버 설정 파일에서 확인 필요.
 
-### 라우팅 흐름도
+### 라우팅 흐름
 
 ```
-클라이언트 요청 → NginX (포트 4110)
-                    │
-                    ├─ /abc 시작 → localhost:40111
-                    │
-                    ├─ /abcd 시작 → localhost:40112
-                    │
-                    └─ 기타 경로 → localhost:40110
+클라이언트 요청 → NginX (:4110)
+                    ├─ /abc  시작 → :40111
+                    ├─ /abcd 시작 → :40112
+                    └─ 그 외        → :40110 (기본 WAS)
 ```
 
----
-
-### 백엔드 서버 포트
-
-| 포트 | 용도 | 상태 |
-|------|------|------|
-| 40110 | 기본 라우팅 (주 서비스) | [ ] |
-| 40111 | /abc 경로 처리 | [ ] |
-| 40112 | /abcd 경로 처리 | [ ] |
-
----
-
-### 설정 상세 해석
-
-#### underscores_in_headers on
-```
-목적: HTTP 헤더에 언더스코어(_) 문자 허용
-이유: 신진SM 시스템이 헤더에 언더스코어를 사용할 경우 필요
-```
-
-#### proxy_http_version 1.1
-```
-목적: HTTP/1.1 프로토콜 사용
-효과: Keep-Alive 연결 지원으로 성능 향상
-```
-
-#### proxy_set_header Connection keep-alive
-```
-목적: 백엔드와의 연결 유지
-효과: 반복적 요청시 재연결 오버헤드 감소
-```
-
-#### proxy_cache_bypass $http_upgrade
-```
-목적: WebSocket 업그레이드 시 캐시 무효화
-효과: 실시간 통신 기능 정상 작동
-```
-
----
-
-### 사용 예시
-
-#### 기본 요청
-```
-GET http://localhost:4110/data
-→ GET http://localhost:40110/data
-```
-
-#### /abc 경로 요청
-```
-GET http://localhost:4110/abc/query
-→ GET http://localhost:40111/abc/query
-```
-
-#### /abcd 경로 요청
-```
-GET http://localhost:4110/abcd/status
-→ GET http://localhost:40112/abcd/status
-```
-
----
-
-### 설정 적용 방법
-
-#### 1. 설정 파일 수정
-```bash
-sudo nano /etc/nginx/sites-available/sinjin
-# 또는
-sudo nano /etc/nginx/nginx.conf
-```
-
-#### 2. 설정 문법 검증
-```bash
-sudo nginx -t
-```
-
-**성공 메시지:**
-```
-nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
-```
-
-#### 3. NginX 재시작
-```bash
-sudo systemctl restart nginx
-```
-
-또는
-
-```bash
-sudo /etc/init.d/nginx restart
-```
-
-#### 4. 상태 확인
-```bash
-sudo systemctl status nginx
-```
-
----
-
-### 트러블슈팅
-
-#### 문제 1: 502 Bad Gateway 오류
-
-**원인:** 백엔드 서버(40110, 40111, 40112) 미실행  
-**해결:**
-```bash
-# 백엔드 프로세스 확인
-ps aux | grep java
-ps aux | grep tomcat
-
-# 포트 열림 확인
-netstat -tulpn | grep :4010
-```
-
-#### 문제 2: 언더스코어 헤더 오류
-
-**원인:** `underscores_in_headers off` 설정  
-**해결:**
-```nginx
-underscores_in_headers on;  # 추가 필수
-```
-
-#### 문제 3: Connection refused 오류
-
-**원인:** 백엔드 서버 연결 실패  
-**확인:**
-```bash
-telnet localhost 40110
-telnet localhost 40111
-telnet localhost 40112
-```
-
-#### 문제 4: 설정 변경 후에도 적용 안됨
-
-**원인:** NginX 재시작 미실행  
-**해결:**
-```bash
-sudo systemctl restart nginx
-# 또는
-sudo nginx -s reload
-```
-
----
-
-### 모니터링
-
-#### 접근 로그 확인
-```bash
-tail -f /var/log/nginx/access.log
-```
-
-#### 에러 로그 확인
-```bash
-tail -f /var/log/nginx/error.log
-```
-
-#### 각 포트별 트래픽 확인
-```bash
-netstat -antp | grep nginx
-ss -tulpn | grep nginx
-```
-
----
-
-### 성능 튜닝
-
-#### 연결 수 제한 조정
-```nginx
-upstream backend {
-    server localhost:40110 max_fails=3 fail_timeout=30s;
-    server localhost:40111 max_fails=3 fail_timeout=30s;
-    server localhost:40112 max_fails=3 fail_timeout=30s;
-}
-```
-
-#### 타임아웃 설정
-```nginx
-proxy_connect_timeout 5s;    # 백엔드 연결 타임아웃
-proxy_send_timeout 60s;      # 요청 전송 타임아웃
-proxy_read_timeout 60s;      # 응답 수신 타임아웃
-```
-
----
-
-### 보안 고려사항
-
-⚠️ **주의:**
-1. 포트 4110이 필요한 내부망에서만 접근 허용
-2. 외부 노출 필요시 방화벽 규칙 추가
-3. SSL/TLS 암호화 고려
-
----
-
-### 관련 문서
-
-- [[20260605] 포장중복문제 및 성능최적화]] - 서버 설정 언급
-- [[진행중] 성능최적화 및 로깅]] - 성능 모니터링
+`underscores_in_headers on`은 nginx 기본값이 헤더의 언더스코어(`_`)를 무시/제거하는 것과 관련된 표준 옵션이다 — 신진SM 쪽에서 언더스코어 포함 커스텀 헤더를 쓰는지는 이 문서만으로 확인되지 않는다.
 
 ## ⚠️ 주의사항
 
+- 이 설정 파일의 실제 위치, `nginx -t` / `systemctl restart nginx` 등 운영 방식은 이 리포지토리에서 검증할 수 없다 — 배포 서버 담당자 확인 필요.
+- 40110/40111/40112가 각각 어떤 WAS 인스턴스(Tomcat 등)에 대응하는지는 미팅 노트에 명시돼 있지 않다.
+- 포트 4110이 외부에 노출되는지, 사내망 전용인지는 미확인 — 방화벽/보안 설정은 별도 확인 필요.
+
 ## 🔗 참고
+
+- [[신진SM 05.28 업무 미팅]] (원본 설정 출처)
+- [\[통합\] 더존ERP 동기화](<[통합] 더존ERP 동기화.md>)

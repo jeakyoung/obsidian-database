@@ -23,3 +23,4 @@ MES 개발 담당. ERP 연동 및 POP 기술지원.
 - [[01_Projects/01_ShinJinSM/02_TechDocs|기술 문서]] - 기술 분석 및 해결 방안
 - [[01_Projects/01_ShinJinSM/03_Meetings|회의록]] - 업무 미팅 기록
 - [[01_Projects/01_ShinJinSM/04_References|참고 자료]] - SQL, 배포, 연동 관련
+- [[01_Projects/01_ShinJinSM/05_Docs|프로젝트 문서]] - 프로젝트 개요, 개발 이력
