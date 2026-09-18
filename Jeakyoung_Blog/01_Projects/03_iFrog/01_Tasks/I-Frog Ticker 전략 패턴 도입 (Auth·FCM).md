@@ -43,7 +43,7 @@ tags:
 ## ✅ 검증 및 결과
 
 - [x] ATC 로그인 시 FCM 토큰 파라미터 반영 확인
-- [ ] `LoginAtc`/`LoginSyn`이 서로 다른 제네릭 타입(`AuthRequest`/`AuthResponse`)으로 등록된 부분 정리할지 결정 필요
+- [ ] `LoginAtc`/`LoginSyn`이 서로 다른 제네릭 타입(`AuthRequest`/`AuthResponse`)으로 등록돼 있어서, `AuthController`가 주입받는 `IEnumerable<ITickerStrategy<AuthRequest>>`엔 `LoginSyn`이 안 잡힘 — SYN 로그인 시 FCM 토큰 저장이 빠지는지 확인 필요 (자세한 내용 [[[기술] Ticker 전략 패턴(ITickerStrategy) 설계]])
 
 ## 🔗 참고
 

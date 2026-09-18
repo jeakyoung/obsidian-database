@@ -38,9 +38,10 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (16)
+## 문서 목록 (17)
 
 - [\[기술\] FCM 알림 시스템 통합 가이드](<[기술] FCM 알림 시스템 통합 가이드.md>)
+- [\[기술\] JWT 인증 및 AutoLogin 구조](<[기술] JWT 인증 및 AutoLogin 구조.md>)
 - [\[기술\] SAP RFC 연동 구조 (비활성화 상태)](<[기술] SAP RFC 연동 구조 (비활성화 상태).md>)
 - [\[기술\] Ticker 전략 패턴(ITickerStrategy) 설계](<[기술] Ticker 전략 패턴(ITickerStrategy) 설계.md>)
 - [\[기술\] 데이터베이스 연결 및 최적화](<[기술] 데이터베이스 연결 및 최적화.md>)

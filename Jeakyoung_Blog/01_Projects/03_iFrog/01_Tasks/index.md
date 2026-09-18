@@ -38,7 +38,7 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (25)
+## 문서 목록 (26)
 
 - [[I-Frog 02.09 마무리 작업]]
 - [[I-Frog Board·Calendar·Emp 그룹웨어 조회 모듈]]
@@ -55,6 +55,7 @@ date: 2026-09-16
 - [[I-Frog 결재서비스 조회 파라미터 추가]]
 - [[I-Frog 결제함 문서 FCM기능 추가]]
 - [[I-Frog 공지사항 조회기능 수정]]
+- [[I-Frog 로그인·AutoLogin·JWT 흐름 정리]]
 - [[I-Frog 보안코드 기반 멀티테넌시 DB 커넥션 구현]]
 - [[I-Frog 스케줄러 빌드 배포방식]]
 - [[I-Frog 업무연락 FCM 알림 문서정보 첨부]]

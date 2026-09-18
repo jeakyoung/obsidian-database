@@ -50,8 +50,10 @@ public interface ITickerStrategy<TRequest>
 | 로그인 | `LoginAtc : ITickerStrategy<AuthRequest>`, `LoginSyn : ITickerStrategy<AuthResponse>` | `AddScoped<ITickerStrategy<AuthRequest>, LoginAtc>()` 등 |
 | FCM 토큰 등록 | `FcmDbg`, `FcmSyn : ITickerStrategy<RegTokenRequest>` | 동일 |
 
-> [!note] 제네릭 타입이 통일돼 있지 않음
-> `LoginAtc`는 `ITickerStrategy<AuthRequest>`인데 `LoginSyn`은 `ITickerStrategy<AuthResponse>`로 등록돼 있음. 같은 "로그인 전략"인데 요청/응답 타입이 갈려서 DI에서 하나의 리스트로 주입받아 `Ticker`로 골라 쓰는 구조는 아니고, 타입 자체로 분기되는 형태. 나중에 전략을 더 추가할 때 이 비대칭이 헷갈릴 수 있음.
+> [!warning] `LoginSyn`은 실행되지 않는 죽은 코드로 보임
+> `AuthController`는 생성자에서 `IEnumerable<ITickerStrategy<AuthRequest>> _strategies`를 주입받고, `Login`에서 `_strategies.FirstOrDefault(s => s.Ticker == currentTicker)`로 전략을 찾는다.
+> 그런데 `Program.cs` 등록은 `LoginAtc`가 `ITickerStrategy<AuthRequest>`, `LoginSyn`은 `ITickerStrategy<AuthResponse>`로 되어있다. 제네릭 타입이 다르면 DI 컨테이너 입장에서 완전히 다른 서비스라서, `AuthController`가 주입받는 `IEnumerable<ITickerStrategy<AuthRequest>>`엔 `LoginAtc`만 들어가고 `LoginSyn`은 절대 안 들어간다.
+> → SYN 티커로 로그인해도 `LoginSyn.Apply`는 호출될 수가 없다. FCM 토큰이 SYN에서도 저장돼야 하는 요구사항이라면 지금 코드로는 빠져있는 상태.
 
 ### Notice에도 시도했다가 걷어낸 이력
 
@@ -59,7 +61,7 @@ public interface ITickerStrategy<TRequest>
 
 ## ✅ 검증
 
-- [ ] `LoginAtc`/`LoginSyn` 제네릭 타입 통일 여부 검토
+- [ ] `LoginSyn`이 실제로 호출되는 경로가 있는지 재확인 (없다면 `ITickerStrategy<AuthRequest>`로 타입 통일 필요)
 - [ ] 전략 클래스가 3개 이상으로 늘어나면 `IEnumerable<ITickerStrategy<T>>` 주입 + `Ticker`로 필터링하는 방식으로 리팩터링할지 결정
 
 ## 🔗 참고
