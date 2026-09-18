@@ -38,9 +38,10 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (24)
+## 문서 목록 (25)
 
 - [[I-Frog 02.09 마무리 작업]]
+- [[I-Frog Board·Calendar·Emp 그룹웨어 조회 모듈]]
 - [[I-Frog CORS 문제 해결]]
 - [[I-FROG Env 파일 다형성 구현]]
 - [[I-Frog FCM 기능 개발]]
