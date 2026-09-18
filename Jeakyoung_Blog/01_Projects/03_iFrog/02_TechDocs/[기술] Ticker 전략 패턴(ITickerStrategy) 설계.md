@@ -48,12 +48,15 @@ public interface ITickerStrategy<TRequest>
 | 도메인 | 전략 클래스 | 등록 (`Program.cs`) |
 |:--|:--|:--|
 | 로그인 | `LoginAtc : ITickerStrategy<AuthRequest>`, `LoginSyn : ITickerStrategy<AuthResponse>` | `AddScoped<ITickerStrategy<AuthRequest>, LoginAtc>()` 등 |
-| FCM 토큰 등록 | `FcmDbg`, `FcmSyn : ITickerStrategy<RegTokenRequest>` | 동일 |
+| FCM 토큰 등록 (미적용) | `FcmDbg`, `FcmSyn : ITickerStrategy<RegTokenRequest>` | DI 등록은 돼있지만 `FcmController.Reg`가 `ITickerStrategy`를 아예 참조하지 않음 |
 
 > [!warning] `LoginSyn`은 실행되지 않는 죽은 코드로 보임
 > `AuthController`는 생성자에서 `IEnumerable<ITickerStrategy<AuthRequest>> _strategies`를 주입받고, `Login`에서 `_strategies.FirstOrDefault(s => s.Ticker == currentTicker)`로 전략을 찾는다.
 > 그런데 `Program.cs` 등록은 `LoginAtc`가 `ITickerStrategy<AuthRequest>`, `LoginSyn`은 `ITickerStrategy<AuthResponse>`로 되어있다. 제네릭 타입이 다르면 DI 컨테이너 입장에서 완전히 다른 서비스라서, `AuthController`가 주입받는 `IEnumerable<ITickerStrategy<AuthRequest>>`엔 `LoginAtc`만 들어가고 `LoginSyn`은 절대 안 들어간다.
 > → SYN 티커로 로그인해도 `LoginSyn.Apply`는 호출될 수가 없다. FCM 토큰이 SYN에서도 저장돼야 하는 요구사항이라면 지금 코드로는 빠져있는 상태.
+
+> [!note] `FcmDbg`/`FcmSyn`은 "미적용"이라고 스스로 문서화돼 있음
+> 두 클래스 다 `Apply`가 `throw new UnauthorizedAccessException("해당 업체는 호출된 서비스 이용 권한이 없습니다.")` 하나뿐이고, 클래스 주석에도 "( 서비스내 미적용 )"이라고 써놨음. `LoginSyn`과 달리 이건 버그로 발견한 게 아니라 **작성한 사람이 이미 "아직 안 붙였다"고 표시해둔 상태** — DBG/SYN 업체별 FCM 기능 제한을 나중에 붙일 자리만 만들어둔 것으로 보임.
 
 ### Notice에도 시도했다가 걷어낸 이력
 

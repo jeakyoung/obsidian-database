@@ -29,6 +29,11 @@ tags:
 
 `Controllers/WorkStatus/WorkStatusController.cs` (구 경로, `GetDomainRequest` 모델 사용)와 `Controllers/Groupware/WorkStatus/WorkStatusController.cs` (현 경로, `WorkStatusRequest` 모델 사용)가 동시에 남아 있었다. 구 경로 쪽은 더 이상 쓰이지 않는 상태였음.
 
+`Groupware/WorkStatus` 자체는 `08832d8`(2026-03-30, "업무현황 도메인 Selector 추가")에서 처음 만들어짐 — `ConfigKey = "WORK"`로 `TGI000_02_LIST`를 조회하는 도메인 셀렉터였음. `EnvService`가 커넥션 설정을 읽어오는 `tgi000_01_list`([[[기술] 보안코드 기반 멀티테넌시 커넥션 구조]])와 같은 `TGI000` 테이블 계열이라, 이 프로시저도 회사/도메인 목록 성격의 공용 설정 테이블을 쓰는 것으로 보임.
+
+> [!note] 복붙 흔적
+> 최초 커밋의 `WorkStatusController` XML 문서 주석이 `"공지사항 컨트롤러"`로 되어 있었음(지금도 그대로) — `NoticeController`에서 복붙한 흔적. 생성자 로거 타입도 `ILogger<ApprovalController>`([[I-Frog Board·Calendar·Emp 그룹웨어 조회 모듈]]에서 지적한 것과 같은 패턴).
+
 ## 🔧 조치 내용
 
 | 구분 | 대상 | 변경 내용 |
