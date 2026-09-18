@@ -38,10 +38,14 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (19)
+## 문서 목록 (18)
 
 - [\[기술\] FCM 알림 시스템 통합 가이드](<[기술] FCM 알림 시스템 통합 가이드.md>)
 - [\[기술\] FCM 토큰·메시지 이력 관리 구조](<[기술] FCM 토큰·메시지 이력 관리 구조.md>)
+- [\[기술\] I-Frog NginX 명령어](<[기술] I-Frog NginX 명령어.md>)
+- [\[기술\] I-Frog 보안코드 현황](<[기술] I-Frog 보안코드 현황.md>)
+- [\[기술\] I-Frog 서버 통합](<[기술] I-Frog 서버 통합.md>)
+- [\[기술\] I-Frog 서버 환경 정보](<[기술] I-Frog 서버 환경 정보.md>)
 - [\[기술\] JWT 인증 및 AutoLogin 구조](<[기술] JWT 인증 및 AutoLogin 구조.md>)
 - [\[기술\] SAP RFC 연동 구조 (비활성화 상태)](<[기술] SAP RFC 연동 구조 (비활성화 상태).md>)
 - [\[기술\] Ticker 전략 패턴(ITickerStrategy) 설계](<[기술] Ticker 전략 패턴(ITickerStrategy) 설계.md>)
@@ -50,12 +54,7 @@ date: 2026-09-16
 - [\[기술\] 범용 프로시저 실행 컨트롤러 (비활성화 상태)](<[기술] 범용 프로시저 실행 컨트롤러 (비활성화 상태).md>)
 - [\[기술\] 보안코드 기반 멀티테넌시 커넥션 구조](<[기술] 보안코드 기반 멀티테넌시 커넥션 구조.md>)
 - [\[기술\] 환경별 설정 및 배포 가이드](<[기술] 환경별 설정 및 배포 가이드.md>)
-- [[C 3-25 POP 교육]]
-- [[[기술] I-Frog NginX 명령어]]
 - [[I-Frog PostgreSQL 명령어]]
-- [[[기술] I-Frog 보안코드 현황]]
-- [[[기술] I-Frog 서버 통합]]
-- [[[기술] I-Frog 서버 환경 정보]]
 - [[POP 업무 교육 ( 03-31 )]]
 - [[WPF C WPF 사전교육]]
 - [[WPF C 교육 2차]]
