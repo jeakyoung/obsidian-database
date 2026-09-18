@@ -5,7 +5,7 @@ title: I-Frog
 
 # I-Frog
 
-F1Soft.Starmap.Service 백엔드 개발 담당. 합류 당시 기본 틀(프로젝트 구조, EnvService 멀티테넌시 패턴)은 이미 잡혀있었고, 그 위에 Approval·Board·Calendar 세 개만 대략 구현되어 있던 상태였음. 이 세 개도 전부 다시 손봤고, WorkStatus(업무현황판)·FCM·SAP 연동·Setting·Notice·Emp·DB 원시쿼리 컨트롤러 등 나머지는 전부 직접 만든 것.
+F1Soft.Starmap.Service 백엔드 개발 담당. 합류 당시 기본 틀(프로젝트 구조, Auth/Approval/Board/Calendar/Emp, 단순 단일 접속용 EnvService)은 이미 잡혀있었음 — 원래는 업체마다 서비스 코드를 커스터마이징해서 그 업체 서버에 따로 얹어 캐스팅해주는 방식이었음. Approval·Board·Calendar는 그 위에서 다시 손봤고, 나머지(WorkStatus, FCM, Setting, Notice, DB 원시쿼리 컨트롤러 등)와 그 이후 진행한 **서버 통합**(업체별 커스텀 서버 → 단일 백엔드로 통합: 서비스 코드 정리, Ticker 전략 패턴, 보안코드 기반 커넥션 분리, 신규 PostgreSQL 구축)은 전부 직접 만든 것. [[I-Frog 서버 통합]] 참고.
 
 ## 기술 스택
 
