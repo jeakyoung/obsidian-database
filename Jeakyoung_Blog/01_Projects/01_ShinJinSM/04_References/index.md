@@ -37,10 +37,9 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (3)
+## 문서 목록 (2)
 
 - [\[SQL\] SP_WMA624_01_IUD](<[SQL] SP_WMA624_01_IUD.md>)
-- [\[배포\] NginX 라우팅설정](<[배포] NginX 라우팅설정.md>)
 - [\[통합\] 더존ERP 동기화](<[통합] 더존ERP 동기화.md>)
 
 <!-- AUTO-INDEX:END -->

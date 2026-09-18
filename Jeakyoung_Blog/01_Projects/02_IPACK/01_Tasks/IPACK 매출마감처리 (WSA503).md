@@ -18,8 +18,8 @@ created: 2026-06-10T14:28:00
 |:--|:--|
 | **요청자** | — |
 | **요청일** | 2026-06-10 |
-| **대상 시스템** | — |
-| **관련 화면·프로그램** | — |
+| **대상 시스템** | 영업관리 |
+| **관련 화면·프로그램** | 매출마감처리(WSA503) |
 
 ## 🔍 현상 및 원인
 
@@ -462,4 +462,9 @@ WHERE A.FACTORY_CODE = @FACTORY_CODE -- 회사명
 
 ## ✅ 검증 및 결과
 
+> [!note]
+> `SP_WSA503_01_LIST`는 실제로 존재하는 화면과 연결된 SP다 — `src/com/SA/WSA500/jvWSA503_01_LIST.java`가 이 이름의 프로시저를 호출하며, `WebContent/app/{view,controller,store}/SA/WSA500/WSA503_*.js`도 실존한다.
+
 ## 🔗 참고
+
+- iPlusERP: `WebContent/app/view/SA/WSA500/WSA503_VW.js`, `src/com/SA/WSA500/jvWSA503_01_LIST.java`

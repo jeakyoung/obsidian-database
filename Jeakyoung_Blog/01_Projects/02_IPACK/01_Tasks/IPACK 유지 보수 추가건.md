@@ -18,8 +18,8 @@ created: 2026-06-10T14:28:00
 |:--|:--|
 | **요청자** | — |
 | **요청일** | 2026-06-10 |
-| **대상 시스템** | — |
-| **관련 화면·프로그램** | — |
+| **대상 시스템** | 영업관리 / 공통(거래처) |
+| **관련 화면·프로그램** | 거래처등록(WCO202), 세금계산서 발행현황(WSA513) |
 
 ## 🔍 현상 및 원인
 
@@ -47,4 +47,9 @@ TCO601 → CHARGE_EMP_CODE → EMPLOYEE_CODE → TIN114 → 해당되는 BASE_NA
 
 ## ✅ 검증 및 결과
 
+> [!note]
+> WCO202(`WebContent/app/view/CO/WCO200/WCO202_VW.js`)와 WSA513(`WebContent/app/view/SA/WSA510/WSA513_VW.js`) 둘 다 실제 존재하는 화면이다.
+
 ## 🔗 참고
+
+- iPlusERP: `WebContent/app/view/CO/WCO200/WCO202_VW.js`, `WebContent/app/view/SA/WSA510/WSA513_VW.js`
