@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "9782f74e727d19cf",
+        "id": "e07f9c0d45b3f78d",
         "type": "tabs",
         "children": [
           {
-            "id": "118189113ffc7855",
+            "id": "a397bbce16baa71d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] JWT 인증 및 AutoLogin 구조.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "[기술] JWT 인증 및 AutoLogin 구조"
+              "title": "새 탭"
             }
           }
         ]
@@ -219,34 +215,34 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "118189113ffc7855",
+  "active": "a397bbce16baa71d",
   "lastOpenFiles": [
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog 서버 환경 정보.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog 보안코드 현황.md",
+    "Jeakyoung_Blog/01_Projects/09_FoodLink.md",
+    "Jeakyoung_Blog/02_Career/index.md",
+    "Jeakyoung_Blog/02_Career/04_Portfolio.md",
+    "Jeakyoung_Blog/02_Career/03_CoverLetter.md",
+    "Jeakyoung_Blog/02_Career/02_Resume.md",
+    "Jeakyoung_Blog/02_Career/01_Technical_Skills.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/I-Frog PostgreSQL 명령어.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] FCM 토큰·메시지 이력 관리 구조.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] FCM 알림 시스템 통합 가이드.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 보안코드 기반 멀티테넌시 커넥션 구조.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 범용 프로시저 실행 컨트롤러 (비활성화 상태).md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FCM 서버 세팅.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FCM 기능 개발.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-FROG Env 파일 다형성 구현.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog CORS 문제 해결.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog Board·Calendar·Emp 그룹웨어 조회 모듈.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 회사 코드 체계 ( 발의안 ).md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 합의동작 오류 점검.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog Ticker 전략 패턴 도입 (Auth·FCM).md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog TGI003 테이블 설계 명세.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 합의동작 오류 점검.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 파라미터 입력시 오류 해결.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 회사 코드 체계 ( 발의안 ).md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 결재(Approval) 상태 모델과 흐름.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog 보안코드 현황.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog 서버 통합.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog 서버 환경 정보.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog NginX 명령어.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog Ticker 전략 패턴 도입 (Auth·FCM).md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog Setting 서비스 신규 구현.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FTP 첨부파일 다운로드 기능.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog IFROG 환경정보.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FCM 서비스 호출 방법.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog NginX 명령어.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog 서버 통합.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] Ticker 전략 패턴(ITickerStrategy) 설계.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/I-Frog PostgreSQL 명령어.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/index.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/WPF C WPF 사전교육.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/C 3-25 POP 교육.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 결재(Approval) 상태 모델과 흐름.md",
+    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] JWT 인증 및 AutoLogin 구조.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/04_References",
     "Jeakyoung_Blog/01_Projects/03_iFrog/03_Meetings",
     "Notion/프로젝트 문서화/프로젝트/NoNAME 프로젝트 DB/Project  Todo - 프로젝트 Todo/RT Database 관점의 BE 아키텍처",
