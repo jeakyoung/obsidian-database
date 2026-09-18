@@ -60,7 +60,7 @@ tags: []
 | **Frontend** | Sencha Ext JS |
 | **Database** | MSSQL(저장 프로시저 중심, 주력), PostgreSQL, MariaDB |
 | **개인 프로젝트** | Spring Boot 3, MyBatis, Next.js 15, React Native(Expo) |
-| **Infra / 메시징** | NginX, Firebase Cloud Messaging(FCM) |
+| **Infra / 메시징** | NginX, Jenkins, Firebase Cloud Messaging(FCM) |
 | **버전관리** | Git, GitHub |
 
 ### 담당 업무 성격

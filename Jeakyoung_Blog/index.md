@@ -41,7 +41,7 @@ Java로 ERP·MES를, C#으로 모바일 백엔드를 만들며 서로 다른 두
 | **백엔드 (개인 프로젝트)** | Spring Boot 3 + MyBatis (ReeL-Trip) |
 | **프론트엔드** | Sencha Ext JS (ERP·MES), Next.js 15 · React Native/Expo (개인 프로젝트) |
 | **데이터베이스** | MSSQL (주력, 저장 프로시저 중심), PostgreSQL, MariaDB |
-| **배포 · 인프라** | NginX, HikariCP, Flyway |
+| **배포 · 인프라** | NginX, Jenkins, HikariCP, Flyway |
 | **메시징 · 외부연동** | Firebase Cloud Messaging(FCM), SAP RFC |
 | **기타** | C# WPF (POP 기술지원) |
 
