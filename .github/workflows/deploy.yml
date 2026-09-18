@@ -11,6 +11,7 @@ on:
       - "quartz.layout.ts"
       - "quartz.custom.scss"
       - "quartz.overrides/**"
+      - "quartz.static/**"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:  # 수동 트리거 허용
 
@@ -51,6 +52,11 @@ jobs:
       - name: Copy quartz config
         run: |
           cp quartz.config.ts quartz-build/quartz.config.ts
+
+          # 파비콘 / 링크 미리보기(OG) 썸네일. Quartz 는 quartz/static/icon.png(favicon),
+          # quartz/static/og-image.png(1200x675, og:image) 두 파일만 읽으므로 그 자리를 덮어쓴다.
+          cp quartz.static/icon.png quartz-build/quartz/static/icon.png
+          cp quartz.static/og-image.png quartz-build/quartz/static/og-image.png
 
           # 레이아웃 커스터마이징 (Explorer/TOC/Graph/Backlinks 구성, 홈페이지 전용 처리 포함)
           cp quartz.layout.ts quartz-build/quartz.layout.ts
