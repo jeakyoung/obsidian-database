@@ -14,7 +14,7 @@ tags: []
 |:--|:--|
 | **작성일** | 2026-09-18 |
 | **소속·역할** | F1soft 솔루션사업팀 · ERP/MES 백엔드, 모바일 백엔드 API |
-| **주요 기술** | Java, Sencha Ext JS, C# .NET Core, MSSQL, PostgreSQL |
+| **주요 기술** | Java, Sencha Ext JS, C# .NET Core, MSSQL, PostgreSQL, MariaDB |
 
 ## 🧭 경력 요약
 
@@ -58,7 +58,7 @@ tags: []
 |:--|:--|
 | **Backend Language** | Java(서블릿, JDBC), C#(.NET Core, WPF) |
 | **Frontend** | Sencha Ext JS |
-| **Database** | MSSQL(저장 프로시저 중심, 주력), PostgreSQL |
+| **Database** | MSSQL(저장 프로시저 중심, 주력), PostgreSQL, MariaDB |
 | **개인 프로젝트** | Spring Boot 3, MyBatis, Next.js 15, React Native(Expo) |
 | **Infra / 메시징** | NginX, Firebase Cloud Messaging(FCM) |
 | **버전관리** | Git, GitHub |

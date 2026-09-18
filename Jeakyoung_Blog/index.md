@@ -41,7 +41,7 @@ ERP·MES(Java + Sencha Ext JS)와 모바일 백엔드 API(C# .NET Core)를 함�
 | **백엔드 (실무)** | Java (서블릿+JDBC, ERP·MES), C# .NET Core (모바일 백엔드 API) |
 | **백엔드 (개인 프로젝트)** | Spring Boot 3 + MyBatis (ReeL-Trip) |
 | **프론트엔드** | Sencha Ext JS (ERP·MES), Next.js 15 · React Native/Expo (개인 프로젝트) |
-| **데이터베이스** | MSSQL (주력, 저장 프로시저 중심), PostgreSQL |
+| **데이터베이스** | MSSQL (주력, 저장 프로시저 중심), PostgreSQL, MariaDB |
 | **배포 · 인프라** | NginX, HikariCP, Flyway |
 | **메시징 · 외부연동** | Firebase Cloud Messaging(FCM), SAP RFC |
 | **기타** | C# WPF (POP 기술지원) |

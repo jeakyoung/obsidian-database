@@ -14,7 +14,7 @@ tags: []
 |:--|:--|
 | **작성일** | 2026-09-18 |
 | **소속·역할** | F1soft 솔루션사업팀 · ERP/MES 백엔드(Java), 모바일 백엔드 API(C# .NET Core) |
-| **주요 기술** | Java(서블릿), Sencha Ext JS, C# .NET Core, MSSQL, PostgreSQL |
+| **주요 기술** | Java(서블릿), Sencha Ext JS, C# .NET Core, MSSQL, PostgreSQL, MariaDB |
 
 ## 🧭 경력 요약
 
