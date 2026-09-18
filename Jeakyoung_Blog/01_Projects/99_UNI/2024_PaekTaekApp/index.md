@@ -27,8 +27,6 @@ title: 2024 평택대학교앱 리워크
 > [!warning] 커넥션 정보가 `application.properties`에 평문으로 커밋되어 있음
 > DB 계정, RDS 호스트, Gmail SMTP 앱 비밀번호가 전부 저장소에 그대로 들어있다. 팀 프로젝트 특성상 정리가 안 된 채로 남은 부분 — 문서에는 값을 옮기지 않는다.
 
-> [!note] `Schorolship`(장학금 안내) 게시판이 `notice_list` 테이블에 잘못 매핑돼 있음
-> `ScholarshipModel`이 `@Table(name = "notice_List")`로 선언돼 있어서, `/PTU/Schorolship/add`로 등록한 글이 실제로는 공지사항 테이블에 들어간다. `ScholarCheck`(장학안내, 정상 동작)와 이름이 비슷해서 헷갈리기 쉬운 두 번째 게시판 구현체다. 자세한 내용은 [\[기술\] 게시판 4종 CRUD 패턴과 예외·CORS 처리](<03_TechDocs/[기술] 게시판 4종 CRUD 패턴과 예외·CORS 처리.md>).
 
 ## 문서 분류
 

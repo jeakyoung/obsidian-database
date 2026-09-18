@@ -9,10 +9,10 @@ title: 23년 Open Soop
 
 ## 기술 스택
 
-| 영역 | 경로 | 기술 |
-|:--|:--|:--|
-| **Mobile FE** | `OpenSoopFront` | React Native 0.72 (Expo 49), React Navigation |
-| **API (내 담당 영역)** | `OpenSoopBack` | Java 11, Servlet 3.1 (`@WebServlet`, web.xml 없음), MyBatis 3.5.6 |
+| 영역                | 경로              | 기술                                                              |
+| :---------------- | :-------------- | :-------------------------------------------------------------- |
+| **Mobile FE**     | `OpenSoopFront` | React Native 0.72 (Expo 49), React Navigation                   |
+| **API (내 담당 영역)** | `OpenSoopBack`  | Java 11, Servlet 3.1 (`@WebServlet`, web.xml 없음), MyBatis 3.5.6 |
 
 ### 데이터 계층 (`OpenSoopBack` 기준)
 
@@ -28,8 +28,6 @@ title: 23년 Open Soop
 > [!warning] DB 계정이 `database.properties`에 평문으로 커밋되어 있음
 > MariaDB 접속 계정·비밀번호가 저장소에 그대로 들어있다. 학생 팀 프로젝트라 프로필 분리나 `.gitignore` 처리가 안 된 채로 남은 부분 — 문서에는 값을 옮기지 않는다.
 
-> [!note] 커밋 이력이 1개로 뭉쳐 있음
-> `OpenSoopBack`/`OpenSoopFront` 모두 저장소 이력이 각각 1개 커밋으로 뭉쳐 있어 git 로그로는 시간순 작업 순서를 확인할 수 없다. 대신 코드 내 작성자 주석(`YYYY.MM.DD 이름 <생성/수정>`)을 근거로 담당 범위를 추적했다.
 
 ## 문서 분류
 
