@@ -15,18 +15,18 @@ tags: []
 
 | 항목 | 내용 |
 |:--|:--|
-| **요청자** | — |
+| **요청자** | 신진SM 현장 |
 | **요청일** | 2026-09-14 |
-| **대상 시스템** | — |
-| **관련 화면·프로그램** | — |
+| **대상 시스템** | MES(WPR559 생산실적등록) ↔ 더존 ERP |
+| **관련 화면·프로그램** | `SP_WPR559_02_IUD_TEST`, `SP_WPR559_02_LIST`, `SP_WPR559_01_LIST`, `jvPROD_DATA_FETCH.java`, `ProdSLService.java`, `ProdReportService.java` |
+
+> POP 시스템에서만 동작하던 도면가공 처리 흐름을 MES에도 이식하는 작업. 06-26/07-03 회의록에서 초기 설계(창고코드 3000/3400/6000/7000 체계, [[신진SM 개발 이력]] 참고)가 먼저 논의됐고, 이 문서의 09-14 설계는 최종적으로 다른 창고코드 체계(018/016/225, 더존 ETC 4200/7000)로 구현됐다 — 설계가 진행되며 창고코드 체계 자체가 바뀐 것이므로 06-26/07-03 회의록의 구체적 창고번호는 참고용으로만 볼 것.
 
 ## 🔍 현상 및 원인
 
+WPR559(생산실적등록) 화면에서 공정별 실적을 등록할 때, POP 시스템의 도면가공(WORK_CODE=008) 처리 프로세스와 동일한 흐름이 MES에서도 동작해야 하는데 현재 MES는 이 프로세스가 전혀 구현돼 있지 않음 — 도면가공 대상 수주건의 실적을 MES에서 입력하면 재고 위치(더존 ERP 기준)와 실물 상태가 어긋나고, 출하계획이 조기/중복 생성되는 문제가 발생함.
+
 ## 🔧 조치 내용
-
-### 1. 작업 배경
-
-WPR559(생산실적등록) 화면에서 공정별 실적을 등록할 때, POP 시스템의 도면가공(WORK_CODE=008) 처리 프로세스와 동일한 흐름이 MES에서도 동작해야 함. 현재 MES는 이 프로세스가 전혀 구현돼 있지 않아, 도면가공 대상 수주건의 실적을 MES에서 입력하면 재고 위치(더존 ERP 기준)와 실물 상태가 어긋나고, 출하계획이 조기/중복 생성되는 문제가 발생함.
 
 ### 2. 작업 범위
 
@@ -137,72 +137,24 @@ WPR559(생산실적등록) 화면에서 공정별 실적을 등록할 때, POP �
 2. Java 3개 파일 실제 diff 작성
 3. 일반 수주로 회귀 테스트(기존과 동일 동작 확인) 후 도면가공 수주로 전체 시나리오 테스트
 
+### 9. 배포 순서에 대한 검토 (원본 대화 발췌)
+
+Java `ProdSLService`/`SP_WPR559_02_IUD_TEST` 결과 매핑은 SP가 반환하는 컬럼을 이름으로 그대로 JSON에 담는 구조라, DB 스크립트를 먼저 적용해도(컬럼 하나 늘어남) Java·프론트 어느 쪽도 깨지지 않는다. 반대로 Java를 먼저 배포하면, `ProdSLService.java`의 SQL 상수가 파라미터 37개인데 운영 DB의 SP는 아직 36개라 "파라미터 개수 불일치"로 포장/일반실적 저장 전체가 즉시 실패한다(도면가공 건이 아니어도 전부 영향받음).
+
+**권장 배포 순서**
+1. DB 스크립트 3개 먼저 적용 (`SP_WPR559_02_IUD_TEST`, `SP_WPR559_02_LIST`, `SP_WPR559_01_LIST`) — 적용 직후 화면이 지금과 완전히 동일하게 동작하는지 확인
+2. 문제없음 확인되면, 준비됐을 때 Java만 배포
+3. Java 배포가 끝나야 비로소 도면가공 게이팅 로직이 실제로 동작 시작
+
+즉 "Java를 안 배포해도 운영에 문제 없게"는 이 순서만 지키면 자동으로 달성된다 — 별도로 더 손볼 코드는 없고 DB부터 먼저 적용하면 된다.
+
+### 부록 — 원본 스크립트 초안 (적용 전 검토용)
+
+> [!warning] 아래는 검토 대화에서 그대로 옮긴 초안이다. 원본 대화 자체에 붙여넣기 과정에서 일부 줄이 잘린 흔적(`ME =@PROD_ETIME`처럼 문장 중간이 끊긴 부분 등)이 남아있다 — 실제 DB에 적용하기 전에 반드시 운영 SP 원본과 diff로 재대조할 것. 이 부록은 "무엇을 하려 했는지"의 기록이지, 그대로 실행 가능한 최종본이 아니다.
 
 
-
-
-1/3. SP_WPR559_02_IUD_TEST
-
-ALTER PROC [dbo].[SP_WPR559_02_IUD_TEST]
- (
-  @FACTORY_CODE   VARCHAR(6)       -- 사업장코드
-  ,@PLANT_CODE   VARCHAR(6)
-  ,@PROD_GROUP_NO   VARCHAR(12) = ''
-  ,@PRODPLAN_DATE   VARCHAR(8)
-  ,@PRODPLAN_SEQ   INT
-  ,@PROD_SEQ    INT  =0       -- 생산실적순번
-  ,@WORK_CODE    VARCHAR(6) = ''   -- 공정코드
-        ,@WORKCENTER_CODE  VARCHAR(6) = ''   -- 공정코드
-        ,@EQUIP_SYS_CD          VARCHAR(10) = ''
-  ,@WORK_SEQ    INT =0     -- 작업순번
-  ,@PROD_SDATE   VARCHAR(8)              -- PROD_SDATE
-  ,@PROD_STIME   VARCHAR(14) =''
-  ,@PROD_EDATE   VARCHAR(8)
-  ,@PROD_ETIME   VARCHAR(14) =''
-  ,@PROD_QTY    FLOAT = 0
-  ,@GOOD_QTY    FLOAT = 0
-  ,@CYCLE_COUNT   int = 1
-  ,@PROD_WORKER   VARCHAR(10)=''
-  ,@ITEM_CODE    VARCHAR(15)=''      -- 제품코드
-  ,@WAREHOUSE_CODE  VARCHAR(6)=''
-  ,@WL_CODE    VARCHAR(6)=''
-  ,@LOT_SEQ    INT=0
-  ,@SYSTEM_LOT_NO   VARCHAR(20)=''
-  ,@INPUT_FLAG   CHAR(1) = '1'
-  ,@INPUT_DATE   VARCHAR(8)=''
-  ,@LOT_FLAG    VARCHAR(3)=''
-  ,@MATERIAL_QUALITY      VARCHAR(100) = ''       -- 재질
-  ,@THICKNESS    decimal(18, 4) = 0      -- 두께
-  ,@SPEC_X    decimal(18, 4) = 0      -- 폭
-  ,@SPEC_Y    decimal(18, 4) = 0      -- 길이
-        ,@SHIPPLAN_SEQ          VARCHAR(20) = ''        -- 출하계획번호
-  ,@OPMAN_CODE   VARCHAR(10)       -- 등록자
-  ,@IRU     VARCHAR(4)       -- IUD
-  ,@P_NO_TRACK   NVARCHAR(40)   -- 일보번호
-for (int nCount=1; nCount <= rm.getColumnCount(); nCount++) {
-    tempJson.put(rm.getColumnName(nCount), rs.getString(rm.getColumnN
-}
-결과 컬럼을 이름으로 하나하나 지정하는 게 아니라, SP가 반환하는 컬럼을 전부 그대로 JSON에 담는 구조입니다. 그래서 PLATE_COMPLETE_FLAG 컬럼을 SP에 추가해도, 지금 자바는 그냥 "컬럼이 하나 더 왔네" 하고 JSON에 더 얹어서 프론트로 보낼 뿐 에러가 안 납니다. 프론트(ExtJS)도 모델에 안 선언된 필드는 그냥 무시하니 화면에 아무 변화도 없습니다.
-
-반대로, 자바를 먼저 배포하면 위험합니다
-
-ProdSLService.java의 SQL 상수는 이제 파라미터가 37개인데, 지금 운영 DB의 SP는 아직 36개짜리입니다. 이 상태로 자바만 먼저 배포하면 포장/일반실적 저장 전부가 "파라미터 개수 불일치"로 즉시 실패합니다(도면가공 건이 아니어도 전부 영향받음). 그래서 순서가 중요합니다.
-
-권장 배포 순서
-
-1. DB 스크립트 3개 먼저 적용 (SP_WPR559_02_IUD_TEST, SP_WPR559_02_LIST, SP_WPR559_01_LIST) — 적용 직후 화면이 지금과 완전히 동일하게 동작하는지 한 번 확인
-2. 문제없음 확인되면, 그 상태로 얼마든지 기다렸다가 준비됐을 때 자바만 배포
-3. 자바 배포가 끝나야 비로소 도면가공 게이팅 로직이 실제로 동작 시작
-
-즉 지금 요청하신 "자바를 안 배포해도 운영에 문제 없게"는 이미 이 순서를 지키면 자동으로 달성됩니다 — 별도로 더 손볼 코드는 없고, DB부터 먼저 적용하시면 됩니다.
-
-
-
-알겠습니다. 리스크 감수하고 3개 전체 스크립트 순서대로 드리겠습니다. 각각 -- ★추가로 변경점 표시했으니 적용 전에 한 번씩 확인해주세요.
-
----
-
-1/3. SP_WPR559_02_IUD_TEST
+```sql
+-- 1/3. SP_WPR559_02_IUD_TEST
 
 ALTER PROC [dbo].[SP_WPR559_02_IUD_TEST]
  (
@@ -650,9 +602,7 @@ _flag         ,opman_code         ,optime
 
 END
 
----
-
-2/3. SP_WPR559_02_LIST
+-- 2/3. SP_WPR559_02_LIST
 
 CREATE PROC [dbo].[SP_WPR559_02_LIST]
 (
@@ -1143,9 +1093,7 @@ _CODE
  ORDER BY PROD_GROUP_NO, ORDER_NO
 END
 
----
-
-3/3. SP_WPR559_01_LIST
+-- 3/3. SP_WPR559_01_LIST
 
 ALTER PROC [dbo].[SP_WPR559_01_LIST]
 (
@@ -1402,15 +1350,16 @@ NULL(GROUP_TABLE.P_NO_TRACK, '') P_NO_TRACK
             ORDER BY ORDER_TABLE.ORDER_NO, ORDER_TABLE.ORDER_HISTNO, ORDER_DETAIL.ORDER_SEQNO
             OPTION (OPTIMIZE FOR UNKNOWN)
 END
+```
 
-
-
-11-20*50*800J
-7B11BCFH0001
-7A11BCFH0001
-
-MSL20260916906
+09-14 시점 남겨진 테스트용 참조값(도면가공 시연에 쓰인 품목/도면번호로 추정, 맥락 정보 없음): `11-20*50*800J`, `7B11BCFH0001`, `7A11BCFH0001`, `MSL20260916906`
 
 ## ✅ 검증 및 결과
 
+설계는 완료됐고 위 3개 SP 스크립트는 검토 대기 상태, Java 3개 파일(`jvPROD_DATA_FETCH`/`ProdSLService`/`ProdReportService`) 실제 diff는 미작성 — [8. 다음 단계](#8-다음-단계) 항목 중 1번(스크립트 작성) 이후 진행 상황은 이 문서 기준으로 확인되지 않음. "확인된 리스크/잔여 이슈"(7번 항목)의 항목들도 아직 해소 여부 불명.
+
 ## 🔗 참고
+
+- [[신진SM 개발 이력]] — 06-26/07-03의 초기 설계(창고코드 체계가 달랐던 시점) 포함 전체 타임라인
+- [[신진SM - 더존 중복 문서처리 방어]] — 같은 `SP_WPR559_02_IUD_TEST`를 다루는 별도 작업(문서 중복 방지)
+- [\[완료\] 포장중복문제 분석](<../02_TechDocs/[완료] 포장중복문제 분석.md>)
