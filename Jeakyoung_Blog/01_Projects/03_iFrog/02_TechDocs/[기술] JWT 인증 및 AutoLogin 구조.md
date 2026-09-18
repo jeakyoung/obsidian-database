@@ -55,7 +55,7 @@ POST /api/Auth/AutoLogin (Authorization: Bearer {token})
 > `ValidateJwtToken`과 `TokenService.DecodeToken` 둘 다 `ValidateLifetime = true`로 검증한다. 즉 토큰이 **만료되면 AutoLogin도 그냥 401**이다. 이름은 AutoLogin/자동로그인이지만, 지금 코드로는 "아직 유효한 토큰으로 세션을 다시 만드는 것"에 가깝고 "만료된 토큰으로 재로그인"은 안 된다.
 
 > [!warning] 비밀번호가 하드코딩돼 있음
-> `authRequest.UserPassword = "f1soft@6";` — 토큰에서 복원한 사용자로 재로그인할 때 실제 비밀번호 대신 고정 문자열을 넣는다. XML 문서 주석의 샘플 로그인도 `userID: "0000"`, `userPassword: "f1soft@6"`으로 되어 있는 걸 보면 테스트 계정 비밀번호를 그대로 박아둔 것으로 보인다. `SP_WEB_LOGIN`이 이 값을 그대로 비교한다면, **"f1soft@6"가 실제 비밀번호인 계정만 AutoLogin이 성공**하는 구조라 일반 사용자에게는 동작하지 않을 가능성이 있다. SP 내부 로직을 볼 수 없어서 단정은 못 하지만, 소스에 평문 비밀번호가 박혀있는 것 자체가 검토 대상.
+> `authRequest.UserPassword = "f1soft@6";` — 토큰에서 복원한 사용자로 재로그인할 때 실제 비밀번호 대신 고정 문자열을 넣는다. XML 문서 주석의 샘플 로그인도 `userID: "0000"`, `userPassword: ""`으로 되어 있는 걸 보면 테스트 계정 비밀번호를 그대로 박아둔 것으로 보인다. `SP_WEB_LOGIN`이 이 값을 그대로 비교한다면, **"f1soft@6"가 실제 비밀번호인 계정만 AutoLogin이 성공**하는 구조라 일반 사용자에게는 동작하지 않을 가능성이 있다. SP 내부 로직을 볼 수 없어서 단정은 못 하지만, 소스에 평문 비밀번호가 박혀있는 것 자체가 검토 대상.
 
 ### JWT 생성/검증 구현상 비효율
 
