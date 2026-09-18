@@ -23,8 +23,11 @@ title: 데이터 바우처
 > [!note] AI 분석 연동은 아직 미구현
 > `TB_LabelMaster`에 `LABEL_STATUS`/`ANALYSIS_STATUS` 컬럼과 이를 조회하는 `SP_APP_LABEL_LIST` 연동 코드가 이미 스케폴딩돼 있지만 컨트롤러/서비스에서 주석 처리된 채로 비활성 상태다. 자세한 내용은 [[01_Projects/07_DataBoucher/02_TechDocs/[기술] 입고 라벨 이미지 촬영·업로드·적재 파이프라인]] 참고.
 
+> [!note] 프로젝트 코드명 히스토리
+> 저장소가 처음엔 `Haccp`라는 이름이었다가 `foodlink-service`로 개명됐다(커밋 `e864e54`, 2026-06-10). 네임스페이스(`F1Soft.Starmap.*`)는 원본 I-Frog 코드베이스에서 그대로 가져온 것이라 리네이밍 이후에도 바뀌지 않았다.
+
 ## 문서 분류
 
 - [[01_Projects/07_DataBoucher/01_Tasks|작업 목록]] - 데이터 분석 결과, FTP 업로드 경로 개선, 검색 파라미터 정리
-- [[01_Projects/07_DataBoucher/02_TechDocs|기술 문서]] - 멀티테넌시(TickerMiddleware) 구조, 계층 구조·ApiResponse·인증, 라벨 이미지 파이프라인
+- [[01_Projects/07_DataBoucher/02_TechDocs|기술 문서]] - 멀티테넌시(TickerMiddleware) 구조, 계층 구조·ApiResponse·인증, 라벨 이미지 파이프라인, 입고(Input) 등록·임베디드 이미지 저장
 - [[01_Projects/07_DataBoucher/03_Meetings|회의록]] - 프로젝트 회의 기록

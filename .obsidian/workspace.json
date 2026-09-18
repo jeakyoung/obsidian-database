@@ -11,10 +11,14 @@
             "id": "a397bbce16baa71d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] SECURITY_CODE 기반 멀티테넌시 구조 (TickerMiddleware).md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "새 탭"
+              "title": "[기술] SECURITY_CODE 기반 멀티테넌시 구조 (TickerMiddleware)"
             }
           }
         ]
@@ -215,23 +219,30 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "b7af9e99c97ba2cd",
+  "active": "a397bbce16baa71d",
   "lastOpenFiles": [
-    "Jeakyoung_Blog/01_Projects/index.md.tmp.29484.d6a41b93553d",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/index.md.tmp.29484.064365496cc8",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] Controller-Service-DatabaseHelper 계층과 ApiResponse·인증 구조.md",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/index.md.tmp.29484.a838c73f70b5",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] 입고(Input) 등록과 임베디드 이미지 동시 저장 (InputSaveService).md",
     "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] 입고 라벨 이미지 촬영·업로드·적재 파이프라인.md",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] 입고(Input) 등록과 임베디드 이미지 동시 저장 (InputSaveService).md.tmp.29484.6f991c9b7607",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] SECURITY_CODE 기반 멀티테넌시 구조 (TickerMiddleware).md",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 DB Helper 계층 분리 및 ApiResponse 통일화 06.25.md",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 입고·이미지·라벨 등수삭 구현 완료 07.09.md",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 이미지 업로드 거래처코드 선택값 전환 09.18.md",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 거래처 검색 파라미터 정리 08.07.md",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 입고·이미지·라벨 등수삭 구현 완료 07.09.md.tmp.29484.c1c4ddc3e9fd",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 DB Helper 계층 분리 및 ApiResponse 통일화 06.25.md.tmp.29484.2d740f2a93da",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 TickerMiddleware·EnvService 멀티테넌시 구조 최초 구현 06.30.md",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 TickerMiddleware·EnvService 멀티테넌시 구조 최초 구현 06.30.md.tmp.29484.20453c059f86",
+    "Jeakyoung_Blog/01_Projects/index.md.tmp.29484.d6a41b93553d",
     "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] 입고 라벨 이미지 촬영·업로드·적재 파이프라인.md.tmp.29484.f2e3bab144c6",
     "Jeakyoung_Blog/01_Projects/07_DataBoucher/index.md.tmp.29484.29f3bd0dd20f",
     "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/index.md",
-    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 이미지 업로드 거래처코드 선택값 전환 09.18.md",
     "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 이미지 업로드 거래처코드 선택값 전환 09.18.md.tmp.29484.0b48ead9df81",
-    "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 거래처 검색 파라미터 정리 08.07.md",
     "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 거래처 검색 파라미터 정리 08.07.md.tmp.29484.07acf144d9b3",
     "Jeakyoung_Blog/01_Projects/07_DataBoucher/01_Tasks/데이터 바우처 FTP 업로드 디렉토리 자동생성 08.31.md",
-    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] Controller-Service-DatabaseHelper 계층과 ApiResponse·인증 구조.md",
-    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] Controller-Service-DatabaseHelper 계층과 ApiResponse·인증 구조.md.tmp.29484.c739a4be8ae0",
-    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] SECURITY_CODE 기반 멀티테넌시 구조 (TickerMiddleware).md",
-    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] SECURITY_CODE 기반 멀티테넌시 구조 (TickerMiddleware).md.tmp.29484.cb07a571af5d",
-    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs",
     "Jeakyoung_Blog/01_Projects/09_FoodLink.md",
     "Jeakyoung_Blog/02_Career/index.md",
     "Jeakyoung_Blog/02_Career/04_Portfolio.md",
@@ -246,13 +257,6 @@
     "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog TGI003 테이블 설계 명세.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 합의동작 오류 점검.md",
     "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 파라미터 입력시 오류 해결.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 회사 코드 체계 ( 발의안 ).md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 결재(Approval) 상태 모델과 흐름.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog 보안코드 현황.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] I-Frog 서버 통합.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/04_References",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/03_Meetings",
-    "Notion/프로젝트 문서화/프로젝트/NoNAME 프로젝트 DB/Project  Todo - 프로젝트 Todo/RT Database 관점의 BE 아키텍처",
     "Jeakyoung_Blog/resources/Pasted image 20260915104409.png",
     "Jeakyoung_Blog/resources/Pasted image 20260910140131.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133935.png",
