@@ -11,10 +11,14 @@
             "id": "a511661f331b279c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] URL 파서 수집 전략.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "새 탭"
+              "title": "[기술] URL 파서 수집 전략"
             }
           }
         ]
@@ -217,6 +221,12 @@
   },
   "active": "a511661f331b279c",
   "lastOpenFiles": [
+    "quartz.static/og-image.png",
+    "quartz.static/icon.png",
+    "quartz.static",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] Web API 클라이언트 토큰 재발급 흐름.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] URL 파서 수집 전략.md",
+    "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] RT Database 관점의 Backend 아키텍처.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/03_TechDocs/index.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/03_TechDocs/index.md.tmp.23020.7ae2d951ea48",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/02_Docs/index.md",
@@ -240,7 +250,6 @@
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/02_Docs/평택대학교앱 리워크 개발 과정.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/02_Docs/평택대학교앱 리워크 개발 과정.md.tmp.23020.5b1549529d8b",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/02_Docs/평택대학교앱 리워크 프로젝트 개요.md",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/index.md.tmp.23020.3032dae1b52e",
     "Notion/프로젝트 문서화/프로젝트/NoNAME 프로젝트 DB/Project  Todo - 프로젝트 Todo/RT Database 관점의 BE 아키텍처/BE PreparedStatement란.md",
     "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] 데이터베이스 최적화 종합 가이드.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/24년 평택대학교앱 리워크.md",
@@ -249,10 +258,6 @@
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/개발팀 구성/이종태.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/개발팀 구성/안정연.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/개발팀 구성/박미현.md",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/개발팀 구성/류채현.md",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트/FIX회원가입 로직 개발.md",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트/GIT 브랜치 병합 충돌문제 해결.md",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/2024 평택대학교 리뉴얼 프로젝트/DB Froeign Key 설정시 On delete ,Update 제약조건 설정.md",
     "Jeakyoung_Blog/resources/profile.jpg",
     "Jeakyoung_Blog/resources/Pasted image 20260915104409.png",
     "Jeakyoung_Blog/resources/Pasted image 20260910140131.png",
@@ -262,7 +267,6 @@
     "Jeakyoung_Blog/resources/Pasted image 20260831133455.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133447.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133440.png",
-    "Jeakyoung_Blog/resources/Pasted image 20260831133424.png",
     "무제 1.canvas",
     "무제.canvas"
   ]
