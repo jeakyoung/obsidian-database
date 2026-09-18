@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/index.md",
+                "file": "Jeakyoung_Blog/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -219,8 +219,13 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "a511661f331b279c",
+  "active": "b7af9e99c97ba2cd",
   "lastOpenFiles": [
+    "Notion/프로젝트 문서화/프로젝트/NoNAME 프로젝트 DB/Project  Todo - 프로젝트 Todo/RT Database 관점의 BE 아키텍처/BE PreparedStatement란.md",
+    "Jeakyoung_Blog/index.md",
+    "Jeakyoung_Blog/README.md",
+    "Jeakyoung_Blog/03_Learning/References/index.md",
+    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/index.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/03_TechDocs/index.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/03_TechDocs/[기술] SALT 기반 로그인 인증 흐름.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/03_TechDocs/[기술] Controller-Service-DAO 3계층 구조.md",
@@ -252,13 +257,8 @@
     "quartz.static/icon.png",
     "quartz.static",
     "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] Web API 클라이언트 토큰 재발급 흐름.md",
-    "Jeakyoung_Blog/01_Projects/06_ReelTrip/03_TechDocs/[기술] RT Database 관점의 Backend 아키텍처.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/03_TechDocs/index.md.tmp.23020.7ae2d951ea48",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/02_Docs/index.md",
     "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/02_Docs/index.md.tmp.23020.b0c12311a8a3",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/01_Tasks/index.md",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/02_Docs/평택대학교앱 리워크 개발 과정.md",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/02_Docs/평택대학교앱 리워크 프로젝트 개요.md",
     "Jeakyoung_Blog/resources/profile.jpg",
     "Jeakyoung_Blog/resources/Pasted image 20260915104409.png",
     "Jeakyoung_Blog/resources/Pasted image 20260910140131.png",
