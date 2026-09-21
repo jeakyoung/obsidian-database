@@ -12,6 +12,7 @@ on:
       - "quartz.custom.scss"
       - "quartz.overrides/**"
       - "quartz.static/**"
+      - "scripts/**"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:  # 수동 트리거 허용
 
