@@ -57,7 +57,14 @@ function startServer() {
 async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true })
   const server = await startServer()
-  const browser = await puppeteer.launch({ headless: "new" })
+  // GitHub Actions 러너는 unprivileged user namespace 가 막혀 있어 Chromium
+  // 기본 샌드박스가 뜨지 못한다(zygote_host_impl_linux.cc FATAL). 우리가 렌더링
+  // 하는 대상은 외부 콘텐츠가 아니라 이 빌드가 직접 만든 정적 사이트뿐이라
+  // --no-sandbox 로 우회해도 위험이 없다.
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  })
 
   try {
     for (const rel of PAGES) {
