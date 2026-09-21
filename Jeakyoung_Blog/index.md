@@ -18,8 +18,7 @@ date: 2026-09-18
 
 <span class="hero-role">백엔드 개발자 · F1soft 솔루션사업팀 (2025.07 ~)</span>
 
-ERP·MES(Java + Sencha Ext JS)와 모바일 백엔드 API(C# .NET Core)를 함께 개발합니다.
-단순 CRUD를 넘어 성능 최적화·시스템 아키텍처에 관심이 많고, 진행한 작업을 기술 문서로 남기는 걸 좋아합니다.
+Java로 ERP·MES를, C#으로 모바일 백엔드를 만들며 서로 다른 두 언어를 오가다 보니, 언어 문법보다 원하는 구조로 코드를 끌고 가는 능력이 진짜 실력이라는 걸 체감했습니다. 지금은 Spring Boot 기반 백엔드 개발자로 한 걸음씩 나아가는 중이고, 어떤 언어를 쓰든 설계 의도대로 밀고 나갈 수 있는 개발자가 되고 싶습니다. 성능 최적화와 시스템 아키텍처에 관심이 많고, 진행한 작업은 꼭 기술 문서로 남깁니다.
 
 <div class="hero-contact">
 
@@ -38,11 +37,12 @@ ERP·MES(Java + Sencha Ext JS)와 모바일 백엔드 API(C# .NET Core)를 함�
 
 | 분야 | 기술 |
 |:--|:--|
-| **백엔드** | Java (ERP·MES), C# .NET Core (모바일 백엔드 API) |
-| **프론트엔드** | Sencha Ext JS |
-| **데이터베이스** | MSSQL (주력), PostgreSQL |
-| **배포** | NginX |
-| **메시징** | FCM (Firebase Cloud Messaging) |
+| **백엔드 (실무)** | Java (서블릿+JDBC, ERP·MES), C# .NET Core (모바일 백엔드 API) |
+| **백엔드 (개인 프로젝트)** | Spring Boot 3 + MyBatis (ReeL-Trip) |
+| **프론트엔드** | Sencha Ext JS (ERP·MES), Next.js 15 · React Native/Expo (개인 프로젝트) |
+| **데이터베이스** | MSSQL (주력, 저장 프로시저 중심), PostgreSQL, MariaDB |
+| **배포 · 인프라** | NginX, Jenkins, HikariCP, Flyway |
+| **메시징 · 외부연동** | Firebase Cloud Messaging(FCM), SAP RFC |
 | **기타** | C# WPF (POP 기술지원) |
 
 ## 📊 프로젝트
