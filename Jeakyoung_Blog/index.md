@@ -47,35 +47,37 @@ Java로 ERP·MES를, C#으로 모바일 백엔드를 만들며 서로 다른 두
 
 ## 📊 프로젝트
 
-### [[01_Projects/01_ShinJinSM|📊 신진SM ERP · MES]]
-MES 개발 담당 · Sencha Ext JS + Java + MSSQL (POP 는 C# WPF 기술지원)
-
-### [[01_Projects/02_IPACK|⏰ IPACK 근태 시스템]]
+### [[01_Projects/01_IPACK|⏰ IPACK 근태 시스템]]
 ERP 근태 시스템 담당 · Sencha Ext JS + Java + MSSQL
 
-### [[01_Projects/03_iFrog|📱 I-Frog]]
+### [[01_Projects/02_iFrog|📱 I-Frog]]
 모바일 백엔드 API 개발 담당 · C# .NET Core + MSSQL/PostgreSQL + NginX
 
-### [[01_Projects/04_DongBang|🍲 동방푸드 ERP]]
-ERP 기술지원 담당 · Sencha Ext JS + Java + MSSQL
+### [[01_Projects/03_ShinJinSM|📊 신진SM ERP · MES]]
+MES 개발 담당 · Sencha Ext JS + Java + MSSQL (POP 는 C# WPF 기술지원)
 
-### [[01_Projects/05_SeHanMT|🏪 세한MT]]
-ERP 기술지원 담당 · Sencha Ext JS + Java + MSSQL
-
-### [[01_Projects/06_ReelTrip|🤖 ReeL-Trip (개인 프로젝트)]]
-AI/LLM 기반 학습 프로젝트 · Turborepo 모노레포 (Next.js 15 + React Native/Expo + Spring Boot 3)
-
-### [[01_Projects/07_DataBoucher|📈 데이터 바우처]]
+### [[01_Projects/04_DataBoucher|📈 데이터 바우처]]
 모바일 백엔드 API 파이프라인 개발 담당 (신규사업) · C# .NET Core + MSSQL
 
-### [[01_Projects/08_NPP|⚙️ 뉴파워 프라즈마 (NPP)]]
-MLOps 개발 담당 (신규사업) · 기술 스택 미확정
+### [[01_Projects/05_ReelTrip|🤖 ReeL-Trip (개인 프로젝트)]]
+AI/LLM 기반 학습 프로젝트 · Turborepo 모노레포 (Next.js 15 + React Native/Expo + Spring Boot 3)
 
-### [[01_Projects/99_UNI|🎓 대학 프로젝트]]
+### [[01_Projects/06_DongBang|🍲 동방푸드 ERP]]
+ERP 기술지원 담당 · Sencha Ext JS + Java + MSSQL
+
+### [[01_Projects/07_UNI|🎓 대학 프로젝트]]
 Open Soop, 평택대학교 앱 리워크
 
 ### [[01_Projects|📋 전체 프로젝트 목록]]
 프로젝트별 작업 기록, 기술 문서, 회의록
+
+<details>
+<summary>기타 (단기 기술지원)</summary>
+
+- [[01_Projects/98_ETC/05_SeHanMT|🏪 세한MT]] — ERP 기술지원 담당 · Sencha Ext JS + Java + MSSQL
+- [[01_Projects/98_ETC/08_NPP|⚙️ 뉴파워 프라즈마 (NPP)]] — MLOps 개발 담당 (신규사업) · 기술 스택 미확정
+
+</details>
 
 ## 📖 더 보기
 

@@ -5,7 +5,7 @@ title: 세한MT
 
 # 세한MT
 
-페이지 작업중입니다.
+세한MT(금형·사출 제조업체) POP(생산실적 입력) 시스템 기술지원. 담당 범위는 생산실적 화면 수정(작업잔량·양품수량 계산 로직 등)과 소스 형상관리 체계 구축 — GitLab 브랜치 전략(Master/productionUI/Develop-Bugfix) 정리, 버전 태그 기반 CI 빌드, Updater를 통한 FTP 자동 배포 파이프라인. 감리 준비 현장방문(설비 PC 15대 점검, FTP·원격 접속 정보 정리)도 병행했다.
 
 ## 기술 스택
 
@@ -18,5 +18,5 @@ title: 세한MT
 
 ## 문서 분류
 
-- [[01_Projects/05_SeHanMT/01_Tasks|작업 목록]] - POP 수정사항, 형상 관리
-- [[01_Projects/05_SeHanMT/03_Meetings|회의록]] - 감리 및 현장 방문 기록
+- [[01_Projects/98_ETC/05_SeHanMT/01_Tasks|작업 목록]] - POP 수정사항, 형상 관리
+- [[01_Projects/98_ETC/05_SeHanMT/03_Meetings|회의록]] - 감리 및 현장 방문 기록

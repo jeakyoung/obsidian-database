@@ -36,8 +36,8 @@ date: 2026-09-16
 
 ## 문서 목록 (4)
 
-- [[01_Technical_Skills]]
-- [[02_Resume]]
+- [[01_Resume]]
+- [[02_CareerDescription]]
 - [[03_CoverLetter]]
 - [[04_Portfolio]]
 

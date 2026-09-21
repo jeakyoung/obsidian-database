@@ -27,15 +27,15 @@ DIR_TYPE = {
 }
 
 PROJECT = {
-    "01_ShinJinSM": "신진SM",
-    "02_IPACK": "IPACK",
-    "03_iFrog": "I-Frog",
-    "04_DongBang": "동방푸드",
+    "01_IPACK": "IPACK",
+    "02_iFrog": "I-Frog",
+    "03_ShinJinSM": "신진SM",
+    "04_DataBoucher": "데이터바우처",
+    "05_ReelTrip": "ReelTrip",
+    "06_DongBang": "동방푸드",
+    "07_UNI": "대학프로젝트",
     "05_SeHanMT": "세한MT",
-    "06_ReelTrip": "ReelTrip",
-    "07_DataBoucher": "데이터바우처",
     "08_NPP": "뉴파워프라즈마",
-    "99_UNI": "대학프로젝트",
 }
 
 # NOTE: every *output* value must also be a key here, otherwise re-running the

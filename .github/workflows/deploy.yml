@@ -70,9 +70,13 @@ jobs:
           # - FolderContent: 폴더 인덱스 페이지의 문서 목록 중복 제거
           # - Backlinks: 역링크가 없는 페이지에서는 빈 블록을 보여주지 않음
           # - ExplorerNode: 탐색기 링크에 title(hover 툴팁) 속성 추가
+          # - PdfButton: 경력 서류(02_Career) 페이지의 "PDF로 저장" 버튼 (신규 컴포넌트)
+          # - index.ts: 원본 컴포넌트 배럴 파일 + PdfButton export 추가
           cp quartz.overrides/FolderContent.tsx quartz-build/quartz/components/pages/FolderContent.tsx
           cp quartz.overrides/Backlinks.tsx quartz-build/quartz/components/Backlinks.tsx
           cp quartz.overrides/ExplorerNode.tsx quartz-build/quartz/components/ExplorerNode.tsx
+          cp quartz.overrides/PdfButton.tsx quartz-build/quartz/components/PdfButton.tsx
+          cp quartz.overrides/index.ts quartz-build/quartz/components/index.ts
 
       - name: Copy vault content to Quartz
         run: |
@@ -93,6 +97,17 @@ jobs:
         run: |
           cd quartz-build
           npx quartz build
+
+      - name: Render career docs to PDF
+        run: |
+          # PdfButton 컴포넌트(경력 서류 페이지의 "PDF로 저장" 버튼)가 링크하는
+          # /pdfs/*.pdf 를 실제로 만든다. quartz-build/public 을 로컬 정적 서버로
+          # 띄우고 Puppeteer(headless Chrome)로 각 페이지를 print 레이아웃으로
+          # 렌더링해 PDF로 저장한다 — scripts/render-pdf.mjs 참고.
+          cp scripts/render-pdf.mjs quartz-build/render-pdf.mjs
+          cd quartz-build
+          npm install --no-save puppeteer
+          node render-pdf.mjs
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v4

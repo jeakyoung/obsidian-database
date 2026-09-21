@@ -1,6 +1,6 @@
 ---
 title: 포트폴리오 - 안재경
-date: 2026-09-18
+date: 2026-09-21
 type: 경력문서
 status: 진행중
 tags: []
@@ -12,39 +12,17 @@ tags: []
 
 | 항목 | 내용 |
 |:--|:--|
-| **작성일** | 2026-09-18 |
+| **작성일** | 2026-09-21 |
 | **소속·역할** | F1soft 솔루션사업팀 · ERP/MES 백엔드, 모바일 백엔드 API |
 | **주요 기술** | Java, Sencha Ext JS, C# .NET Core, MSSQL, PostgreSQL, MariaDB |
 
 ## 🧭 경력 요약
 
-F1soft에서 여러 고객사의 ERP·MES 시스템과 모바일 백엔드 API를 개발하며, 개인 프로젝트([[01_Projects/06_ReelTrip|ReeL-Trip]])를 병행하고 있습니다.
+F1soft에서 여러 고객사의 ERP·MES 시스템과 모바일 백엔드 API를 개발하며, 개인 프로젝트([[01_Projects/05_ReelTrip|ReeL-Trip]])를 병행하고 있습니다.
 
 ## 🛠 주요 수행 내용
 
-### Project 1: 신진SM ERP/MES — 더존 ERP 연동 정합성
-
-| 항목 | 내용 |
-|:--|:--|
-| **기간** | 2026.04 ~ 진행중 |
-| **역할** | MES 개발 |
-| **기술 스택** | Sencha Ext JS, Java 서블릿, MSSQL, 더존 ERP 연동(`NEOE.*` 프로시저) |
-
-**구조**
-
-신진SM MES는 저장이 확정되면 별도 JDBC 커넥션(web.xml의 `urlDZ`/`usernameDZ`/`passwordDZ`)으로 더존 ERP DB에 직접 연결해 `NEOE.*` 스토어드 프로시저를 호출하는 방식으로 데이터를 반영합니다. 이 두 저장이 하나의 트랜잭션이 아니라서, "MES 저장 확정 → 더존은 best-effort로 반영"되는 구조입니다.
-
-**대응한 문제들**
-
-- **포장 중복 → 더존 마이너스 재고**: MES 프로시저 레벨에서는 중복이 이미 제한되어 있었지만, 더존 연동부에서 중복이 발생하는 걸 확인. `SP_WPR559_02_IUD_TEST`에 `@ISEXISTS_OUT` OUTPUT 파라미터를 추가하고 `ProdReportService`/`ProdSLService`가 이 값을 보고 더존 문서 재생성을 생략하도록 수정
-- **더존-MES 사업장 코드 매핑**: 재고조정 화면의 사업장 `1000` 하드코딩 문제를 계기로 12개 사업장 전체 매핑을 검증 쿼리로 확인
-- **더존 월말 재고 집계 불일치**: `MM_OHSLINVM`(월별 집계)과 `MM_OHSLINVD`(일별 상세)가 어긋나는 사례를 탐지 → 세부 확인 → UPDATE 3단계 절차로 표준화 (프로시저 재실행은 `MM_PINVN` 이중 반영 위험이 있어 금지)
-
-> 아직 남은 문제: 포장 단독 생산 시 창고코드가 `ProdSLService.java`에서 무조건 출하창고로 고정되는 버그는 확인만 됐고 미수정 상태입니다. 자세한 내용은 [[01_Projects/01_ShinJinSM/05_Docs/신진SM 개발 이력|신진SM 개발 이력]] 참고.
-
----
-
-### Project 2: IPACK 근태 시스템 — 시간 계산 로직 및 근태 기능
+### Project 1: IPACK 근태 시스템 — 시간 계산 로직 및 근태 기능
 
 | 항목 | 내용 |
 |:--|:--|
@@ -78,13 +56,13 @@ convertToPlusHour: function (rawTime) {
 
 **주차별 근무조 등록(WHR316) 기능 구현**
 
-근무조 일괄적용/변환, 근태 년-월·주차 콤보 조회조건, 사원명 LIKE 검색 등을 단계적으로 구현했습니다. 상세 이력은 [[01_Projects/02_IPACK/02_TechDocs/근태_2기능스펙/[기술] WHR316 주차별 근무조 등록|WHR316 기술 스펙]] 참고.
+근무조 일괄적용/변환, 근태 년-월·주차 콤보 조회조건, 사원명 LIKE 검색 등을 단계적으로 구현했습니다. 상세 이력은 [[01_Projects/01_IPACK/02_TechDocs/근태_2기능스펙/[기술] WHR316 주차별 근무조 등록|WHR316 기술 스펙]] 참고.
 
-> 이 시스템의 서블릿(`jv*.java`)은 SQL을 `"EXEC SP_... '" + value + "'"` 형태로 문자열 결합해서 실행합니다. 작은따옴표만 이스케이프하는 수준이라 구조적인 SQL Injection 패턴입니다 — 아직 고치지는 않은 상태입니다.
+> 이 시스템의 서블릿(`jv*.java`)은 SQL을 `"EXEC SP_... '" + value + "'"` 형태로 문자열 결합해서 실행합니다. 작은따옴표만 이스케이프하는 수준이라 구조적인 SQL Injection 패턴입니다 — 담당 범위 밖이라 아직 고치지는 않은 상태입니다.
 
 ---
 
-### Project 3: I-Frog — 그룹웨어/ERP 연동 백엔드, 서버 통합
+### Project 2: I-Frog — 그룹웨어/ERP 연동 백엔드, 서버 통합
 
 | 항목 | 내용 |
 |:--|:--|
@@ -108,7 +86,47 @@ SAP RFC 연동(`Controllers/Interface/Sap`), 원시 쿼리/프로시저 실행 �
 
 ---
 
-### Project 4: ReeL-Trip — 개인 프로젝트, 풀스택
+### Project 3: 신진SM ERP/MES — 더존 ERP 연동 정합성
+
+| 항목 | 내용 |
+|:--|:--|
+| **기간** | 2026.04 ~ 진행중 |
+| **역할** | MES 개발 |
+| **기술 스택** | Sencha Ext JS, Java 서블릿, MSSQL, 더존 ERP 연동(`NEOE.*` 프로시저) |
+
+**구조**
+
+신진SM MES는 저장이 확정되면 별도 JDBC 커넥션(web.xml의 `urlDZ`/`usernameDZ`/`passwordDZ`)으로 더존 ERP DB에 직접 연결해 `NEOE.*` 스토어드 프로시저를 호출하는 방식으로 데이터를 반영합니다. 이 두 저장이 하나의 트랜잭션이 아니라서, "MES 저장 확정 → 더존은 best-effort로 반영"되는 구조입니다.
+
+**대응한 문제들**
+
+- **포장 중복 → 더존 마이너스 재고**: MES 프로시저 레벨에서는 중복이 이미 제한되어 있었지만, 더존 연동부에서 중복이 발생하는 걸 확인. `SP_WPR559_02_IUD_TEST`에 `@ISEXISTS_OUT` OUTPUT 파라미터를 추가하고 `ProdReportService`/`ProdSLService`가 이 값을 보고 더존 문서 재생성을 생략하도록 수정
+- **더존-MES 사업장 코드 매핑**: 재고조정 화면의 사업장 `1000` 하드코딩 문제를 계기로 12개 사업장 전체 매핑을 검증 쿼리로 확인
+- **더존 월말 재고 집계 불일치**: `MM_OHSLINVM`(월별 집계)과 `MM_OHSLINVD`(일별 상세)가 어긋나는 사례를 탐지 → 세부 확인 → UPDATE 3단계 절차로 표준화 (프로시저 재실행은 `MM_PINVN` 이중 반영 위험이 있어 금지)
+
+> 아직 남은 문제: 포장 단독 생산 시 창고코드가 `ProdSLService.java`에서 무조건 출하창고로 고정되는 버그는 확인만 됐고 미수정 상태입니다. 자세한 내용은 [[01_Projects/03_ShinJinSM/05_Docs/신진SM 개발 이력|신진SM 개발 이력]] 참고.
+
+---
+
+### Project 4: 데이터 바우처 — 입고 라벨 이미지 수집 파이프라인
+
+| 항목 | 내용 |
+|:--|:--|
+| **기간** | 2026.06 ~ 진행중 |
+| **역할** | 데이터 수집 단계 모바일 백엔드 API 개발 (신규사업) |
+| **기술 스택** | C# .NET Core, MSSQL, I-Frog(`F1Soft.Starmap.Service`) 코드베이스 기반 |
+
+입고등록 대상 라벨 사진을 대량 수집해 AI로 함량표시 변경 여부를 자동 분류·모니터링하는 신규사업의 데이터 수집 단계입니다. I-Frog 코드베이스를 카피해서 시작했고, 모바일에서 촬영한 입고 라벨 이미지를 FTP에 업로드하고 이력을 DB(`TB_LabelMaster`)에 적재하는 파이프라인을 구현했습니다.
+
+**구조**
+
+I-Frog에서 검증된 `SECURITY_CODE` 헤더 기반 멀티테넌시(TickerMiddleware) 구조와 Controller → Service → DatabaseHelper 계층, `ApiResponse<T>` 공통 응답 포맷을 그대로 가져와 적용했습니다. 원본 저장소는 `Haccp`라는 이름으로 시작했다가 `foodlink-service`로 개명됐는데, 네임스페이스(`F1Soft.Starmap.*`)는 리네이밍 이후에도 원본 그대로 남아 있습니다.
+
+> AI 분석(함량표시 변경 판별) 연동 코드는 `TB_LabelMaster`의 `LABEL_STATUS`/`ANALYSIS_STATUS` 컬럼과 함께 스케폴딩되어 있지만 컨트롤러/서비스에서 주석 처리된 채 비활성 상태입니다 — AI 분석 자체는 별도 모듈로, 이 저장소 범위 밖입니다.
+
+---
+
+### Project 5: ReeL-Trip — 개인 프로젝트, 풀스택
 
 | 항목 | 내용 |
 |:--|:--|
@@ -135,21 +153,43 @@ NestJS로 시작했다가 CORS/배포 이슈를 겪으면서 Spring Boot 3 + MyB
 - 테스트 코드 없음 (Dockerfile도 `-DskipTests`로 빌드)
 - AI 추천 섹션(`AiScreen`)이 아직 더미 데이터로 남아있음 — Spring 쪽에 추천 API가 없어서 방향 미정
 
-상세 진행 과정은 [[01_Projects/06_ReelTrip/02_Docs/ReelTrip 개발 과정|ReelTrip 개발 과정]] 참고.
+상세 진행 과정은 [[01_Projects/05_ReelTrip/02_Docs/ReelTrip 개발 과정|ReelTrip 개발 과정]] 참고.
+
+---
+
+### Project 6: 동방푸드 ERP — 조회조건·데이터 정합성 기술지원
+
+| 항목 | 내용 |
+|:--|:--|
+| **기간** | 기술지원 (비상주) |
+| **역할** | ERP 기술지원 |
+| **기술 스택** | Sencha Ext JS, Java 서블릿, MSSQL |
+
+동방푸드마스타(소스 제작)·동방MS(육류가공) 대상 iPlusERP 기술지원. 화면 조회조건 추가와 데이터 정합성 조치 위주로 진행했습니다.
+
+**조회조건 파라미터 버그 (WRD203)**
+
+`jvWRD203_01_LIST.java`가 `PROC_STATUS`/`SALES_EMP_NO`/`PROC_GBN` 세 파라미터를 전부 `request.getParameter("PROC_GBN")`으로 읽는 걸 발견했습니다 — 클라이언트가 보낸 나머지 두 값이 서버에서 그대로 버려지는 구조입니다. 자세한 내용은 [[01_Projects/06_DongBang/02_TechDocs/[기술] 샘플요청서 담당자 조회조건 (WRD203)|WRD203 조회조건 분석]] 참고.
+
+---
+
+### 학부 프로젝트
+
+F1soft 입사 전, 평택대학교 재학 중 팀 프로젝트로 Open Soop(대학 커뮤니티 앱 — BE 팀원, 게시판 모니터링 API)과 평택대학교 앱 리워크(BE 팀장 겸 PL, Spring Boot API 서버 전체 담당)를 진행했습니다. 상세는 [[01_Projects/07_UNI|대학 프로젝트]] 참고.
 
 ## 🏆 성과 및 역량
 
 | 영역 | 경험 |
 |:--|:--|
-| **Java / 서블릿** | ERP·MES 백엔드 (신진SM, IPACK) — 프레임워크 없는 코드베이스 유지보수 |
-| **C# .NET Core** | 모바일 백엔드 API (I-Frog) — 멀티테넌시 구조 설계, FCM 연동 |
+| **Java / 서블릿** | ERP·MES 백엔드 (IPACK, 신진SM, 동방푸드) — 프레임워크 없는 코드베이스 유지보수 |
+| **C# .NET Core** | 모바일 백엔드 API (I-Frog, 데이터 바우처) — 멀티테넌시 구조 설계, 기존 구조의 재적용 |
 | **MSSQL** | 저장 프로시저 중심 시스템에서의 데이터 정합성 문제 분석 |
-| **Spring Boot 3** | 개인 프로젝트(ReeL-Trip)에서 마이그레이션·설계 경험 |
+| **Spring Boot 3** | 개인 프로젝트(ReeL-Trip)·학부 프로젝트에서 마이그레이션·신규 설계 경험 |
 | **시스템 연동** | MES↔더존ERP 비동기 연동 문제 분석 및 개별 방어 로직 구현 |
 
 ## 🔗 참고
 
-- [[01_Technical_Skills|경력기술서]]
-- [[02_Resume|이력서]]
+- [[02_CareerDescription|경력기술서]]
+- [[01_Resume|이력서]]
 - [[03_CoverLetter|자기소개서]]
 - [[01_Projects|전체 프로젝트 목록]]

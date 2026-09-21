@@ -18,34 +18,33 @@ Jeakyoung_Blog/                     📁 블로그 content 루트
 ├── index.md                        🏠 블로그 홈
 ├── README.md                       📄 이 파일
 │
-├── 01_Projects/                    📁 프로젝트 문서 (187개)
+├── 01_Projects/                    📁 프로젝트 문서
 │   ├── index.md
-│   ├── 01_ShinJinSM/               📂 신진SM ERP/MES            (33)
+│   ├── 01_IPACK/                   📂 IPACK 근태 시스템
+│   │   ├── 01_Tasks/ 02_TechDocs/ 03_Meetings/
+│   ├── 02_iFrog/                   📂 I-Frog
+│   │   ├── 01_Tasks/ 02_TechDocs/ 03_Meetings/ 04_References/
+│   ├── 03_ShinJinSM/                📂 신진SM ERP/MES
 │   │   ├── 01_Tasks/               작업 목록
 │   │   ├── 02_TechDocs/            기술 문서
 │   │   ├── 03_Meetings/            회의록
 │   │   └── 04_References/          참고 자료
-│   ├── 02_IPACK/                   📂 IPACK 근태 시스템          (48)
-│   │   ├── 01_Tasks/ 02_TechDocs/ 03_Meetings/
-│   ├── 03_iFrog/                   📂 I-Frog POS                (30)
-│   │   ├── 01_Tasks/ 02_TechDocs/
-│   ├── 04_DongBang/                📂 동방푸드 ERP               (8)
-│   │   └── 01_Tasks/
-│   ├── 05_SeHanMT/                 📂 세한MT POP                (5)
-│   │   ├── 01_Tasks/ 03_Meetings/
-│   ├── 06_ReelTrip/                📂 ReelTrip (개인)           (13)
-│   │   ├── 01_Tasks/ 03_TechDocs/
-│   ├── 07_DataBoucher/             📂 데이터 바우처              (12)
-│   │   ├── 01_Tasks/ 03_Meetings/
-│   ├── 08_NPP/                     📂 뉴파워 프라즈마            (3)
-│   │   ├── 02_TechDocs/ 03_Meetings/
-│   └── 99_UNI/                     📂 대학 프로젝트              (35)
-│       ├── 2023_OpenSoop/
-│       └── 2024_PaekTaekApp/
+│   ├── 04_DataBoucher/             📂 데이터 바우처
+│   │   ├── 01_Tasks/ 02_TechDocs/ 03_Meetings/ 04_References/ 05_Docs/
+│   ├── 05_ReelTrip/                📂 ReelTrip (개인)
+│   │   ├── 01_Tasks/ 02_Docs/ 03_TechDocs/
+│   ├── 06_DongBang/                📂 동방푸드 ERP
+│   │   └── 01_Tasks/ 02_TechDocs/ 04_References/
+│   ├── 07_UNI/                     📂 대학 프로젝트
+│   │   ├── 2023_OpenSoop/
+│   │   └── 2024_PaekTaekApp/
+│   └── 98_ETC/                     📂 기타 (단기 기술지원, 포트폴리오 비노출)
+│       ├── 05_SeHanMT/             📂 세한MT POP
+│       └── 08_NPP/                 📂 뉴파워 프라즈마
 │
 ├── 02_Career/                      📁 경력 서류 (4개)
-│   ├── 01_Technical_Skills.md      경력기술서
-│   ├── 02_Resume.md                이력서
+│   ├── 01_Resume.md                이력서
+│   ├── 02_CareerDescription.md     경력기술서
 │   ├── 03_CoverLetter.md           자기소개서
 │   └── 04_Portfolio.md             포트폴리오
 │

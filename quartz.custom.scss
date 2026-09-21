@@ -418,3 +418,68 @@ article > ul > li > a.internal {
     }
   }
 }
+
+/* ------------------------------------------------------------------
+   12. 경력 서류 — "PDF로 저장" 버튼 + 인쇄 레이아웃
+   PdfButton 컴포넌트는 frontmatter type 이 `경력문서`인 페이지(02_Career/
+   01_Resume·02_CareerDescription·03_CoverLetter·04_Portfolio)에만 렌더링된다.
+   버튼 자체는 scripts/render-pdf.mjs 가 빌드 시점에 미리 만들어 둔
+   /pdfs/<파일명>.pdf 로 바로 연결되는 다운로드 링크다. 아래 `@media print`
+   블록은 render-pdf.mjs 가 Puppeteer 로 print 미디어를 에뮬레이션해 PDF를
+   찍을 때 쓰는 레이아웃이다(사이드바·헤더·이 버튼 자신을 숨기고 본문만
+   남김) — 사용자가 브라우저에서 직접 인쇄할 때도 동일하게 적용된다.
+------------------------------------------------------------------ */
+
+.pdf-export-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.75rem 0 0;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--doc-border);
+  border-radius: var(--doc-radius);
+  background: var(--doc-surface);
+  color: var(--dark);
+  font-size: 0.88rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover {
+    background: var(--highlight);
+    border-color: var(--doc-accent);
+  }
+}
+
+@media print {
+  .left.sidebar,
+  .right.sidebar,
+  header,
+  .page-header .breadcrumb-container,
+  .page-footer,
+  footer,
+  .pdf-export-button {
+    display: none !important;
+  }
+
+  .page > #quartz-body {
+    display: block !important;
+  }
+
+  .center {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  article {
+    max-width: 100% !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}

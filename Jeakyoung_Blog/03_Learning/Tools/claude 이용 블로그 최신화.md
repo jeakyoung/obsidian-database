@@ -10,7 +10,7 @@
   2. 방금 연결한 obsidian 폴더 안에서 Jeakyoung_Blog/01_Projects/ 밑에 이 프로젝트({프로젝트명}) 폴더를 찾아줘.
      없으면 다른 프로젝트들(01~08번대) 폴더링 컨벤션(01_Tasks/02_TechDocs/03_Meetings/04_References + index.md)을
      그대로 따라서 새로 만들어줘.
-  3. 01_Projects/06_ReelTrip 폴더를 품질 기준으로 삼아줘 — 특히 02_Docs/ReelTrip 프로젝트 개요.md,
+  3. 01_Projects/05_ReelTrip 폴더를 품질 기준으로 삼아줘 — 특히 02_Docs/ReelTrip 프로젝트 개요.md,
      02_Docs/ReelTrip 개발 과정.md, 03_TechDocs/[기술] URL 파서 수집 전략.md 를 먼저 읽고 스타일을 파악해:
      실제 파일 경로·함수명·SP명 기반 서술, 정직한 캐비어트(> [!warning]/> [!note]), 표, [[위키링크]] 교차연결,
      빈 템플릿 섹션 방치 금지. 반대로 ReelTrip의 [기술] RT Database 관점의 Backend 아키텍처.md 같은 건
