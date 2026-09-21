@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "6eb7a0b584b98297",
+        "id": "e4205ee12612d9fc",
         "type": "tabs",
         "children": [
           {
-            "id": "a511661f331b279c",
+            "id": "7663a154fe385548",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Jeakyoung_Blog/01_Projects/98_ETC/05_SeHanMT/01_Tasks/세한MT POP 수정사항.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "세한MT POP 수정사항"
+              "title": "새 탭"
             }
           }
         ]
@@ -219,13 +215,24 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "b7af9e99c97ba2cd",
+  "active": "c5abd37945b2c498",
   "lastOpenFiles": [
+    "Jeakyoung_Blog/01_Projects/04_DongBang/04_References/[환경] 동방푸드 시스템 구성 및 접속 정보.md",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/04_References/[업무] 동방푸드 조직 구조 및 업무 프로세스.md",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/04_References/index.md",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/04_References",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/02_TechDocs/[기술] 출하확정현황 생산팀 조회조건 (WSA411).md",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/02_TechDocs/[기술] 원부자재투입예정현황 부재료 중분류 조회 (WPR512).md",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/02_TechDocs/[기술] 샘플요청서 담당자 조회조건 (WRD203).md",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/02_TechDocs/[기술] 발주-입고 강제등록 구분 처리 (WMA202).md",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/02_TechDocs/index.md",
+    "Jeakyoung_Blog/01_Projects/04_DongBang/02_TechDocs",
+    "Jeakyoung_Blog/01_Projects/07_DataBoucher/02_TechDocs/[기술] 입고(Input) 등록과 임베디드 이미지 동시 저장 (InputSaveService).md",
+    "Jeakyoung_Blog/01_Projects/98_ETC/05_SeHanMT/01_Tasks/세한MT POP 수정사항.md",
     "Jeakyoung_Blog/01_Projects/98_ETC",
     "Jeakyoung_Blog/01_Projects/98_ETC/05_SeHanMT/01_Tasks/세한MT 생산지시량 수정.md",
     "Jeakyoung_Blog/01_Projects/98_ETC/05_SeHanMT/01_Tasks/세한MT 소스 형상 관리 방식.md",
     "Jeakyoung_Blog/01_Projects/98_ETC/05_SeHanMT/01_Tasks/세한MT POP 통합테스트 증적.md",
-    "Jeakyoung_Blog/01_Projects/98_ETC/05_SeHanMT/01_Tasks/세한MT POP 수정사항.md",
     "Jeakyoung_Blog/03_Learning/Tools/claude 이용 블로그 최신화.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 09.08 내부 미팅.md",
     "Jeakyoung_Blog/01_Projects/07_DataBoucher/index.md.tmp.21992.420dee2dc6a7",
@@ -245,18 +252,7 @@
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 05.06 업무 미팅.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM MES 품목 정보 조치 방안.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM MES 수정사항 (26.09.08).md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM ERP 기말 재고 오류.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 포장 중복 조회 기능 요청 (에러리스트 페이지).md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 포장 단독 생산 시 창고코드 오류 (미해결).md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 중복 포장문제 ( 05.22 ).md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 도면가공 체계 MES 동기화 작업.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 실적 등록 날짜 이월 처리 (자정·야간조).md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 더존-MES 사업장 코드 매핑.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM - 더존 중복 문서처리 방어.md",
     "Jeakyoung_Blog/01_Projects/01_ShinJinSM/05_Docs",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/03_TechDocs/index.md.tmp.25420.3bc4ce9cf0de",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/03_TechDocs/[기술] 게시판 모니터링 API 응답 구조와 한계.md.tmp.25420.0dee6592c7c6",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/03_TechDocs/[기술] Servlet-Process-MyBatis 계층 구조.md.tmp.25420.296a652cc7ad",
     "quartz.static/og-image.png",
     "quartz.static/icon.png",
     "Jeakyoung_Blog/resources/profile.jpg",
