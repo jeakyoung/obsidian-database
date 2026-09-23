@@ -14,7 +14,7 @@ tags: []
 | 항목 | 내용 |
 |------|------|
 | **완료일** | 2026-09-23 |
-| **작업지시서 참조** | [[2026-09-21-mobile-backend-full-integration]] |
+| **작업지시서 참조** | [[Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-09-21-mobile-backend-full-integration]] |
 | **대상 앱** | Mobile |
 | **대상 페이지/화면** | 홈(`HomeScreen`), 여행지(`TravelScreen`), 신규 채팅 화면 |
 | **작업 유형** | 기능추가 |

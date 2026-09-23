@@ -14,7 +14,7 @@ tags: []
 | 항목 | 내용 |
 |------|------|
 | **작성일** | 2026-09-23 |
-| **요구사항 참조** | [[2026-09-23-mobile-member-management]] |
+| **요구사항 참조** | [[Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-09-23-mobile-member-management]] |
 | **대상 앱** | Mobile |
 | **대상 페이지/화면** | 여행지(`TravelScreen`), 신규 멤버 관리 모달 |
 | **작업 유형** | 기능추가 |
