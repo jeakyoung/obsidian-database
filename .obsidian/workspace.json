@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e4205ee12612d9fc",
+        "id": "ba2014b064a75cab",
         "type": "tabs",
         "children": [
           {
-            "id": "7663a154fe385548",
+            "id": "72b4109608643bc7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.21 내부 미팅.md",
+                "file": "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프라즈마 09.23 회의.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "신진SM 09.21 내부 미팅"
+              "title": "뉴파워 프라즈마 09.23 회의"
             }
           }
         ]
@@ -219,21 +219,35 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "7663a154fe385548",
+  "active": "72b4109608643bc7",
   "lastOpenFiles": [
+    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프라즈마 09.17 회의.md",
+    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프라즈마 09.23 회의.md",
+    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프리즈마 09.16 회의.md",
+    "Jeakyoung_Blog/03_Learning/Tools/claude 이용 블로그 최신화.md",
+    "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 09.21 회의.md",
+    "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 08.20 현장 회의 (송연).md",
+    "Jeakyoung_Blog/01_Projects/02_iFrog/01_Tasks/I-Frog 스케줄러 빌드 배포방식.md",
+    "Jeakyoung_Blog/01_Projects/02_iFrog/02_TechDocs/[기술] I-Frog 서버 환경 정보.md",
+    "Jeakyoung_Blog/01_Projects/02_iFrog/02_TechDocs/[기술] I-Frog 서버 통합.md",
+    "Jeakyoung_Blog/01_Projects/02_iFrog/02_TechDocs/[기술] 환경별 설정 및 배포 가이드.md",
+    "Jeakyoung_Blog/01_Projects/02_iFrog/02_TechDocs/[기술] I-Frog 보안코드 현황.md",
+    "Jeakyoung_Blog/01_Projects/02_iFrog/02_TechDocs/[기술] FCM 토큰·메시지 이력 관리 구조.md",
+    "Jeakyoung_Blog/01_Projects/02_iFrog/02_TechDocs/[기술] FCM 알림 시스템 통합 가이드.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.22 업무 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.21 내부 미팅.md",
+    "scripts/render-pdf.mjs.tmp.12832.5b042c0bfba3",
     "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.15 업무 미팅.md",
     "quartz.custom.scss.tmp.12832.5449412ca5a8",
     "quartz.overrides/PdfButton.tsx.tmp.12832.34ef469d5bbb",
     "scripts/render-pdf.mjs",
     "scripts/render-pdf.mjs.tmp.12832.935c29a70298",
     "scripts",
-    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.21 내부 미팅.md",
     "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.08 내부 미팅.md",
     "quartz.custom.scss.tmp.12832.7971361d2590",
     "quartz.overrides/index.ts",
     "quartz.overrides/index.ts.tmp.12832.4ba61c5e47d0",
     "quartz.layout.ts.tmp.12832.f5f2e1e801ac",
-    "quartz.overrides/PdfButton.tsx",
     "Jeakyoung_Blog/02_Career/02_CareerDescription.md",
     "Jeakyoung_Blog/02_Career/03_CoverLetter_tmp.md",
     "Jeakyoung_Blog/02_Career/01_Resume.md",
@@ -243,19 +257,6 @@
     "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/03_TechDocs/[기술] SALT 기반 로그인 인증 흐름.md",
     "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/03_TechDocs/[기술] Controller-Service-DAO 3계층 구조.md",
     "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/03_TechDocs/[기술] Base64 이미지 업로드 및 정적 파일 저장소 구조.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/03_TechDocs/index.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/01_Tasks/회원가입 절차 다단계 분리 및 SALT 발급 구조 도입.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/01_Tasks/이메일 인증 코드 발송·검증 기능 구현.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/01_Tasks/게시판 이미지 첨부 Base64→WebP 저장 구조 구현.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/01_Tasks/index.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/01_Tasks/Eclipse-GitHub non-fast-forward 병합 오류 해결.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/01_Tasks/DB Foreign Key 제약조건(RESTRICT·CASCADE·SET NULL) 정리.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/02_Docs/평택대학교앱 리워크 프로젝트 개요.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/02_Docs/평택대학교앱 리워크 개발 과정.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/02_Docs/index.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2023_OpenSoop/03_TechDocs/[기술] 게시판 모니터링 API 응답 구조와 한계.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2023_OpenSoop/03_TechDocs/[기술] Servlet-Process-MyBatis 계층 구조.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2023_OpenSoop/03_TechDocs/index.md",
     "quartz.static/og-image.png",
     "quartz.static/icon.png",
     "Jeakyoung_Blog/resources/profile.jpg",

@@ -38,15 +38,15 @@ pw :
 
 #### **1. 서버 기본 정보**
 
-|**항목**|**내용**|
-|---|---|
-|서버 OS|Ubuntu 22.04.5 LTS|
-|접속 방식|SSH|
-|개발 환경|Mac|
-|API Runtime|.NET Runtime|
-|Web Server|Nginx|
-|Database|PostgreSQL|
-|DB 관리툴|DBeaver|
+| **항목**      | **내용**             |
+| ----------- | ------------------ |
+| 서버 OS       | Ubuntu 22.04.5 LTS |
+| 접속 방식       | SSH                |
+| 개발 환경       | Mac                |
+| API Runtime | .NET Runtime       |
+| Web Server  | Nginx              |
+| Database    | PostgreSQL         |
+| DB 관리툴      | DBeaver            |
 
 ---
 
