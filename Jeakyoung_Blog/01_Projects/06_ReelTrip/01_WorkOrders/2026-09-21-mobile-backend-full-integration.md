@@ -3,7 +3,7 @@ title: mobile backend full integration
 date: 2026-09-21
 type: 작업지시서
 project: ReelTrip
-status: 컨펌대기
+status: 완료
 assignee:
   - 안재경
 tags: []
@@ -39,28 +39,29 @@ tags: []
 ### 1단계: 분석 및 준비
 - [x] 백엔드 Chat/Todo 컨트롤러·DTO 확인 (`MessageController`, `TodoController`)
 - [x] 웹 참고 구현 확인 (`apps/web/src/domains/chat/api.ts`, `apps/web/src/domains/dashboard/components/DashboardScreen.tsx`의 `TodoPanel`)
-- [ ] 모바일 `api-client.ts` 요청 패턴 재확인(토큰 갱신 흐름과 충돌 없는지)
+- [x] 모바일 `api-client.ts` 요청 패턴 재확인(토큰 갱신 흐름과 충돌 없는지) — `apiRequest`가 401 시 자체 refresh/재시도하므로 그대로 사용, 별도 처리 불필요
 
 ### 2단계: 구현 — Chat
-- [ ] `src/domains/chat/api.ts` 생성: `listMessages(spaceId, token)`, `sendMessage(spaceId, content, token)`, `MessageResponse` 타입
-- [ ] `src/features/chat/ChatScreen.tsx` 생성: 메시지 리스트(FlatList) + 입력창, 5초 폴링(`useEffect` + `setInterval`, 언마운트 시 정리), 전송 중 입력창/버튼 disable
-- [ ] `app/chat/[spaceId].tsx` 라우트 생성 → `ChatScreen`에 `spaceId` 전달
-- [ ] `src/features/travel/TravelScreen.tsx` (또는 `SpaceInfo.tsx`) 헤더에 채팅 진입 아이콘 버튼 추가
+- [x] `src/domains/chat/api.ts` 생성: `listMessages(spaceId, token)`, `sendMessage(spaceId, content, token)`, `MessageResponse` 타입
+- [x] `src/features/chat/ChatScreen.tsx` 생성: 메시지 리스트(FlatList) + 입력창, 5초 폴링(`useEffect` + `setInterval`, 언마운트 시 정리), 전송 중 입력창/버튼 disable
+- [x] `app/chat/[spaceId].tsx` 라우트 생성 → `ChatScreen`에 `spaceId` 전달 (`app/_layout.tsx`의 루트 `Stack`에도 등록)
+- [x] `src/features/travel/TravelScreen.tsx` 헤더에 채팅 진입 아이콘 버튼 추가 (초대 버튼 옆)
 
 ### 3단계: 구현 — Todo
-- [ ] `src/domains/todo/api.ts` 생성: `listTodos`, `createTodo`, `updateTodo`, `deleteTodo`, `TodoResponse`/`CreateTodoPayload`/`UpdateTodoPayload` 타입
-- [ ] `src/features/home/components/TodoPanel.tsx` 생성: 할일 목록 + 추가 입력 + 완료 토글 + 삭제
-- [ ] `src/features/home/hooks/useHomeData.ts`에 todos 상태/핸들러 추가 (스페이스 선택 시 `listTodos` 호출)
-- [ ] `src/features/home/HomeScreen.tsx`에 `TodoPanel` 배치
+- [x] `src/domains/todo/api.ts` 생성: `listTodos`, `createTodo`, `updateTodo`, `deleteTodo`, `TodoResponse`/`CreateTodoPayload`/`UpdateTodoPayload` 타입
+- [x] `src/features/home/components/TodoPanel.tsx` 생성: 할일 목록 + 추가 입력 + 완료 토글 + 삭제
+- [x] `src/hooks/useTodos.ts` 생성 (기존 `useEvents.ts` 패턴을 따라 TanStack Query + 낙관적 업데이트로 구현) + `src/features/home/hooks/useHomeData.ts`에 todos 상태/핸들러 배선 (스페이스 선택 시 `listTodos` 호출)
+- [x] `src/features/home/HomeScreen.tsx`에 `TodoPanel` 배치
 
 ### 4단계: 부가 수정
-- [ ] `src/features/travel/components/PlaceCorrectSection.tsx`: 정정 요청 실패 시 `Toast` 유틸로 에러 표시
+- [x] `src/features/travel/components/PlaceCorrectSection.tsx`: 정정 요청 실패 시 `Toast` 유틸로 에러 표시
 
 ### 5단계: 검증
-- [ ] 채팅 목록 조회/전송/폴링 동작 확인, 화면 이탈 시 polling 정리 확인
-- [ ] 할일 추가/완료토글/삭제 동작 확인, 스페이스 전환 시 목록 갱신 확인
-- [ ] 비멤버/토큰 만료 상태에서의 401/403 처리가 기존 `api-client.ts` 흐름과 정상 동작하는지 확인
-- [ ] `tsc --noEmit`, `lint` 통과 확인
+- [x] `tsc --noEmit` 통과 확인 (기존에 있던 무관한 에러 3건 제외 — 상세는 완료보고서 참고)
+- [ ] `lint` — 저장소의 `eslint.config.js` 부재로 실행 불가 (기존 인프라 이슈, 이번 작업 범위 밖)
+- [ ] 채팅 목록 조회/전송/폴링 동작 확인, 화면 이탈 시 polling 정리 확인 — 실기기/시뮬레이터 미실행으로 미검증
+- [ ] 할일 추가/완료토글/삭제 동작 확인, 스페이스 전환 시 목록 갱신 확인 — 실기기/시뮬레이터 미실행으로 미검증
+- [ ] 비멤버/토큰 만료 상태에서의 401/403 처리 확인 — 실기기/시뮬레이터 미실행으로 미검증
 
 ---
 
