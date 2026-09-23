@@ -1,5 +1,5 @@
 ---
-title: todo panel full implementation
+title: 할 일 패널 전체 구현
 date: 2026-07-22
 type: 작업지시서
 project: ReelTrip

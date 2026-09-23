@@ -1,5 +1,5 @@
 ---
-title: schedule timeline real db
+title: 일정 타임라인 실 DB 연동
 date: 2026-07-22
 type: 작업지시서
 project: ReelTrip

@@ -1,5 +1,5 @@
 ---
-title: real db migration
+title: 실 DB 마이그레이션
 date: 2026-08-20
 type: 요구사항서
 project: ReelTrip

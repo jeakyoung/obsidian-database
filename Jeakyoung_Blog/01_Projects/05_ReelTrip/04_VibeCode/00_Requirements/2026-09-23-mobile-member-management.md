@@ -1,5 +1,5 @@
 ---
-title: mobile member management
+title: 모바일 멤버 관리
 date: 2026-09-23
 type: 요구사항서
 project: ReelTrip

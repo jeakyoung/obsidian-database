@@ -1,5 +1,5 @@
 ---
-title: teamspace events real db
+title: 팀스페이스 이벤트 실 DB 연동
 date: 2026-07-22
 type: 작업지시서
 project: ReelTrip

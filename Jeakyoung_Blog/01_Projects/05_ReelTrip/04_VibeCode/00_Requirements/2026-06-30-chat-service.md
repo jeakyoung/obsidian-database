@@ -1,5 +1,5 @@
 ---
-title: chat service
+title: 채팅 서비스
 date: 2026-06-30
 type: 요구사항서
 project: ReelTrip

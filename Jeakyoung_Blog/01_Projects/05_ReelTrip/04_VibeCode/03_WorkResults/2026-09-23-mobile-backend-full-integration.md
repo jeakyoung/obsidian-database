@@ -1,5 +1,5 @@
 ---
-title: mobile backend full integration
+title: 모바일 백엔드 전체 연동
 date: 2026-09-23
 type: 완료보고서
 project: ReelTrip

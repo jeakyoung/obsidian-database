@@ -1,5 +1,5 @@
 ---
-title: dashboard dummy cleanup
+title: 대시보드 더미데이터 정리
 date: 2026-08-20
 type: 작업지시서
 project: ReelTrip

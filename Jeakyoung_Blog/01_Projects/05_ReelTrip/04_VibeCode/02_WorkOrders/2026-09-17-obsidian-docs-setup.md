@@ -1,5 +1,5 @@
 ---
-title: obsidian docs setup
+title: 옵시디언 문서 관리 체계 구축
 date: 2026-09-17
 type: 작업지시서
 project: ReelTrip

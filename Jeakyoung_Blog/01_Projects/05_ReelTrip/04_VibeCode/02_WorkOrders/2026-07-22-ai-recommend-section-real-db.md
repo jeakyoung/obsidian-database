@@ -1,5 +1,5 @@
 ---
-title: ai recommend section real db
+title: AI 추천 섹션 실 DB 연동
 date: 2026-07-22
 type: 작업지시서
 project: ReelTrip

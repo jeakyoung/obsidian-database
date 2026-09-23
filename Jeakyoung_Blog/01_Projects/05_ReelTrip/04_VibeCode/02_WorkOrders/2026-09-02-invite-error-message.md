@@ -1,5 +1,5 @@
 ---
-title: invite error message
+title: 초대 에러 메시지 처리
 date: 2026-09-02
 type: 작업지시서
 project: ReelTrip

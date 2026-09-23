@@ -1,5 +1,5 @@
 ---
-title: todo panel real db
+title: 할 일 패널 실 DB 연동
 date: 2026-07-22
 type: 작업지시서
 project: ReelTrip
