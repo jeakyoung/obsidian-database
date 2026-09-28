@@ -5,6 +5,8 @@ date: 2026-09-18
 
 # I-Frog - 회의록
 
+> 아직 기록된 회의록이 없습니다.
+
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
 ## 문서 양식
