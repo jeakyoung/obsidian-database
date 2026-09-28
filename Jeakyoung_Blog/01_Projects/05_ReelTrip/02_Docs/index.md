@@ -7,6 +7,9 @@ date: 2026-09-17
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
+<details>
+<summary>📝 문서 작성 가이드 (내부용 — 클릭하여 펼치기)</summary>
+
 ## 문서 양식
 
 ### 속성
@@ -29,6 +32,8 @@ date: 2026-09-17
 | 3 | 🏗 진행 내용 |
 | 4 | ✅ 결과 및 회고 |
 | 5 | 🔗 참고 |
+
+</details>
 
 <!-- FORMAT:END -->
 

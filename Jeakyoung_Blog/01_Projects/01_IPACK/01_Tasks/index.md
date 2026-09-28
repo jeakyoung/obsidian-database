@@ -7,6 +7,9 @@ date: 2026-09-16
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
+<details>
+<summary>📝 문서 작성 가이드 (내부용 — 클릭하여 펼치기)</summary>
+
 ## 문서 양식
 
 새 문서는 템플릿 `_templates/작업 (01_Tasks).md` 로 만듭니다.
@@ -33,6 +36,8 @@ date: 2026-09-16
 | 3 | 🔧 조치 내용 |
 | 4 | ✅ 검증 및 결과 |
 | 5 | 🔗 참고 |
+
+</details>
 
 <!-- FORMAT:END -->
 

@@ -14,6 +14,9 @@ title: 학습 자료
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
+<details>
+<summary>📝 문서 작성 가이드 (내부용 — 클릭하여 펼치기)</summary>
+
 ## 문서 양식
 
 ### 속성
@@ -37,5 +40,7 @@ title: 학습 자료
 | 3 | 📖 상세 내용 |
 | 4 | 💡 정리 및 활용 |
 | 5 | 🔗 참고 |
+
+</details>
 
 <!-- FORMAT:END -->

@@ -7,6 +7,9 @@ date: 2026-09-21
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
+<details>
+<summary>📝 문서 작성 가이드 (내부용 — 클릭하여 펼치기)</summary>
+
 ## 문서 양식
 
 새 문서는 템플릿 `_templates/기술문서 (02_TechDocs).md` 로 만듭니다.
@@ -33,6 +36,8 @@ date: 2026-09-21
 | 3 | 🏗 설계 및 구현 |
 | 4 | ✅ 검증 |
 | 5 | 🔗 참고 |
+
+</details>
 
 <!-- FORMAT:END -->
 

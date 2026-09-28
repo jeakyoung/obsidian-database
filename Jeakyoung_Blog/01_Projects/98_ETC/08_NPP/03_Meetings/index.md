@@ -7,6 +7,9 @@ date: 2026-09-16
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
+<details>
+<summary>📝 문서 작성 가이드 (내부용 — 클릭하여 펼치기)</summary>
+
 ## 문서 양식
 
 새 문서는 템플릿 `_templates/회의록 (03_Meetings).md` 로 만듭니다.
@@ -32,6 +35,8 @@ date: 2026-09-16
 | 3 | ✅ 결정 사항 |
 | 4 | 🔜 후속 조치 |
 | 5 | 🔗 참고 |
+
+</details>
 
 <!-- FORMAT:END -->
 

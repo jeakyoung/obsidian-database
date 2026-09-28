@@ -16,6 +16,9 @@ F1soft에서 여러 고객사의 ERP·MES 시스템과 모바일 백엔드 API�
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
+<details>
+<summary>📝 문서 작성 가이드 (내부용 — 클릭하여 펼치기)</summary>
+
 ## 문서 양식
 
 ### 속성
@@ -38,6 +41,8 @@ F1soft에서 여러 고객사의 ERP·MES 시스템과 모바일 백엔드 API�
 | 3 | 🛠 주요 수행 내용 |
 | 4 | 🏆 성과 및 역량 |
 | 5 | 🔗 참고 |
+
+</details>
 
 <!-- FORMAT:END -->
 
