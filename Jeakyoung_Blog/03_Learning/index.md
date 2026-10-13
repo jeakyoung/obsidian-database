@@ -11,6 +11,7 @@ title: 학습 자료
 - [[03_Learning/DevOps|DevOps & 배포]] - NginX, PostgreSQL, vi/vim 명령어 가이드
 - [[03_Learning/Tools|개발 도구]] - Git, IDE, 개발 환경 *(문서 준비 중)*
 - [[03_Learning/References|참고 자료]] - 기타 참고 문서 *(문서 준비 중)*
+- [[03_Learning/Test|코딩테스트]] - 면접/코딩테스트 대비 문제 풀이
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
 
