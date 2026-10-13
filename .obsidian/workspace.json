@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ba2014b064a75cab",
+        "id": "0945f8c03a0c5c76",
         "type": "tabs",
         "children": [
           {
-            "id": "72b4109608643bc7",
+            "id": "41925dd3dfc69bf4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-09-23-mobile-member-management.md",
+                "file": "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-23-mobile-member-management"
+              "title": "코딩테스트 기본 개념 문제"
             }
           }
         ]
@@ -75,6 +75,20 @@
               "icon": "lucide-bookmark",
               "title": "북마크"
             }
+          },
+          {
+            "id": "2f2e87a6a0c11f1c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 10.07 회의.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "나가는 링크"
+            }
           }
         ]
       }
@@ -107,20 +121,6 @@
               },
               "icon": "links-coming-in",
               "title": "23년 Open Soop 의 백링크"
-            }
-          },
-          {
-            "id": "2f2e87a6a0c11f1c",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Notion/01_Projects/03_iFrog/01_Tasks/I-Frog 02.09 마무리 작업.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "나가는 링크"
             }
           },
           {
@@ -199,7 +199,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -219,44 +219,44 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "b7af9e99c97ba2cd",
+  "active": "41925dd3dfc69bf4",
   "lastOpenFiles": [
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/03_WorkResults",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-09-21-mobile-backend-full-integration.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-09-02-invite-error-message.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-09-17-obsidian-docs-setup.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-08-20-dashboard-dummy-cleanup.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-07-22-todo-panel-full-implementation.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-07-22-schedule-timeline-real-db.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-07-22-ai-recommend-section-real-db.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-06-30-chat-service.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/01_Tasks/2026-09-23-mobile-member-management.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/01_Tasks/2026-09-23-mobile-backend-full-integration.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements/2026-09-17-obsidian-docs-setup.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements/2026-08-20-real-db-migration.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements/2026-06-30-chat-service.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-09-23-mobile-member-management.md",
-    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프라즈마 09.23 회의.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-07-22-teamspace-events-real-db.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-07-22-todo-panel-real-db.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/01_Tasks",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements/2026-09-23-mobile-member-management.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements/2026-09-21-mobile-backend-full-integration.md",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements",
-    "Jeakyoung_Blog/01_Projects/06_ReelTrip",
-    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프라즈마 09.17 회의.md",
-    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프리즈마 09.16 회의.md",
-    "Jeakyoung_Blog/03_Learning/Tools/claude 이용 블로그 최신화.md",
+    "Jeakyoung_Blog/03_Learning/Test/문자열 팰린드롬 판별.md",
+    "Jeakyoung_Blog/03_Learning/Test/면접 예상 질문 정리.md",
+    "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md",
+    "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md.tmp.2272.ae5d04ac34ea",
+    "Jeakyoung_Blog/03_Learning/Test/ENOVIA PLM 개념 정리.md",
+    "Jeakyoung_Blog/03_Learning/Test/ENOVIA PLM 개념 정리.md.tmp.2272.5b4691d090d8",
+    "Jeakyoung_Blog/03_Learning/Test/Vue.js 기본 개념.md",
+    "Jeakyoung_Blog/03_Learning/Test/Vue.js 기본 개념.md.tmp.2272.dc98314b1ea5",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/index.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/03_WorkResults/index.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/index.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements/index.md",
+    "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 10.08 회의.md",
+    "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 10.07 회의.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 10.06 내부 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.30 업무 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.29 내부 미팅.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/03_WorkResults/2026-10-07-web-401-no-redirect.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-10-07-web-401-no-redirect.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/2026-10-07-mobile-apk-build.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements/2026-10-07-web-401-no-redirect.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/00_Requirements/2026-10-07-mobile-apk-build.md",
+    "Jeakyoung_Blog/03_Learning/Test/면접 예상 질문 정리.md.tmp.2272.e48133116706",
+    "Jeakyoung_Blog/03_Learning/index.md.tmp.2272.e6309fefe720",
+    "Jeakyoung_Blog/03_Learning/Test/문자열 팰린드롬 판별.md.tmp.2272.b48e007d0215",
+    "Jeakyoung_Blog/03_Learning/Test/index.md",
+    "Jeakyoung_Blog/03_Learning/Test",
     "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 09.21 회의.md",
-    "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 08.20 현장 회의 (송연).md",
-    "Jeakyoung_Blog/01_Projects/02_iFrog/01_Tasks/I-Frog 스케줄러 빌드 배포방식.md",
-    "scripts/render-pdf.mjs.tmp.12832.5b042c0bfba3",
-    "quartz.custom.scss.tmp.12832.5449412ca5a8",
-    "quartz.overrides/PdfButton.tsx.tmp.12832.34ef469d5bbb",
-    "scripts/render-pdf.mjs",
-    "scripts/render-pdf.mjs.tmp.12832.935c29a70298",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/무.md",
+    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프라즈마 09.23 회의.md",
+    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프리즈마 09.16 회의.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.15 업무 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.22 업무 미팅.md",
+    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/02_Docs/index.md.tmp.29720.4ea80fd1273b",
+    "Jeakyoung_Blog/01_Projects/07_UNI/2023_OpenSoop/02_Docs/index.md.tmp.29720.50a42ede406b",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/02_Docs/index.md.tmp.29720.37cc2b2e5a85",
     "quartz.static/og-image.png",
     "quartz.static/icon.png",
     "Jeakyoung_Blog/resources/profile.jpg",
