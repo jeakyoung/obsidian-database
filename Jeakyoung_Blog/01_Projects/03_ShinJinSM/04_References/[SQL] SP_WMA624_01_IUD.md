@@ -17,8 +17,8 @@ database: iPlusERP_SJ
 |:--|:--|
 | **용도** | 계정 대체 입/출고(TMA536) UPSERT + 재고 부족 검증 |
 | **대상 시스템** | 신진SM ERP (`iPlusERP_SJ`) |
-| **호출 위치** | `src/com/MA/WMA620/jvWMA624_01_IUD.java` (`service()`) |
 | **최종 확인일** | 2026-09-18 (전문은 [[신진SM 05.28 업무 미팅]] 06-05 내용에 첨부된 백업 스크립트, 2026-06-08 10:44 수정본 기준) |
+| **호출 위치** | `src/com/MA/WMA620/jvWMA624_01_IUD.java` (`service()`) |
 
 ## ⚙️ 환경 및 전제
 
