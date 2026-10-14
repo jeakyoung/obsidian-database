@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md",
+                "file": "Jeakyoung_Blog/03_Learning/Test/면접 예상 질문 정리.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "코딩테스트 기본 개념 문제"
+              "title": "면접 예상 질문 정리"
             }
           }
         ]
@@ -94,7 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 362.5
+    "width": 200
   },
   "right": {
     "id": "55900d71c6db0b7c",
@@ -194,8 +194,8 @@
                   "activeTabId": "tab-1789603810061-pmr3ne7"
                 }
               },
-              "icon": "bot",
-              "title": "Claudian"
+              "icon": "lucide-ghost",
+              "title": "claudian-view"
             }
           }
         ],
@@ -203,7 +203,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 399.5
+    "width": 368.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -215,17 +215,24 @@
       "command-palette:명령어 팔레트 열기": false,
       "bases:새 베이스 생성하기": false,
       "obsidian-importer:노트 가져오기": false,
-      "obsidian-git:Open Git source control": false,
-      "realclaudian:Open Claudian": false
+      "realclaudian:Open Claudian": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "41925dd3dfc69bf4",
+  "active": "c5abd37945b2c498",
   "lastOpenFiles": [
+    "Jeakyoung_Blog/03_Learning/Test/ENOVIA PLM 개념 정리.md",
+    "Jeakyoung_Blog/03_Learning/Test/문자열 팰린드롬 판별.md.tmp.6228.fe476c25acee",
+    "Jeakyoung_Blog/03_Learning/Test/배열 탐색·정렬 기초 문제.md",
+    "Jeakyoung_Blog/03_Learning/Test/배열 탐색·정렬 기초 문제.md.tmp.6228.15c6e5cce8a9",
+    "Jeakyoung_Blog/03_Learning/Test/처음 보는 코딩테스트 실전 대비 가이드.md",
+    "Jeakyoung_Blog/03_Learning/Test/처음 보는 코딩테스트 실전 대비 가이드.md.tmp.6228.93fb4e2acaaf",
+    "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md",
+    "CLAUDE.md",
+    "CLAUDE.md.tmp.6228.17293cb2aeab",
     "Jeakyoung_Blog/03_Learning/Test/문자열 팰린드롬 판별.md",
     "Jeakyoung_Blog/03_Learning/Test/면접 예상 질문 정리.md",
-    "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md",
     "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md.tmp.2272.ae5d04ac34ea",
-    "Jeakyoung_Blog/03_Learning/Test/ENOVIA PLM 개념 정리.md",
     "Jeakyoung_Blog/03_Learning/Test/ENOVIA PLM 개념 정리.md.tmp.2272.5b4691d090d8",
     "Jeakyoung_Blog/03_Learning/Test/Vue.js 기본 개념.md",
     "Jeakyoung_Blog/03_Learning/Test/Vue.js 기본 개념.md.tmp.2272.dc98314b1ea5",
@@ -247,16 +254,8 @@
     "Jeakyoung_Blog/03_Learning/index.md.tmp.2272.e6309fefe720",
     "Jeakyoung_Blog/03_Learning/Test/문자열 팰린드롬 판별.md.tmp.2272.b48e007d0215",
     "Jeakyoung_Blog/03_Learning/Test/index.md",
-    "Jeakyoung_Blog/03_Learning/Test",
     "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 09.21 회의.md",
     "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/무.md",
-    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프라즈마 09.23 회의.md",
-    "Jeakyoung_Blog/01_Projects/98_ETC/08_NPP/03_Meetings/뉴파워 프리즈마 09.16 회의.md",
-    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.15 업무 미팅.md",
-    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.22 업무 미팅.md",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/02_Docs/index.md.tmp.29720.4ea80fd1273b",
-    "Jeakyoung_Blog/01_Projects/07_UNI/2023_OpenSoop/02_Docs/index.md.tmp.29720.50a42ede406b",
-    "Jeakyoung_Blog/01_Projects/05_ReelTrip/02_Docs/index.md.tmp.29720.37cc2b2e5a85",
     "quartz.static/og-image.png",
     "quartz.static/icon.png",
     "Jeakyoung_Blog/resources/profile.jpg",
