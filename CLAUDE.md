@@ -89,6 +89,12 @@ means **moving a note to a different folder changes its published type**, and ad
 project requires adding an entry to `PROJECT` (and usually `FOLDER_NAMES` in `build_index.py`),
 not just writing frontmatter by hand.
 
+Exception: folders in `SKIP_DIRS` (currently `04_VibeCode`, which uses its own
+요구사항서/작업지시서/완료보고서 format) are skipped by both `apply_schema.py` and
+`apply_body_format.py`. `apply_body_format.py` also never re-wraps a note that already uses
+some step headings (a suffix like `## 🔧 조치 내용 (미착수)` still counts): it only inserts the
+missing steps, and notes whose steps are out of order are listed for manual cleanup instead.
+
 ### The 5-step body skeleton (format contract)
 
 Every note (except `index.md`) must have exactly 5 H2 sections, in fixed order, with the exact
