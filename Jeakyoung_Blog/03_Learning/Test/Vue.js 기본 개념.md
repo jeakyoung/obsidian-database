@@ -3,7 +3,6 @@ title: Vue.js 기본 개념
 date: 2026-10-13
 type: 학습자료
 status: 완료
-category: 면접준비
 tags: []
 ---
 

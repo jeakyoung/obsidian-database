@@ -76,8 +76,12 @@ FM_TYPE = {"작업": "작업", "기술문서": "기술문서", "회의록": "회
 # 위 어느 쪽에도 걸리지 않으면 이 유형으로 처리하고 실행 로그에 따로 찍는다.
 FALLBACK = "참고자료"
 
+# 자체 양식(요구사항서/작업지시서/완료보고서)을 쓰는 폴더 — 골격을 씌우지 않는다.
+SKIP_DIRS = {"04_VibeCode"}
+
 FENCE = re.compile(r"^(\s*)(```|~~~)")
 HEADING = re.compile(r"^(#{1,6})(\s+)(.*)$")
+H2 = re.compile(r"^##[ \t]+(.*?)[ \t]*$")
 
 
 def split_fm(text):
@@ -186,44 +190,95 @@ def migrate_headings(body, spec):
     return body
 
 
-def is_formatted(body, spec):
-    return all(re.search(r"^##[ \t]+%s[ \t]*$" % re.escape(s), body, re.M)
-               for s in spec["steps"])
+def step_of(text, spec):
+    """H2 제목이 몇 번째 단계인지. `🔧 조치 내용 (미착수)` 처럼 뒤에 설명이 붙어도 인정."""
+    for k, s in enumerate(spec["steps"]):
+        if text == s or text.startswith(s + " "):
+            return k
+    return None
 
 
-def meta_table(spec, fm, existing=None):
+def has_step(body, spec):
+    lines = body.split("\n")
+    return any(not inc and H2.match(l) and step_of(H2.match(l).group(1), spec) is not None
+               for l, inc in zip(lines, code_mask(lines)))
+
+
+def demote(lines):
+    mask = code_mask(lines)
+    out = []
+    for l, inc in zip(lines, mask):
+        m = None if inc else HEADING.match(l)
+        out.append("#" * min(6, len(m.group(1)) + 1) + m.group(2) + m.group(3) if m else l)
+    return out
+
+
+def graft(body, spec):
+    """이미 단계 제목을 일부라도 쓰는 문서에 빠진 단계만 끼워 넣는다.
+
+    기존 단계 섹션은 제목·내용 그대로 두고, 단계가 아닌 H2 는 한 단계 낮춰
+    앞 단계 밑으로 넣는다. 본문 단계(landing)가 없는데 그 앞에서 단계가 아닌
+    H2 가 나오면, 그 자리에 본문 단계를 만들어 받는다. 단계 순서가 뒤섞였거나
+    중복되면 None (손으로 정리할 대상).
+    """
+    lines = body.split("\n")
+    mask = code_mask(lines)
+    pre, secs = [], []
+    for l, inc in zip(lines, mask):
+        m = None if inc else H2.match(l)
+        if m:
+            secs.append((step_of(m.group(1), spec), [l]))
+        elif secs:
+            secs[-1][1].append(l)
+        else:
+            pre.append(l)
+
+    present = {k for k, _ in secs if k is not None}
+    land = spec["landing"] - 1
+    slots, cur = [None] * len(spec["steps"]), None
+    for k, sec in secs:
+        if k is not None:
+            if cur is not None and k <= cur:
+                return None
+            slots[k], cur = list(sec), k
+            continue
+        if cur is None:
+            return None
+        if cur < land and land not in present:
+            slots[land], cur = ["## " + spec["steps"][land], ""], land
+            present.add(land)
+        slots[cur] += demote(sec)
+
+    out = list(pre)
+    for k, step in enumerate(spec["steps"]):
+        if out and out[-1].strip():
+            out.append("")
+        out += slots[k] if slots[k] is not None else ["## " + step, ""]
+    return "\n".join(out)
+
+
+def split_row(row):
+    return [c.strip() for c in re.split(r"(?<!\\)\|", row.strip())[1:-1]]
+
+
+def meta_table(spec, fm, existing=()):
+    """개요 표. 양식 항목이 먼저, 기존 표에만 있던 항목은 지우지 않고 뒤에 붙인다."""
+    have = dict(existing)
+    labels = [label for label, _ in spec["meta"]]
     rows = []
     for label, src in spec["meta"]:
-        val = fm_get(fm, src[1:]) if src.startswith("@") else ""
-        if existing and existing.get(label):
-            val = existing[label]
+        val = have.get(label, "")
+        if not val or val == DASH:
+            val = fm_get(fm, src[1:]) if src.startswith("@") else ""
         rows.append("| **%s** | %s |" % (label, val if val else DASH))
+    for label, val in existing:
+        if label not in labels:
+            rows.append("| **%s** | %s |" % (label, val if val else DASH))
     return "\n".join(["| 항목 | 내용 |", "|:--|:--|"] + rows)
-
-
-def read_meta(body, spec):
-    """Pull already-filled values out of the 개요 table so a rewrite keeps them."""
-    m = re.search(r"^##[ \t]+%s[ \t]*$" % re.escape(spec["steps"][0]), body, re.M)
-    if not m:
-        return {}
-    chunk = body[m.end():]
-    nxt = re.search(r"^##[ \t]", chunk, re.M)
-    if nxt:
-        chunk = chunk[:nxt.start()]
-    out = {}
-    for row in re.findall(r"^\|(.+?)\|(.*?)\|[ \t]*$", chunk, re.M):
-        label = row[0].strip().strip("*").strip()
-        val = row[1].strip()
-        if label in ("항목", "") or set(label) <= set("-: "):
-            continue
-        if val and val != DASH:
-            out[label] = val
-    return out
 
 
 def rebuild_meta(body, spec, fm):
     """Replace the 개요 table in an already-formatted note with the current style."""
-    existing = read_meta(body, spec)
     m = re.search(r"^##[ \t]+%s[ \t]*$" % re.escape(spec["steps"][0]), body, re.M)
     if not m:
         return body
@@ -233,11 +288,18 @@ def rebuild_meta(body, spec, fm):
     end = start + (nxt.start() if nxt else len(chunk))
     section = body[start:end]
     tbl = re.search(r"^\|.*\|[ \t]*\n\|[-: |]+\|[ \t]*\n(?:\|.*\|[ \t]*\n?)*", section, re.M)
-    new_tbl = meta_table(spec, fm, existing)
     if tbl:
-        section = section[:tbl.start()] + new_tbl + "\n" + section[tbl.end():]
+        existing = []
+        for row in tbl.group(0).strip("\n").split("\n")[2:]:
+            cells = split_row(row)
+            if len(cells) < 2:
+                continue
+            if any(c for c in cells[2:]):
+                return body  # 3칸 이상 쓰는 표는 개요 표 형식이 아니므로 손대지 않는다
+            existing.append((cells[0].strip("*").strip(), cells[1]))
+        section = section[:tbl.start()] + meta_table(spec, fm, existing) + "\n" + section[tbl.end():]
     else:
-        section = "\n" + new_tbl + "\n" + section.lstrip("\n")
+        section = "\n" + meta_table(spec, fm) + "\n" + section.lstrip("\n")
     return body[:start] + section + body[end:]
 
 
@@ -252,9 +314,9 @@ def build(title, spec, fm, legacy):
     return "\n".join(parts).rstrip() + "\n"
 
 
-changed, migrated, guessed = [], 0, []
+changed, migrated, guessed, manual = [], 0, [], []
 for dirpath, dirnames, filenames in os.walk(ROOT):
-    dirnames[:] = [d for d in dirnames if d not in (".obsidian", "resources")]
+    dirnames[:] = [d for d in dirnames if d not in (".obsidian", "resources") and d not in SKIP_DIRS]
     parts = os.path.relpath(dirpath, ROOT).replace(os.sep, "/").split("/")
     dirtype = next((DIRT[p] for p in parts if p in DIRT), None)
     for fn in sorted(filenames):
@@ -274,8 +336,12 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
         spec = SPEC[dtype]
 
         body2 = migrate_headings(body, spec)
-        if is_formatted(body2, spec):
-            new_body = rebuild_meta(body2, spec, fm).strip() + "\n"
+        if has_step(body2, spec):
+            grafted = graft(body2.strip(), spec)
+            if grafted is None:
+                manual.append(rel)
+                continue
+            new_body = rebuild_meta(grafted, spec, fm).strip() + "\n"
             migrated += 1
         else:
             legacy = shift_headings(strip_leading_h1(body.strip(), title).strip())
@@ -290,6 +356,10 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
                 io.open(full, "w", encoding="utf-8", newline="\n").write(new)
 
 print("본문 양식 적용: %d건 변경 (기존 양식 인식 %d건, apply=%s)" % (len(changed), migrated, APPLY))
+if manual:
+    print("단계 순서가 뒤섞여 건너뜀 %d건 (직접 정리 필요):" % len(manual))
+    for g in manual:
+        print("   ", g)
 if guessed:
     print("유형 불명 %d건 -> '%s' 로 처리:" % (len(guessed), FALLBACK))
     for g in guessed:

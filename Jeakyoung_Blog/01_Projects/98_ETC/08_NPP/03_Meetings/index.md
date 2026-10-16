@@ -42,10 +42,11 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (3)
+## 문서 목록 (4)
 
 - [[뉴파워 프라즈마 09.10 회의]]
 - [[뉴파워 프라즈마 09.17 회의]]
+- [[뉴파워 프라즈마 09.23 회의]]
 - [[뉴파워 프리즈마 09.16 회의]]
 
 <!-- AUTO-INDEX:END -->
