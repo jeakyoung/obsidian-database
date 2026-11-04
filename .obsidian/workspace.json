@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "6eb7a0b584b98297",
+        "id": "6a1f4f455cd5d207",
         "type": "tabs",
         "children": [
           {
-            "id": "a511661f331b279c",
+            "id": "08ab993daeb0f96b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 도면가공 체계 MES 동기화 작업.md",
+                "file": "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 11.03 내부 미팅.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "신진SM 도면가공 체계 MES 동기화 작업"
+              "title": "신진SM 11.03 내부 미팅"
             }
           }
         ]
@@ -75,6 +75,20 @@
               "icon": "lucide-bookmark",
               "title": "북마크"
             }
+          },
+          {
+            "id": "2f2e87a6a0c11f1c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 10.07 회의.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "나가는 링크"
+            }
           }
         ]
       }
@@ -107,20 +121,6 @@
               },
               "icon": "links-coming-in",
               "title": "23년 Open Soop 의 백링크"
-            }
-          },
-          {
-            "id": "2f2e87a6a0c11f1c",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Notion/01_Projects/03_iFrog/01_Tasks/I-Frog 02.09 마무리 작업.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "나가는 링크"
             }
           },
           {
@@ -199,7 +199,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -219,54 +219,54 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "a511661f331b279c",
+  "active": "08ab993daeb0f96b",
   "lastOpenFiles": [
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM - 더존 중복 문서처리 방어.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/05_Docs/신진SM 개발 이력.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 도면가공 체계 MES 동기화 작업.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/01_Tasks/신진SM 시스템 설정 원복 쿼리.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 로그인·AutoLogin·JWT 흐름 정리.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 업무현황판 중복 컨트롤러 정리 및 공정진행 조회 추가.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog Ticker 전략 패턴 도입 (Auth·FCM).md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FCM 기능 개발.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/02_TechDocs/[기술] 보안코드 기반 멀티테넌시 커넥션 구조.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 보안코드 기반 멀티테넌시 DB 커넥션 구현.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 업무연락 FCM 알림 문서정보 첨부.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 업무현황 스크린 web 제작.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog 회사 코드 체계 ( 발의안 ).md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog Board·Calendar·Emp 그룹웨어 조회 모듈.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-FROG Env 파일 다형성 구현.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog CORS 문제 해결.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FCM 서버 세팅.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FCM 서비스 호출 방법.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FCM 시나리오.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog FTP 첨부파일 다운로드 기능.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog TGI003 테이블 설계 명세.md",
-    "Jeakyoung_Blog/01_Projects/03_iFrog/01_Tasks/I-Frog Setting 서비스 신규 구현.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/02_TechDocs/[완료] 성능최적화 및 로깅.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/02_TechDocs/[완료] 재고보정 및 데이터동기화.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/02_TechDocs/[완료] 포장중복문제 분석.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/03_Meetings/신진SM 09.15 업무 미팅.md",
-    "Jeakyoung_Blog/01_Projects/01_ShinJinSM/05_Docs",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/03_TechDocs/index.md.tmp.25420.3bc4ce9cf0de",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/03_TechDocs/[기술] 게시판 모니터링 API 응답 구조와 한계.md.tmp.25420.0dee6592c7c6",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/03_TechDocs/[기술] Servlet-Process-MyBatis 계층 구조.md.tmp.25420.296a652cc7ad",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/03_TechDocs",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/02_Docs/index.md.tmp.25420.17b55980853d",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/02_Docs",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2023_OpenSoop/01_Tasks",
+    "Jeakyoung_Blog/01_Projects/02_iFrog/02_TechDocs/[기술] I-Frog NginX 명령어.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 11.03 내부 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 10.27 내부 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 10.06 내부 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/01_Tasks/WPR303_EXCEL01_IUD 백업.md",
+    "Jeakyoung_Blog/resources/Pasted image 20261023170849.png",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/01_Tasks/신진SM 중복 포장문제 ( 05.22 ).md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/01_Tasks/신진SM 더존-MES 사업장 코드 매핑.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/01_Tasks/신진SM 포장 단독 생산 시 창고코드 오류 (미해결).md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/01_Tasks/신진SM ERP 기말 재고 오류.md",
+    "Jeakyoung_Blog/01_Projects/04_DataBoucher/03_Meetings/데이터 바우처 08.14 내부 회의.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 06.12 업무 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/01_Tasks/신진SM 포장 중복 조회 기능 요청 (에러리스트 페이지).md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/01_Tasks/신진SM - 더존 중복 문서처리 방어.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/01_Tasks/신진SM 업무 인계.md",
+    "Jeakyoung_Blog/resources/Pasted image 20261019094004.png",
+    "Jeakyoung_Blog/resources/Pasted image 20261019093805.png",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 09.30 업무 미팅.md",
+    "Jeakyoung_Blog/01_Projects/03_ShinJinSM/03_Meetings/신진SM 07.20 업무 미팅.md",
+    "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md",
+    "Jeakyoung_Blog/03_Learning/Test/코딩테스트 종합 문제집.md",
+    "Jeakyoung_Blog/03_Learning/Test/ENOVIA PLM 개념 정리.md",
+    "Jeakyoung_Blog/03_Learning/Test/기술스택 종합 문제.md",
+    "Jeakyoung_Blog/03_Learning/Test/기술스택 종합 문제.md.tmp.2272.267417283db1",
+    "Jeakyoung_Blog/03_Learning/Test/문자열 팰린드롬 판별.md",
+    "Jeakyoung_Blog/03_Learning/Test/면접 예상 질문 정리.md",
+    "Jeakyoung_Blog/03_Learning/Test/코딩테스트 기본 개념 문제.md.tmp.2272.ae5d04ac34ea",
+    "Jeakyoung_Blog/03_Learning/Test/ENOVIA PLM 개념 정리.md.tmp.2272.5b4691d090d8",
+    "Jeakyoung_Blog/03_Learning/Test/Vue.js 기본 개념.md",
+    "Jeakyoung_Blog/03_Learning/Test/Vue.js 기본 개념.md.tmp.2272.dc98314b1ea5",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/index.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/03_WorkResults/index.md",
+    "Jeakyoung_Blog/01_Projects/05_ReelTrip/04_VibeCode/02_WorkOrders/index.md",
+    "Jeakyoung_Blog/03_Learning/Test/면접 예상 질문 정리.md.tmp.2272.e48133116706",
+    "Jeakyoung_Blog/03_Learning/index.md.tmp.2272.e6309fefe720",
+    "Jeakyoung_Blog/03_Learning/Test/문자열 팰린드롬 판별.md.tmp.2272.b48e007d0215",
+    "Jeakyoung_Blog/03_Learning/Test",
+    "Jeakyoung_Blog/01_Projects/07_UNI/2024_PaekTaekApp/02_Docs/index.md.tmp.29720.4ea80fd1273b",
+    "Jeakyoung_Blog/01_Projects/07_UNI/2023_OpenSoop/02_Docs/index.md.tmp.29720.50a42ede406b",
     "quartz.static/og-image.png",
     "quartz.static/icon.png",
-    "quartz.static",
-    "Jeakyoung_Blog/01_Projects/99_UNI/2024_PaekTaekApp/03_TechDocs/index.md.tmp.23020.7ae2d951ea48",
     "Jeakyoung_Blog/resources/profile.jpg",
     "Jeakyoung_Blog/resources/Pasted image 20260915104409.png",
     "Jeakyoung_Blog/resources/Pasted image 20260910140131.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133935.png",
     "Jeakyoung_Blog/resources/Pasted image 20260831133542.png",
-    "Jeakyoung_Blog/resources/Pasted image 20260831133530.png",
-    "Jeakyoung_Blog/resources/Pasted image 20260831133455.png",
-    "Jeakyoung_Blog/resources/Pasted image 20260831133447.png",
     "무제 1.canvas",
     "무제.canvas"
   ]

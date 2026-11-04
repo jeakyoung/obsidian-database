@@ -42,7 +42,7 @@ SPEC = {
     "02_Career": ("경력문서", "",
                   [("status", "예정 / 진행중 / 완료 / 보류")],
                   ["📋 개요", "🧭 경력 요약", "🛠 주요 수행 내용", "🏆 성과 및 역량", "🔗 참고"]),
-    "99_UNI": ("프로젝트문서", "",
+    "07_UNI": ("프로젝트문서", "",
                [("status", "예정 / 진행중 / 완료 / 보류")],
                ["📋 개요", "🎯 목표 및 범위", "🏗 진행 내용", "✅ 결과 및 회고", "🔗 참고"]),
 }
@@ -62,7 +62,7 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
             ("type", "`%s` 고정" % dtype),
             ("project", "소속 프로젝트")] + extra + [("tags", "태그 목록")]
 
-    lines = [F_START, "", "## 문서 양식", ""]
+    lines = [F_START, "", "<details>", "<summary>📝 문서 작성 가이드 (내부용 — 클릭하여 펼치기)</summary>", "", "## 문서 양식", ""]
     if tmpl:
         lines.append("새 문서는 템플릿 `_templates/%s.md` 로 만듭니다." % tmpl)
         lines.append("")
@@ -70,7 +70,7 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
     lines += ["| `%s` | %s |" % (k, v) for k, v in rows]
     lines += ["", "### 본문 구성 (H2 고정)", "", "| 단계 | 제목 |", "|:--:|:--|"]
     lines += ["| %d | %s |" % (i, s) for i, s in enumerate(sections, 1)]
-    lines += ["", F_END]
+    lines += ["", "</details>", "", F_END]
     block = "\n".join(lines)
 
     txt = io.open(idx, encoding="utf-8").read()

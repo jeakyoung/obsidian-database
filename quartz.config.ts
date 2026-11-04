@@ -5,7 +5,11 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "Jeakyoung's Notes",
     pageTitleSuffix: "",
-    enableSPA: true,
+    // SPA 네비게이션은 fetch()로 다음 페이지를 받아오는 방식인데, 일부 환경(회사 보안/DLP
+    // 브라우저 확장이 fetch 요청을 가로채 URL 경로를 잘라먹는 경우)에서 baseUrl 하위 경로가
+    // 통째로 빠져나가는 문제가 있었다. SPA를 끄면 클릭이 일반 <a href> 브라우저 네비게이션이 되어
+    // 이런 fetch 가로채기의 영향을 받지 않는다.
+    enableSPA: false,
     enablePopovers: true,
     analytics: null,
     locale: "ko-KR",

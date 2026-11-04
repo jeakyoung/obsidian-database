@@ -11,8 +11,12 @@ title: 학습 자료
 - [[03_Learning/DevOps|DevOps & 배포]] - NginX, PostgreSQL, vi/vim 명령어 가이드
 - [[03_Learning/Tools|개발 도구]] - Git, IDE, 개발 환경 *(문서 준비 중)*
 - [[03_Learning/References|참고 자료]] - 기타 참고 문서 *(문서 준비 중)*
+- [[03_Learning/Test|코딩테스트]] - 면접/코딩테스트 대비 문제 풀이
 
 <!-- FORMAT:START (do not edit - regenerate with tools/build_format_docs.py) -->
+
+<details>
+<summary>📝 문서 작성 가이드 (내부용 — 클릭하여 펼치기)</summary>
 
 ## 문서 양식
 
@@ -37,5 +41,7 @@ title: 학습 자료
 | 3 | 📖 상세 내용 |
 | 4 | 💡 정리 및 활용 |
 | 5 | 🔗 참고 |
+
+</details>
 
 <!-- FORMAT:END -->

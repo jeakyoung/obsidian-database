@@ -18,7 +18,7 @@ FOLDER_NAMES = {
     "01_Projects": "\ud504\ub85c\uc81d\ud2b8",
     "02_Career": "About Me",
     "03_Learning": "\ud559\uc2b5 \uc790\ub8cc",
-    "99_UNI": "\ub300\ud559 \ud504\ub85c\uc81d\ud2b8",
+    "07_UNI": "\ub300\ud559 \ud504\ub85c\uc81d\ud2b8",
     "2023_OpenSoop": "2023 Open Soop",
     "2024_PaekTaekApp": "2024 \ud3c9\ud0dd\ub300\ud559\uad50\uc571 \ub9ac\uc6cc\ud06c",
     "Backend": "\ubc31\uc5d4\ub4dc \uac1c\ubc1c",

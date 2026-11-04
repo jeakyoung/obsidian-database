@@ -26,16 +26,20 @@ DIR_TYPE = {
     "04_References": "참고자료",
 }
 
+# 자체 양식(요구사항서/작업지시서/완료보고서, 고유 status 값)을 쓰는 폴더.
+# 이 아래 문서는 공통 스키마로 덮으면 type/status/assignee 가 망가지므로 건너뛴다.
+SKIP_DIRS = {"04_VibeCode"}
+
 PROJECT = {
-    "01_ShinJinSM": "신진SM",
-    "02_IPACK": "IPACK",
-    "03_iFrog": "I-Frog",
-    "04_DongBang": "동방푸드",
+    "01_IPACK": "IPACK",
+    "02_iFrog": "I-Frog",
+    "03_ShinJinSM": "신진SM",
+    "04_DataBoucher": "데이터바우처",
+    "05_ReelTrip": "ReelTrip",
+    "06_DongBang": "동방푸드",
+    "07_UNI": "대학프로젝트",
     "05_SeHanMT": "세한MT",
-    "06_ReelTrip": "ReelTrip",
-    "07_DataBoucher": "데이터바우처",
     "08_NPP": "뉴파워프라즈마",
-    "99_UNI": "대학프로젝트",
 }
 
 # NOTE: every *output* value must also be a key here, otherwise re-running the
@@ -153,7 +157,7 @@ def split_fm(text):
 
 changed, stats = [], {}
 for dirpath, dirnames, filenames in os.walk(ROOT):
-    dirnames[:] = [d for d in dirnames if d not in (".obsidian", ".git", "resources")]
+    dirnames[:] = [d for d in dirnames if d not in (".obsidian", ".git", "resources") and d not in SKIP_DIRS]
     rel = os.path.relpath(dirpath, ROOT).replace(os.sep, "/")
     parts = [] if rel == "." else rel.split("/")
 
