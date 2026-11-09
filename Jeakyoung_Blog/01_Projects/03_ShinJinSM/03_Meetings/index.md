@@ -42,7 +42,7 @@ date: 2026-09-16
 
 <!-- AUTO-INDEX:START (do not edit below - regenerate with tools/build_index.py) -->
 
-## 문서 목록 (24)
+## 문서 목록 (26)
 
 - [[신진SM 04.28 업무 미팅]]
 - [[신진SM 05.06 업무 미팅]]
@@ -68,5 +68,7 @@ date: 2026-09-16
 - [[신진SM 09.29 내부 미팅]]
 - [[신진SM 09.30 업무 미팅]]
 - [[신진SM 10.06 내부 미팅]]
+- [[신진SM 10.27 내부 미팅]]
+- [[신진SM 11.03 내부 미팅]]
 
 <!-- AUTO-INDEX:END -->
