@@ -21,3 +21,9 @@ title: 프로젝트
 
 - [[01_Projects/98_ETC/05_SeHanMT|세한MT]] - ERP 기술지원 (Sencha Ext JS + Java + MSSQL)
 - [[01_Projects/98_ETC/08_NPP|뉴파워 프라즈마 (NPP)]] - MLOps 개발 담당 (기술 스택 미확정)
+
+## 미니 프로젝트
+
+회사 업무가 아니라 개인적으로 혼자 끝까지 밀어붙여본 연습용 프로젝트. 위 목록들과는 성격이 달라 별도로 관리합니다.
+
+- [[01_Projects/08_MINI/index|미니 프로젝트 목록]] - [[01_Projects/08_MINI/01_SchedulerService|Scheduler-Service]] (범용 스케줄링 서비스, Herdr 멀티에이전트 오케스트레이션) 등
