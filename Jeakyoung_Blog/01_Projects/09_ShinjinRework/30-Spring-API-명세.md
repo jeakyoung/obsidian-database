@@ -6,6 +6,10 @@ draft: true
 
 # Spring API 명세 및 원본 업무 연결
 
+### 003·103 완료와 동시 자재 명령
+
+`POST /api/pop/work-baskets/commands`의 FINISH_BASKET은 그룹 전체 지시의 실적을 확정한다. 이후 오래된 버전의 편집은 409 STALE_REVISION이다. 같은 단말의 두 사원이 서로 다른 세션을 사용해, 완료 뒤 현재 버전으로 개별·일괄삭제, 자재 추가·행 삭제·탭 초기화, 반납수량·전체 반납행 저장 및 재완료를 시도했을 때 모두 409이고 그룹의 실원장은 그대로임을 확인했다. 성공한 완료 명령을 원래 사원이 같은 요청 ID로 재전송하면 기존 응답을 반환하며 다른 사원이 ID를 재사용하면 403이다. 앱은 재조회한 실원장의 최종 반납 건수와 수량을 표시한다. 작업자에게 노출되는 다음 스캔은 잔량 0일 때 ORDER_FINISHED를 반환한다. [인수표와 재현 명령](file:///E:/ajk/devgit/shinjin/.team/screen-review/basket-completed/인수.md)
+
 ### 003·103 중첩 위치 스캔과 기존 반납행의 프리셋 취소
 
 `POST /api/pop/work-baskets/stock-picker/{date}/{sequence}/location`의 위치 응답은 수동창의 위치 코드·이름에 적용한다. 성공 또는 닫기 후 같은 창의 `/stock`을 다시 조회하며 003·103은 원본대로 위치 필터를 전달하지 않는다. 인라인 LOT의 미완성 바코드, 오른쪽 선택수량과 입력 포커스는 클라이언트가 보존한다. 003·103용 별도 ComMaterialNoScan 요청은 없다.
@@ -449,3 +453,5 @@ GET `/api/pop/work-orders/{date}/{sequence}/good-locations?slot={slot}`는 활�
 ### 008 작업 시작 전 수동 투입
 
 `GET /api/drawing-008/manual-material?plan=…`은 해당 계획의 수동 창고·규격 초기값을 제공한다. 하위 `stock`, `remnants`, `location`의 POST는 일반/잔재 후보와 위치를 조회하고 `PUT …/fixed`는 단말의 수동 선택창에 쓸 고정창고를 저장한다. 선택창 적용·체크삭제는 부모의 초안에서 처리하며 START가 확정될 때 수량을 반영한다. 시험한 고정창고 범위는 같은 데모 서버 프로세스에서의 재개방이다. [원본·후보·잔재·START 시험](file:///E:/ajk/devgit/shinjin/.rework-008-manual-material/handoff.md)
+
+008의 완료 응답·감사 조회에서 automaticReturns는 013 자동 행, returnBalances는 일반 반납의 합성 잔량, productReceipts는 양품 입고다. 비정상 위치는 422로 원장을 보존한다. 수정 시 이전 위치의 수량을 차감한 뒤 새 위치에 더한다. 체크행 리비전 변경은 409로 거절하며 같은 완료 요청의 재전송은 두 번째 입고를 만들지 않는다. [실행 결과와 반납 산식](file:///E:/ajk/devgit/shinjin/.rework-008-checked-accounting/integration-handoff.md)
