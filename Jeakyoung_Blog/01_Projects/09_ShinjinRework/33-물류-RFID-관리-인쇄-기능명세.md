@@ -758,3 +758,7 @@ Spring은 선택 행에 맞춰 원본 Designer 기준 A4 페이지를 생성한�
 ## 11월 26일 RFID 숫자 입력 및 조건별 인쇄 검수
 
 공개 POP A에서 팔레트 매칭 시 숫자 키보드의 8자리 제한, 한 자리/전체 삭제, 취소와 부모 복귀를 검증했다. 사진과 전송 결과는 가상 카메라가 연결된 격리 합성 데이터 기준이다. 작업지시서 네 양식은 7·8행 및 혼합 그룹 등 12가지 입력, 총 18쪽의 쪽 나뉨·지시번호·바코드를 원본과 비교했다. [RFID 검수](file:///E:/ajk/devgit/shinjin/.rework-visual-qa/rfid-wait-followup/handoff.md) · [PDF 비교](file:///E:/ajk/devgit/shinjin/.rework-visual-qa/conditional-reports/page-check.log).
+
+### 재고이동 위치 재스캔
+
+물류 → 재고이동 → 입고 창고 → 행 추가의 재고 선택창에서 미등록 위치를 스캔해 안내를 닫으면 위치 입력란으로 포커스가 돌아간다. 1280×800, 1366×768, 1024×768에서 재터치 없이 다음 위치를 스캔했다. 격리 장부에서 저장 취소 시 전후 상태 일치, 승인 시 이동 1건 및 잔량 −1/+1, 다시 열어 수량·위치 일치를 확인했다. [위치 포커스와 저장 검수](file:///E:/ajk/devgit/shinjin/.rework-visual-qa/logistics-stock-parent/handoff.md)

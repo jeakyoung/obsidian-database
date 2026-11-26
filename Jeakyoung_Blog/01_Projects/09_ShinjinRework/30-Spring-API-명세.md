@@ -433,3 +433,7 @@ GET `/api/pop/work-orders/{date}/{sequence}/good-locations?slot={slot}`는 활�
 005·105 로봇의 `GET /api/pop/process-group-demo/input-material`은 세션에 설정된 투입창고와 규격을 제공한다. 같은 주소에 `POST {"raw":"LOT 번호"}`를 보내면 해당 단말·사업장·작업장·투입창고·공정 상태·재질·규격에서 사용 가능한 합성 재고 위치가 반환된다. 이 조회는 그룹 revision과 저장 수량을 유지한다. 부모 화면 안에서 모은 위치·수량은 START 또는 END 명령으로 확정한다. [그룹 저장 경계와 두 세션 시험](file:///E:/ajk/devgit/shinjin/.rework-group-material005/handoff.md)
 
 008은 `GET /api/drawing-008/material-scan?plan=…`에서 계획과 단말의 투입창고를 확인한다. `lot`을 함께 보내면 재고가 남은 위치별 수량을 반환한다. 신규 단건은 1, 같은 LOT 재스캔은 재고 한도까지 1씩 더한다. 복수 위치는 선택창 적용 전까지 부모에 반영되지 않는다. [008 원본 호출·START 원장·재조회](file:///E:/ajk/devgit/shinjin/.rework-008-material-scan/handoff.md)
+
+### 008 작업 시작 전 수동 투입
+
+`GET /api/drawing-008/manual-material?plan=…`은 해당 계획의 수동 창고·규격 초기값을 제공한다. 하위 `stock`, `remnants`, `location`의 POST는 일반/잔재 후보와 위치를 조회하고 `PUT …/fixed`는 단말의 수동 선택창에 쓸 고정창고를 저장한다. 선택창 적용·체크삭제는 부모의 초안에서 처리하며 START가 확정될 때 수량을 반영한다. 시험한 고정창고 범위는 같은 데모 서버 프로세스에서의 재개방이다. [원본·후보·잔재·START 시험](file:///E:/ajk/devgit/shinjin/.rework-008-manual-material/handoff.md)
