@@ -6,6 +6,14 @@ draft: true
 
 # Spring API 명세 및 원본 업무 연결
 
+### 003·103 반납행 추가·길이 입력
+
+`POST /api/pop/work-baskets/return-lookup/{date}/{sequence}`는 선택한 슬롯·공정 헤더와 로그인 세션으로 포커스 수주를 찾는다. `firstPlan`, `firstIssue`, `focusedIssue`에 각각 첫 수주 키와 첫 투입·포커스 투입 LOT의 네 키를 보낸다. 길이를 생략한 요청은 원본 GV3_SELECT2에 해당한다. 응답은 창고·위치·재질명·재질코드·두께·폭·길이 0과 빈 품목/LOT를 담은 배열이다. 길이 적용은 같은 경로에 `length`, `position`, 기존 `row`를 보내는 GV3_SELECT1이다. 최초 등록 후 포커스를 다른 투입행으로 바꿔도 기존 반납행의 두께와 폭으로 품목을 조회한다.
+
+응답 데이터는 `shinjin.demo.basket-return-lookup`에서 지정할 수 있다. 기본 파일은 `demo/basket-return-lookup.json`이다. 단말·반납창고·입출품목·수주/투입 작업상태·재질·규격·품목 구분과 합성 입력에 맞춘 창고/위치·품목 응답을 지정한다. API가 조회한 반납 규격은 같은 로그인 세션과 단말·작업자·슬롯·공정·수주에 묶는다. 선택 수주나 투입 근거가 없으면 404/422, 적용된 반납창고가 비면 409다.
+
+`POST /api/pop/work-baskets/commands`의 `SAVE_RETURN_GRID`는 `visible=[포커스 수주 키]`, `groupId`, `expectedRevision`, `requestId`, `returns` 배열을 받는다. 각 반납행에는 LOT 키, 수량, 길이, 조회한 규격과 `sequence`가 있다. 그룹의 기존 행 또는 세션에서 확보한 규격을 재검증하고, 행 순서대로 순번 0에 새 순번을 부여한 뒤 전체 실반납 목록을 한 번에 갱신한다. 이미 사용한 순번과 충돌하거나 버전이 바뀌면 409이며, 단일 요청 재시도는 처음의 결과를 반환한다. 조회에 사용한 숫자 키패드는 [[22-003-103-장바구니와-미완료-작업-삭제]]에 기록했다.
+
 ### 003·103 부모 그리드의 선택 자재 삭제
 
 `POST /api/pop/work-baskets/commands`는 `REMOVE_ISSUE_ROWS`와 `REMOVE_RETURN_ROWS`를 받는다. 로그인 세션, 현재 공정 슬롯·코드 헤더, `groupId`, 수주목록의 `visible`, `requestId`, `expectedRevision`을 검증한다. `removal.rows`는 화면 행 순서대로 보낸 MAT_SEQ이고 `removal.checked`는 그중 선택한 0부터 시작하는 행 인덱스다. 예를 들어 `{"rows":[2,4,5],"checked":[0,2]}`는 2·5번을 지우고 4번의 순번과 수량을 보존한다. 서버는 화면이 보낸 창고·LOT를 삭제 키로 사용하지 않는다.
@@ -419,3 +427,9 @@ GET `/api/pop/work-orders/{date}/{sequence}/good-locations?slot={slot}`는 활�
 ### 005 그룹 계획의 불량 이력
 
 현재 그룹에서 시작한 계획에 대해 `GET /api/pop/process-group-demo/groups/{group}/plans/{plan}/rejections`는 해당 단말의 불량창고·위치·사유·저장 내역과 부모 revision을 돌려준다. 같은 URI의 POST는 요청 식별자·revision·창고·위치·사유별 수량을 받는다. 저장 당시 그룹과 활성 계획을 다시 확인하고 부모의 불량합계 및 revision을 함께 갱신한다. 작업 전 또는 종료 뒤에는 409, 불량창고가 없을 때도 409이며 사용자에게 사유를 알린다. 현재 16:14 공개판 뒤의 C: 통합본에서 001·005의 저장·취소·재진입 및 창고 없음 사례를 확인했다. [원본과 검사](file:///E:/ajk/devgit/shinjin/.rework-parent-state-qa/handoff.md)
+
+### 005·105와 008 투입 자재 조회
+
+005·105 로봇의 `GET /api/pop/process-group-demo/input-material`은 세션에 설정된 투입창고와 규격을 제공한다. 같은 주소에 `POST {"raw":"LOT 번호"}`를 보내면 해당 단말·사업장·작업장·투입창고·공정 상태·재질·규격에서 사용 가능한 합성 재고 위치가 반환된다. 이 조회는 그룹 revision과 저장 수량을 유지한다. 부모 화면 안에서 모은 위치·수량은 START 또는 END 명령으로 확정한다. [그룹 저장 경계와 두 세션 시험](file:///E:/ajk/devgit/shinjin/.rework-group-material005/handoff.md)
+
+008은 `GET /api/drawing-008/material-scan?plan=…`에서 계획과 단말의 투입창고를 확인한다. `lot`을 함께 보내면 재고가 남은 위치별 수량을 반환한다. 신규 단건은 1, 같은 LOT 재스캔은 재고 한도까지 1씩 더한다. 복수 위치는 선택창 적용 전까지 부모에 반영되지 않는다. [008 원본 호출·START 원장·재조회](file:///E:/ajk/devgit/shinjin/.rework-008-material-scan/handoff.md)
